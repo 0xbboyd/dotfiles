@@ -13,7 +13,7 @@
 
 ### pre dotfiles
 
-  - `/bin/sh ./backup_restore.sh` 
+  - `./scripts/backup/restore.sh` 
   - `mv .backup-tmp/.ssh ~/`
   - `rm -rf ~/.gnupg/`
   - `mv .backup-tmp/.gnupg/ ~/`
