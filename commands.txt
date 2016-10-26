@@ -6,7 +6,7 @@ rm -rf ~/.gnupg/
 mv .backup-tmp/.gnupg/ ~/
 rm -rf .backup-tmp/
 sudo apt-get install git
-git clone git@github.com:dsager/dotfiles.git ~/.dotfiles
+git clone https://github.com/firemound/dotfiles.git ~/.dotfiles
 
 # scripts
 
@@ -17,4 +17,4 @@ git clone git@github.com:dsager/dotfiles.git ~/.dotfiles
 ./scripts/install/020_npm_packages.sh 
 .scripts/install/031_tmuxinator.sh 
 chsh -s /bin/zsh
-./install/120_arc_theme.sh 
+./scripts/install/120_arc_theme.sh 
