@@ -16,14 +16,13 @@ sudo apt-get install -y xclip \
                         rpcbind \
                         nfs-kernel-server \
                         tmux \
-                        nodejs-legacy \
+                        nodejs \
                         npm \
                         gnupg \
                         jq \
                         geoclue-2.0 \
                         redshift \
                         redshift-gtk \
-                        chromium-browser \
                         ppa-purge \
                         network-manager-openvpn \
                         network-manager-openvpn-gnome \

@@ -7,7 +7,7 @@ This is opinionated and a constant WIP, but feel to look around anyway...
 ## Usage
 
     # set up dotfiles folder
-    git clone https://github.com/dsager/dotfiles.git ~/.dotfiles
+    git clone https://github.com/firemound/dotfiles.git ~/.dotfiles
 
     # use install & config scripts
     cd ./dotfiles/scripts && ls -l
@@ -19,7 +19,7 @@ Note to self: Using the https URL is easier on a new machine as no
 SSH keys are needed. To work on the repo later on, change the remote
 URL to ssh:
 
-    git remote set-url origin git@github.com:dsager/dotfiles.git
+    git remote set-url origin git@github.com:firemound/dotfiles.git
 
 ## Recources
 

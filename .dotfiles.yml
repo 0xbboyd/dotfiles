@@ -3,28 +3,18 @@
 - shell:
     - "git submodule update --init --recursive external/gws"
     - "git submodule update --init --recursive external/antigen"
-    - "git submodule update --init --recursive external/psql2csv"
     - "mkdir -p ~/src"
     - "mkdir -p ~/.config/Zeal"
     - "mkdir -p ~/.local/bin"
     - "mkdir -p ~/.local/share"
     - "mkdir -p ~/.local/tools"
     - "mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/backups ~/.vim/swaps"
-    - "rmdir ~/Documents"
-    - "rmdir ~/Downloads"
-    - "rmdir ~/Pictures"
-    - "rmdir ~/Music"
-    - "rmdir ~/Videos"
-    - "rmdir ~/Templates"
     - "rm ~/.profile"
-    - "sudo cp config/etc/sysctl.d/999-inotify-watches.conf /etc/sysctl.d/999-inotify-watches.conf"
+    # - "sudo cp config/etc/sysctl.d/999-inotify-watches.conf /etc/sysctl.d/999-inotify-watches.conf"
 
 - link:
     # directories
-    "~/Documents": "/media/data/googledrive/daniel@sager1.de/Documents"
-    "~/Downloads": "/media/data/downloads"
-    "~/Pictures": "/media/data/googledrive/daniel@sager1.de/Pictures"
-    "~/Dropbox": "/media/data/Dropbox"
+    # "~/Documents": "/media/data/googledrive/daniel@sager1.de/Documents"
     # dotfiles
     "~/.aliases": "aliases"
     "~/.profile": "profile"
@@ -40,7 +30,6 @@
     "~/.gvimrc": "gvimrc"
     # tools / scripts
     "~/.local/bin/gws": "external/gws/src/gws"
-    "~/.local/bin/psql2csv": "external/psql2csv/psql2csv"
     "~/.local/bin/git_delete_stale_branches": "scripts/commands/git_delete_stale_branches.sh"
     "~/.local/bin/devex_vagrant_tunnel": "scripts/commands/devex_vagrant_tunnel.sh"
     "~/.local/bin/devex_start": "scripts/commands/devex_start.sh"
@@ -51,3 +40,5 @@
     "~/src/.projects.gws": "src/projects.gws"
     "~/.config/Insync": "/media/data/home/.config/Insync"
     "~/.config/Zeal/Zeal.conf": "config/Zeal/Zeal.conf"
+    # provision
+    
