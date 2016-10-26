@@ -51,4 +51,4 @@ sudo apt-get install -y xclip \
                         bup \
                         dia \
                         vlc \
-
+			tig \
