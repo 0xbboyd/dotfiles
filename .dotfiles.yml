@@ -38,9 +38,7 @@
     # other config
     "~/.config/redshift.conf": "config/redshift.conf"
     "~/src/.projects.gws": "src/projects.gws"
-    "~/.config/Insync": "/media/data/home/.config/Insync"
+    # Google drive client https://www.insynchq.com/
+    # "~/.config/Insync": "/media/data/home/.config/Insync"
     "~/.config/Zeal/Zeal.conf": "config/Zeal/Zeal.conf"
-
-- shell:
-    - "./scripts/install/base_packages.sh"    
     

@@ -47,4 +47,5 @@ sudo apt-get install -y xclip \
                         xdotool \
                         wmctrl \
                         python3-csvkit \
+                        python-pip \
 
