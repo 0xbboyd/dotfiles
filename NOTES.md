@@ -27,8 +27,7 @@
   - `./scripts/dotfiles.sh` 
   - `./scripts/install/base_packages.sh` 
   - `chsh -s /bin/zsh`
-  - `./scripts/install/007_powerline_fonts.sh` 
+  - `./scripts/install/pkg_powerline_fonts.sh` 
   - `. ./.zshrc`
-  - `./scripts/install/020_npm_packages.sh` 
-  - `.scripts/install/031_tmuxinator.sh` 
-  - `./scripts/install/120_arc_theme.sh` 
+  - `./scripts/install/pkg_npm_packages.sh` 
+  - `./scripts/install/pkg_arc_theme.sh` 
