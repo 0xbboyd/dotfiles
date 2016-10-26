@@ -48,4 +48,5 @@ sudo apt-get install -y xclip \
                         wmctrl \
                         python3-csvkit \
                         python-pip \
+                        bup \
 

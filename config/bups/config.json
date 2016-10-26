@@ -1,0 +1,15 @@
+{
+    "dirs": [
+        {
+            "path": "/home/brendan/Documents/backup",
+            "name": "brendan-backup"
+        }
+    ],
+    "mount": {
+        "path": "bup",
+        "options": "",
+        "encrypt": false,
+        "target": "",
+        "type": "google_drive"
+    }
+}

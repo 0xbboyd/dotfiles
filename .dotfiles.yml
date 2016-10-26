@@ -37,6 +37,7 @@
     "~/.local/bin/friday_links": "scripts/commands/friday_links.sh"
     # other config
     "~/.config/redshift.conf": "config/redshift.conf"
+    "~/.config/bups/config.json": "config/bups/config.json"
     "~/src/.projects.gws": "src/projects.gws"
     # Google drive client https://www.insynchq.com/
     # "~/.config/Insync": "/media/data/home/.config/Insync"
