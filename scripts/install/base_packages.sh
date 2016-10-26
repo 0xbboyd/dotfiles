@@ -49,4 +49,6 @@ sudo apt-get install -y xclip \
                         python3-csvkit \
                         python-pip \
                         bup \
+                        dia \
+                        vlc \
 
