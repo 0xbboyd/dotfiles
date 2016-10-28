@@ -16,7 +16,6 @@ sudo apt-get install -y xclip \
                         rpcbind \
                         nfs-kernel-server \
                         tmux \
-                        nodejs \
                         npm \
                         gnupg \
                         jq \

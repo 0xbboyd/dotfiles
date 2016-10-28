@@ -1,5 +1,6 @@
 #!/usr/bin/env sh
 
+npm install nvm --global
 npm install blockapps-bloc --global
 npm install bower --global
 npm install ethereumjs-testrpc --global
