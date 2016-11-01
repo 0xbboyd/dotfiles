@@ -1,12 +1,15 @@
 #!/usr/bin/env sh
 
-# GDrive FUSE fs
-sudo add-apt-repository ppa:alessandro-strada/ppa
-sudo apt-get update
-sudo apt-get install google-drive-ocamlfuse
+# install bup
+sudo apt-get install bup 
 
-# BUPS
-mkdir -p ~/src/tools && cd ~/src/tools
-git clone https://github.com/emersion/bups.git 
-cd bups
-python create-launcher.py
+# install bup GUI
+# mkdir -p ~/src/tools && cd ~/src/tools
+# git clone https://github.com/emersion/bups.git 
+# cd bups
+# python create-launcher.py
+
+# create encrypted dropbox bup
+mkdir -p ~/Dropbox/bup
+
+encfs ~/Dropbox/bup ~/.bup

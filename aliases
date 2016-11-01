@@ -35,6 +35,10 @@ alias gpud="git pull upstream develop"
 alias gcpud="gcd && gpud"
 #eval "$(hub alias -s)"
 
+# bup
+alias bup-docs="~/.dotfiles/scripts/backup/bup_docs.sh"
+alias bup-keys="~/.dotfiles/scripts/backup/bup_keys.sh"
+
 # set gopath to pwd
 alias gopath="export GOPATH=\`pwd\`"
 
