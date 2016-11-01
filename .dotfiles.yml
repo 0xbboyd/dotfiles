@@ -42,4 +42,6 @@
     # Google drive client https://www.insynchq.com/
     # "~/.config/Insync": "/media/data/home/.config/Insync"
     "~/.config/Zeal/Zeal.conf": "config/Zeal/Zeal.conf"
+    "~/.config/autostart/dropboxd.desktop": "config/dropboxd.desktop"
+    "~/.config/autostart/dropboxd.desktop": "config/dropboxd.desktop"
     
