@@ -54,3 +54,7 @@ man() {
 calc() {
   awk "BEGIN{ print $* }"
 }
+
+export NVM_DIR="/home/brendan/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:/home/brendan/.nvm/versions/node/v4.4.7/lib/node_modules
