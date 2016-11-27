@@ -34,3 +34,4 @@
   - `. ./.zshrc`
   - `./scripts/install/pkg_npm_packages.sh`
   - `./scripts/install/pkg_arc_theme.sh`
+  - Install the dropbox package, signin, and then install bups
