@@ -54,6 +54,5 @@
     # "~/.config/Insync": "/media/data/home/.config/Insync"
     "~/.config/Zeal/Zeal.conf": "config/Zeal/Zeal.conf"
     "~/.config/autostart/dropboxd.desktop": "config/dropboxd.desktop"
-    "~/.config/autostart/dropboxd.desktop": "config/dropboxd.desktop"
     # add bup anacron job
     "/etc/cron.daily/bup": "scripts/backup/bup_all.sh"
