@@ -26,6 +26,7 @@
 
 ### scripts
 
+  - `cd ~/.dotfiles`
   - `./scripts/remove_packages.sh`
   - `./scripts/dotfiles.sh`
   - `./scripts/install/base_packages.sh`

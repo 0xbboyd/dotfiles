@@ -10,6 +10,17 @@
     - "mkdir -p ~/.local/tools"
     - "mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/backups ~/.vim/swaps"
     - "rm ~/.profile"
+    - "rm ~/.aliases"
+    - "rm ~/.gitignore_global"
+    - "rm ~/.gitconfig"
+    - "rm ~/.wgetrc"
+    - "rm ~/.curlrc"
+    - "rm ~/.psqlrc"
+    - "rm ~/.tmux.conf"
+    - "rm ~/.tmuxinator"
+    - "rm ~/.zshrc"
+    - "rm ~/.vimrc"
+    - "rm ~/.gvimrc"
     # - "sudo cp config/etc/sysctl.d/999-inotify-watches.conf /etc/sysctl.d/999-inotify-watches.conf"
 
 - link:
@@ -46,4 +57,3 @@
     "~/.config/autostart/dropboxd.desktop": "config/dropboxd.desktop"
     # add bup anacron job
     "/etc/cron.daily/bup": "scripts/backup/bup_all.sh"
-    
