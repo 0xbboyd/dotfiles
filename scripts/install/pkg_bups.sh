@@ -13,7 +13,7 @@ cd gnome-encfs
 install gnome-encfs /usr/local/bin
 
 # create encrypted dropbox bup
-mkdir -p ~/Dropbox/bup
+# mkdir -p ~/Dropbox/bup
 
 # encfs ~/Dropbox/bup ~/.bup
 gnome-encfs -a ~/Dropbox/bup ~/.bup
