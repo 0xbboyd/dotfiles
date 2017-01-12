@@ -50,3 +50,4 @@ sudo apt-get install -y xclip \
                         dia \
                         vlc \
 			tig \
+			gnome-tweak-tool \

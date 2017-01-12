@@ -12,3 +12,6 @@ export VAGRANT_HOME=$HOME/.vagrant.d
 export CHE_DATA_FOLDER=~/workspace/che
 
 # PATH="$HOME/bin:$HOME/.local/bin:$PATH"
+# Ubuntu make installation of Ubuntu Make binary symlink
+PATH=/home/brendan/.local/share/umake/bin:$PATH
+
