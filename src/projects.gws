@@ -1,28 +1,16 @@
 ## own stuff
 
-own/das-glaubst-du | ssh://git@bitbucket.org/dsager/das-glaubst-du.git |
-own/google-code-jam | git@github.com:dsager/google-code-jam.git |
-own/muecken | git@github.com:dsager/muecken.git |
-own/plugin.video.bvbtv | git@github.com:dsager/plugin.video.bvbtv.git |
-own/dsager.github.io | git@github.com:dsager/dsager.github.io.git |
-own/talks | git@github.com:dsager/talks.git |
-own/zocken | git@github.com:dsager/zocken.git |
-
-## contribution / 3rd party
-
-contrib/cloudinary_angular | git@github.com:dsager/cloudinary_angular.git | git@github.com:cloudinary/cloudinary_angular.git
-contrib/elasticsearch-head | git@github.com:mobz/elasticsearch-head.git |
-contrib/grape | git@github.com:dsager/grape.git | git@github.com:intridea/grape.git
-contrib/mackup | git@github.com:dsager/mackup.git | git@github.com:lra/mackup.git
-contrib/plus-pull | git@github.com:dsager/plus-pull.git | git@github.com:christofdamian/plus-pull.git
-contrib/rspec_junit_formatter | git@github.com:dsager/rspec_junit_formatter.git | git@github.com:sj26/rspec_junit_formatter.git
-contrib/gws | git@github.com:dsager/gws.git | git@github.com:StreakyCobra/gws.git
+own/journey-graph | git@github.com:firemound/journey-graph.git |
+own/me.com | git@github.com:firemound/brendanboyd.com.git |
 
 ## work
 
-work/research | git@github.com:dsager/research.git | git@github.com:Devex/research.git devex
-work/blog | git@github.com:dsager/devex.github.io.git | git@github.com:Devex/devex.github.io.git devex
-work/vm-setup | git@github.com:dsager/vm-setup.git | git@github.com:Devex/vm-setup.git devex
-work/grape-api | git@github.com:dsager/grape-api.git | git@github.com:Devex/grape-api.git devex
-work/front-end | git@github.com:dsager/front-end.git | git@github.com:Devex/front-end.git devex
-work/appsignal-metrics | git@github.com:dsager/appsignal-metrics.git
+work/baywa | git@github.com:BlueBanyanSolutions/baywa.git |
+work/buff | git@github.com:BlueBanyanSolutions/buff.git |
+work/sun | git@github.com:BlueBanyanSolutions/solar-universe.git |
+work/ofc | git@github.com:BlueBanyanSolutions/original-footware-co.git |
+work/hestra | git@github.com:BlueBanyanSolutions/hestra.git |
+
+## contribution / 3rd party
+
+## contrib/project | 
