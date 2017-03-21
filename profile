@@ -15,3 +15,4 @@ export CHE_DATA_FOLDER=~/workspace/che
 # Ubuntu make installation of Ubuntu Make binary symlink
 PATH=/home/brendan/.local/share/umake/bin:$PATH
 
+export GOPATH=$HOME/src/brig

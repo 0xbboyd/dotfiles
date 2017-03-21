@@ -51,3 +51,4 @@ sudo apt-get install -y xclip \
                         vlc \
 			tig \
 			gnome-tweak-tool \
+			git-annex \
