@@ -21,6 +21,7 @@
     - "rm ~/.zshrc"
     - "rm ~/.vimrc"
     - "rm ~/.gvimrc"
+    - "rm ~/.spacemacs"
     # - "sudo cp config/etc/sysctl.d/999-inotify-watches.conf /etc/sysctl.d/999-inotify-watches.conf"
 
 - link:
@@ -39,6 +40,7 @@
     "~/.zshrc": "zshrc"
     "~/.vimrc": "vimrc"
     "~/.gvimrc": "gvimrc"
+    "~/.spacemacs": "spacemacs"
     # tools / scripts
     "~/.local/bin/gws": "external/gws/src/gws"
     "~/.local/bin/git_delete_stale_branches": "scripts/commands/git_delete_stale_branches.sh"

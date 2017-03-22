@@ -49,6 +49,7 @@ sudo apt-get install -y xclip \
                         python-pip \
                         dia \
                         vlc \
-			tig \
-			gnome-tweak-tool \
-			git-annex \
+                        tig \
+                        gnome-tweak-tool \
+                        git-annex \
+                        emacs \
