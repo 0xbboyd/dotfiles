@@ -296,6 +296,8 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq-default
    dotspacemacs-themes '(material)
    )
+  (require 'magit-gitflow)
+  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
   )
 
 (defun dotspacemacs/user-config ()
