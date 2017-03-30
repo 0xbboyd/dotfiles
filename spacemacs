@@ -298,12 +298,17 @@ before packages are loaded. If you are unsure, you should try in setting them in
    )
   (require 'magit-gitflow)
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
+  (require 'multiple-cursors)
   )
 
 (defun dotspacemacs/user-config ()
   (setq neo-theme (if (display-graphic-p) 'icons))
   (setq all-the-icons-color-icons t)
   (setq all-the-icons-icon-for-buffer t)
+  (global-set-key (kbd "C-S-c C-S-c") 'mc/edit-lines)
+  (global-set-key (kbd "C->") 'mc/mark-next-like-this)
+  (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
+  (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration.
