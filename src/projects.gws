@@ -2,10 +2,12 @@
 
 own/journey-graph | git@github.com:firemound/journey-graph.git |
 own/me.com | git@github.com:firemound/brendanboyd.com.git |
+own/generator-suitescript-2 | git@github.com:firemound/generator-suitescript-2.git |
 
 ## work
 
 work/baywa | git@github.com:BlueBanyanSolutions/baywa.git |
+work/baywa-cli | git@github.com:BlueBanyanSolutions/baywa-cli.git |
 work/buff | git@github.com:BlueBanyanSolutions/buff.git |
 work/sun | git@github.com:BlueBanyanSolutions/solar-universe.git |
 work/ofc | git@github.com:BlueBanyanSolutions/original-footware-co.git |
