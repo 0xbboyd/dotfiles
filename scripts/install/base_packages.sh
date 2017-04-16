@@ -52,4 +52,3 @@ sudo apt-get install -y xclip \
                         tig \
                         gnome-tweak-tool \
                         git-annex \
-                        emacs \
