@@ -18,5 +18,8 @@ sudo git clone https://github.com/domtronn/all-the-icons.el.git ~/src/tools/all-
 sudo ln -sf ~/src/tools/all-the-icons/fonts /usr/share/fonts/truetype/all-the-fonts
 sudo fc-cache -f -v
 
+echo "installing tern for js hints"
+sudo node npm install -g tern
+
 echo "now launching emacs for the first time for spacemacs package installation"
 emacs --insecure
