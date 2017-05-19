@@ -17,6 +17,17 @@ work/sunpoint | git@github.com:BlueBanyanSolutions/Sunpoint-Energy.git |
 work/mug | git@github.com:BlueBanyanSolutions/mugnaini-sync.git |
 work/athena | git@github.com:vippetcare/athena.git |
 
+## solvocracy
+sol/solvocracy-dapp |
+sol/ethereum-docker | git@github.com:Solvocracy/ethereum-docker.git | https://github.com/Capgemini-AIE/ethereum-docker.git
+sol/truffle-box | https://github.com/truffle-box/truffle-box-uport.git
+sol/zeppelin-solidity | git@github.com:Solvocracy/zeppelin-solidity.git | https://github.com/OpenZeppelin/zeppelin-solidity.git
+sol/backfeed | git@github.com:Solvocracy/backfeed.git
+sol/backfeed-protocol | git@github.com:Solvocracy/backfeed-protocol.git
+sol/ant | git@github.com:Solvocracy/aragon-network-token.git | https://github.com/aragon/aragon-network-token.git
+sol/aragon-core | git@github.com:Solvocracy/aragon-core.git | https://github.com/aragon/aragon-core.git
+
+
 ## contribution / 3rd party
 
 ## contrib/magic-device-tool | git@github.com:firemound/magic-device-tool.git | https://github.com/MariusQuabeck/magic-device-tool.git
