@@ -18,7 +18,7 @@ work/mug | git@github.com:BlueBanyanSolutions/mugnaini-sync.git |
 work/athena | git@github.com:vippetcare/athena.git |
 
 ## solvocracy
-sol/solvocracy-dapp |
+sol/solvocracy-dapp | git@github.com:Solvocracy/solvocracy-dapp.git
 sol/ethereum-docker | git@github.com:Solvocracy/ethereum-docker.git | https://github.com/Capgemini-AIE/ethereum-docker.git
 sol/truffle-box | https://github.com/truffle-box/truffle-box-uport.git
 sol/zeppelin-solidity | git@github.com:Solvocracy/zeppelin-solidity.git | https://github.com/OpenZeppelin/zeppelin-solidity.git
