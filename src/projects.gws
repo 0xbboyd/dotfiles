@@ -27,6 +27,7 @@ sol/backfeed-protocol | git@github.com:Solvocracy/backfeed-protocol.git
 sol/ant | git@github.com:Solvocracy/aragon-network-token.git | https://github.com/aragon/aragon-network-token.git
 sol/aragon-core | git@github.com:Solvocracy/aragon-core.git | https://github.com/aragon/aragon-core.git
 sol/dapp-ide | git@github.com:Solvocracy/instant-dapp-ide.git | https://github.com/dominicwilliams/instant-dapp-ide.git
+sol/discussion-docker | git@github.com:Solvocracy/discourse_docker.git | https://github.com/discourse/discourse_docker.git
 
 
 ## contribution / 3rd party
