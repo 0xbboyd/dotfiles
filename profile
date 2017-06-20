@@ -16,3 +16,5 @@ export CHE_DATA_FOLDER=~/workspace/che
 PATH=/home/brendan/.local/share/umake/bin:$PATH
 
 export GOPATH=$HOME/src/brig
+export NS_EMAIL=bluebanyan@baywa-re.com
+export NS_PASSWORD=Y29udDB1ci1NZW50YWwtZ2VuZXNpcwo=
