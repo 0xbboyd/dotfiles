@@ -12,9 +12,6 @@ sudo apt-get install -y xclip \
                         imagemagick \
                         mplayer \
                         gtk-recordmydesktop \
-                        libxml2-dev \
-                        rpcbind \
-                        nfs-kernel-server \
                         tmux \
                         npm \
                         gnupg \
@@ -25,30 +22,13 @@ sudo apt-get install -y xclip \
                         ppa-purge \
                         network-manager-openvpn \
                         network-manager-openvpn-gnome \
-                        indicator-multiload \
-                        libxslt-dev \
-                        libxml2-dev \
-                        libvirt-dev \
-                        zlib1g-dev \
-                        qemu-utils \
                         ruby-dev \
-                        rng-tools \
-                        libvirt-bin \
-                        qemu-kvm \
-                        pass \
+                        keepass2 \
                         caffeine \
                         virt-manager \
                         htop \
-                        unity-tweak-tool \
-                        compizconfig-settings-manager \
-                        compiz-plugins-extra \
-                        compiz-plugins \
-                        xdotool \
-                        wmctrl \
-                        python3-csvkit \
                         python-pip \
                         dia \
                         vlc \
                         tig \
                         gnome-tweak-tool \
-                        git-annex \
