@@ -301,6 +301,10 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (require 'magit-gitflow)
   (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
   (require 'multiple-cursors)
+  (add-to-list 'load-path
+               "~/.emacs.d/plugins/yasnippet")
+  (require 'yasnippet)
+  (yas-global-mode 1)
   )
 
 (defun dotspacemacs/user-config ()
