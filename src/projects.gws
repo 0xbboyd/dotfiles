@@ -20,6 +20,7 @@ work/sunpoint | git@github.com:BlueBanyanSolutions/Sunpoint-Energy.git |
 work/mug | git@github.com:BlueBanyanSolutions/mugnaini-sync.git |
 work/athena | git@github.com:vippetcare/athena.git |
 work/netsuite-deploy | git@github.com:BlueBanyanSolutions/netsuite-deploy.git | https://github.com/michoelchaikin/netsuite-deploy.git
+work/instant-ide | git@github.com:BlueBanyanSolutions/instant-ide.git |
 
 ## solvocracy
 sol/solvocracy-dapp | git@github.com:Solvocracy/solvocracy-dapp.git
