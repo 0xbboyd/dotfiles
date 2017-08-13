@@ -29,6 +29,7 @@ attach: false
 
 windows:
   - athena:
+      root: ~/src/work/athena
       layout: main-horizontal
       panes:
         - emacs -nw
