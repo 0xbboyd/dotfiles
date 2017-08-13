@@ -5,8 +5,20 @@ startup_window: cli
 windows:
   -core:
      root: ~/src/work/baywa-core
+     layout: main-horizontal
+     panes:
+       - emacs -nw
+       - git status
   -cli:
      root: ~/src/work/baywa-cli
+     layout: main-horizontal
+     panes:
+       - emacs -nw
+       - git status
   -rest:
      root: ~/src/work/baywa-rest
+     layout: main-horizontala
+     panes:
+       - emacs -nw
+       - git status
   -baywa-host: ssh -p 18765 baywarec@77.104.156.209
