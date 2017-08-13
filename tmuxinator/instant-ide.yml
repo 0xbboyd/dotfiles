@@ -1,7 +1,7 @@
-# ~/.tmuxinator/sun-dev.yml
+# ~/.tmuxinator/instant-ide.yml
 
-name: sun-dev
-root: ~/src/work
+name: instant-ide
+root: ~/src/work/instant-ide
 
 # Optional tmux socket
 # socket_name: foo
@@ -25,7 +25,7 @@ root: ~/src/work
 attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t sun-dev
+# post: tmux -CC attach -t instant-ide
 
 windows:
   - editor:
@@ -33,3 +33,5 @@ windows:
       panes:
         - vim
         - guard
+  - server: bundle exec rails s
+  - logs: tail -f log/development.log

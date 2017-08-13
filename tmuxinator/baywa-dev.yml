@@ -4,6 +4,8 @@ root: ~/src/work
 
 startup_window: baywa-host
 
+attach: false
+
 windows:
   - core:
      root: ~/src/work/baywa-core

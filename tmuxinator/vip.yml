@@ -1,6 +1,6 @@
-# ~/.tmuxinator/sun-dev.yml
+# ~/.tmuxinator/vip.yml
 
-name: sun-dev
+name: vip
 root: ~/src/work
 
 # Optional tmux socket
@@ -25,11 +25,11 @@ root: ~/src/work
 attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t sun-dev
+# post: tmux -CC attach -t vip
 
 windows:
-  - editor:
-      layout: main-vertical
+  - athena:
+      layout: main-horizontal
       panes:
-        - vim
-        - guard
+        - emacs -nw
+        - git status
