@@ -21,6 +21,7 @@ work/mug | git@github.com:BlueBanyanSolutions/mugnaini-sync.git |
 work/athena | git@github.com:vippetcare/athena.git |
 work/netsuite-deploy | git@github.com:BlueBanyanSolutions/netsuite-deploy.git | https://github.com/michoelchaikin/netsuite-deploy.git
 work/instant-ide | git@github.com:BlueBanyanSolutions/instant-ide.git |
+work/ns-upload | git@github.com:BlueBanyanSolutions/netsuite-uploader-util.git | https://github.com/icsfl/netsuite-uploader-util.git
 
 ## solvocracy
 sol/solvocracy-dapp | git@github.com:Solvocracy/solvocracy-dapp.git
