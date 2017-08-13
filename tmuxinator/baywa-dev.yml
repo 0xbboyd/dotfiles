@@ -1,24 +1,26 @@
 
 name: baywa-dev
-root: ~/src/work/
-startup_window: cli
+root: ~/src/work
+
+startup_window: baywa-host
+
 windows:
-  -core:
+  - core:
      root: ~/src/work/baywa-core
      layout: main-horizontal
      panes:
        - emacs -nw
        - git status
-  -cli:
+  - cli:
      root: ~/src/work/baywa-cli
      layout: main-horizontal
      panes:
        - emacs -nw
        - git status
-  -rest:
+  - rest:
      root: ~/src/work/baywa-rest
      layout: main-horizontala
      panes:
        - emacs -nw
        - git status
-  -baywa-host: ssh -p 18765 baywarec@77.104.156.209
+  - baywa-host: ssh -p 18765 baywarec@77.104.156.209
