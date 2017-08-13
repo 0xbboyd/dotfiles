@@ -13,6 +13,7 @@ sudo apt-get install -y xclip \
                         mplayer \
                         gtk-recordmydesktop \
                         tmux \
+                        tmuxinator \
                         npm \
                         gnupg \
                         jq \

@@ -1,0 +1,12 @@
+
+name: baywa-dev
+root: ~/src/work/
+startup_window: cli
+windows:
+  -core:
+     root: ~/src/work/baywa-core
+  -cli:
+     root: ~/src/work/baywa-cli
+  -rest:
+     root: ~/src/work/baywa-rest
+  -baywa-host: ssh -p 18765 baywarec@77.104.156.209
