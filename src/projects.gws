@@ -35,7 +35,11 @@ sol/aragon-core | git@github.com:Solvocracy/aragon-core.git | https://github.com
 sol/dapp-ide | git@github.com:Solvocracy/instant-dapp-ide.git | https://github.com/dominicwilliams/instant-dapp-ide.git
 sol/discussion-docker | git@github.com:Solvocracy/discourse_docker.git | https://github.com/discourse/discourse_docker.git
 
+## district0x
+d0x/token | https://github.com/district0x/district0x-network-token.git |
+d0x/ethlance | https://github.com/district0x/ethlance.git |
+d0x/infra | https://github.com/district0x/d0xINFRA-frontend |
+d0x/web3 | https://github.com/district0x/cljs-web3 |
+d0x/re-frame-web3-fx | https://github.com/district0x/cljs-web3 |
+d0x/name-bazaar | https://github.com/district0x/name-bazaar.git |
 
-## contribution / 3rd party
-
-## contrib/magic-device-tool | git@github.com:firemound/magic-device-tool.git | https://github.com/MariusQuabeck/magic-device-tool.git
