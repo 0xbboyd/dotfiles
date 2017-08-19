@@ -21,7 +21,7 @@ windows:
        - git status
   - rest:
      root: ~/src/work/baywa-rest
-     layout: main-horizontala
+     layout: main-horizontal
      panes:
        - emacs -nw
        - git status

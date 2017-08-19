@@ -10,6 +10,9 @@ source $HOME/.dotfiles/external/antigen/antigen.zsh
 # oh my zsh framework
 antigen use oh-my-zsh
 
+# add support for 256 colors
+export TERM="xterm-256color"
+
 # OMZ powerlevel theme
 POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
 POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
@@ -58,3 +61,7 @@ calc() {
 export NVM_DIR="/home/brendan/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:/home/brendan/.nvm/versions/node/v4.4.7/lib/node_modules
+
+if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
+   source /etc/profile.d/vte.sh
+fi

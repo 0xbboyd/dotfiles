@@ -1,7 +1,7 @@
-# ~/.tmuxinator/sun-dev.yml
+# ~/.tmuxinator/instant-dapp-ide.yml
 
-name: sun-dev
-root: ~/src/work
+name: instant-dapp-ide
+root: ~/src/sol/dapp-ide
 
 # Optional tmux socket
 # socket_name: foo
@@ -25,17 +25,10 @@ root: ~/src/work
 attach: false
 
 # Runs after everything. Use it to attach to tmux with custom options etc.
-# post: tmux -CC attach -t sun-dev
+# post: tmux -CC attach -t instant-ide
 
 windows:
-  - sun:
-      root: ~/src/work/sun
-      layout: main-horizontal
-      panes:
-        - emacs -nw
-        - git status
-  - sun-ftp:
-      root: ~/src/work/sun-ftp
+  - editor:
       layout: main-horizontal
       panes:
         - emacs -nw
