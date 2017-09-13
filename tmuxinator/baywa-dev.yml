@@ -25,4 +25,4 @@ windows:
      panes:
        - emacs -nw
        - git status
-  - baywa-host: ssh -p 18765 baywarec@108.163.199.90
+  - baywa-host: ssh -p 18765 baywarec@baywa-reconnect.com
