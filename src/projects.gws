@@ -6,12 +6,13 @@ own/generator-suitescript-2 | git@github.com:firemound/generator-suitescript-2.g
 own/sdf-cli | git@github.com:firemound/sdf-cli.git |
 own/gunbot-proliferate | git@github.com:firemound/gunbot-proliferate.git | 
 own/generator-gunbot | git@github.com:firemound/generator-gunbot.git | https://github.com/BeerK0in/generator-gunbot.git
+own/packer-windows | git@github.com:firemound/packer-windows.git | https://github.com/joefitzgerald/packer-windows.git
 
 ## work
 
-work/baywa-core | git@github.com:BlueBanyanSolutions/baywa-core.git |
-work/baywa-rest | git@github.com:BlueBanyanSolutions/baywa-rest.git |
-work/baywa-cli | git@github.com:BlueBanyanSolutions/baywa-cli.git |
+work/baywa-core | git@bitbucket.org:baywa/baywa-sdf-core.git |
+work/baywa-rest | git@bitbucket.org:baywa/baywa-rest.git |
+work/baywa-cli | git@bitbucket.org:baywa/baywa-cli.git |
 work/buff | git@github.com:BlueBanyanSolutions/buff.git |
 work/sun | git@github.com:BlueBanyanSolutions/solar-universe.git |
 work/sun-ftp | git@github.com:BlueBanyanSolutions/solaruniverse-ftp.git |
@@ -24,6 +25,8 @@ work/athena | git@github.com:vippetcare/athena.git |
 work/netsuite-deploy | git@github.com:BlueBanyanSolutions/netsuite-deploy.git | https://github.com/michoelchaikin/netsuite-deploy.git
 work/instant-ide | git@github.com:BlueBanyanSolutions/instant-ide.git |
 work/ns-upload | git@github.com:BlueBanyanSolutions/netsuite-uploader-util.git | https://github.com/icsfl/netsuite-uploader-util.git
+work/bb-framework | git@bitbucket.org:bluebanyansolutions/bb.framework.git |
+work/solar-success | git@bitbucket.org:bluebanyansolutions/solar-success.git | 
 
 ## solvocracy
 sol/solvocracy-dapp | git@github.com:Solvocracy/solvocracy-dapp.git
