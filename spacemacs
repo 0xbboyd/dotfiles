@@ -302,9 +302,6 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (setq-default
    dotspacemacs-themes '(material)
    )
-  (require 'magit-gitflow)
-  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
-  (require 'multiple-cursors)
   (add-to-list 'load-path
                "~/.emacs.d/plugins/yasnippet")
   (require 'yasnippet)
@@ -319,6 +316,9 @@ before packages are loaded. If you are unsure, you should try in setting them in
   (global-set-key (kbd "C->") 'mc/mark-next-like-this)
   (global-set-key (kbd "C-<") 'mc/mark-previous-like-this)
   (global-set-key (kbd "C-c C-<") 'mc/mark-all-like-this)
+  (require 'magit-gitflow)
+  (add-hook 'magit-mode-hook 'turn-on-magit-gitflow)
+  (require 'multiple-cursors)
   "Configuration function for user code.
 This function is called at the very end of Spacemacs initialization after
 layers configuration.
