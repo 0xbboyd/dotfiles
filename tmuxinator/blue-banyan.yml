@@ -1,0 +1,21 @@
+
+name: blue-banyan
+root: ~/src/work
+
+startup_window: framework
+
+attach: false
+
+windows:
+  - framework:
+     root: ~/src/work/bb-framework
+     layout: main-horizontal
+     panes:
+       - emacs -nw
+       - git status
+  - solar-success:
+     root: ~/src/work/solar-success
+     layout: main-horizontal
+     panes:
+       - emacs -nw
+       - git status

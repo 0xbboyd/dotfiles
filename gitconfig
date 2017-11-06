@@ -6,7 +6,7 @@
 [core]
 
   excludesfile = ~/.gitignore_global
-  autocrlf = input
+	autocrlf = input
 
 [push]
 

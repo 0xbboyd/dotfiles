@@ -1,0 +1,15 @@
+
+name: ofc-dev
+root: ~/src/work
+
+#startup_window: 
+
+attach: false
+
+windows:
+  - ofc:
+     root: ~/src/work/ofc
+     layout: main-horizontal
+     panes:
+       - emacs -nw
+       - git status
