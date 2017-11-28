@@ -8,7 +8,9 @@ sudo git clone --depth 1 --branch release https://github.com/adobe-fonts/source-
 sudo fc-cache -f -v ~/.fonts/adobe-fonts/source-code-pro
 
 echo "installing emacs"
-sudo apt install emacs
+sudo add-apt-repository ppa:kelleyk/emacs
+sudo apt-get update
+sudo apt install emacs25
 
 echo "installing material theme"
 sudo git clone https://github.com/cpaulik/emacs-material-theme.git ~/.emacs.d/themes
