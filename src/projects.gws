@@ -13,14 +13,14 @@ own/packer-windows | git@github.com:firemound/packer-windows.git | https://githu
 work/baywa-core | git@bitbucket.org:baywa/baywa-sdf-core.git |
 work/baywa-rest | git@bitbucket.org:baywa/baywa-rest.git |
 work/baywa-cli | git@bitbucket.org:baywa/baywa-cli.git |
-work/buff | git@github.com:BlueBanyanSolutions/buff.git |
-work/sun | git@github.com:BlueBanyanSolutions/solar-universe.git |
-work/sun-ftp | git@github.com:BlueBanyanSolutions/solaruniverse-ftp.git |
-work/ofc | git@github.com:BlueBanyanSolutions/original-footware-co.git |
-work/hestra | git@github.com:BlueBanyanSolutions/hestra.git |
-work/renehomes | git@github.com:BlueBanyanSolutions/ReneHomes.git |
-work/sunpoint | git@github.com:BlueBanyanSolutions/Sunpoint-Energy.git |
-work/mug | git@github.com:BlueBanyanSolutions/mugnaini-sync.git |
+work/buff | git@bitbucket.org:bluebanyansolutions/buff.git |
+work/sun | git@bitbucket.org:bluebanyansolutions/solar-universe.git |
+work/sun-ftp | git@bitbucket.org:bluebanyansolutions/solaruniverse-ftp.git |
+work/ofc | git@bitbucket.org:bluebanyansolutions/original-footware-co.git |
+work/hestra | git@bitbucket.org:bluebanyansolutions/hestra.git |
+work/renehomes | git@bitbucket.org:bluebanyansolutions/ReneHomes.git |
+work/sunpoint | git@bitbucket.org:bluebanyansolutions/Sunpoint-Energy.git |
+work/mug | git@bitbucket.org:bluebanyansolutions/mugnaini-sync.git |
 work/athena | git@github.com:vippetcare/athena.git |
 work/netsuite-deploy | git@github.com:BlueBanyanSolutions/netsuite-deploy.git | https://github.com/michoelchaikin/netsuite-deploy.git
 work/instant-ide | git@github.com:BlueBanyanSolutions/instant-ide.git |
@@ -29,22 +29,22 @@ work/bb-framework | git@bitbucket.org:bluebanyansolutions/bb.framework.git |
 work/solar-success | git@bitbucket.org:bluebanyansolutions/solar-success.git | 
 
 ## solvocracy
-sol/solvocracy-dapp | git@github.com:Solvocracy/solvocracy-dapp.git
-sol/ethereum-docker | git@github.com:Solvocracy/ethereum-docker.git | https://github.com/Capgemini-AIE/ethereum-docker.git
-sol/truffle-box | https://github.com/truffle-box/truffle-box-uport.git
-sol/zeppelin-solidity | git@github.com:Solvocracy/zeppelin-solidity.git | https://github.com/OpenZeppelin/zeppelin-solidity.git
-sol/backfeed | git@github.com:Solvocracy/backfeed.git
-sol/backfeed-protocol | git@github.com:Solvocracy/backfeed-protocol.git
-sol/ant | git@github.com:Solvocracy/aragon-network-token.git | https://github.com/aragon/aragon-network-token.git
-sol/aragon-core | git@github.com:Solvocracy/aragon-core.git | https://github.com/aragon/aragon-core.git
-sol/dapp-ide | git@github.com:Solvocracy/instant-dapp-ide.git | https://github.com/dominicwilliams/instant-dapp-ide.git
-sol/discussion-docker | git@github.com:Solvocracy/discourse_docker.git | https://github.com/discourse/discourse_docker.git
+# sol/solvocracy-dapp | git@github.com:Solvocracy/solvocracy-dapp.git
+# sol/ethereum-docker | git@github.com:Solvocracy/ethereum-docker.git | https://github.com/Capgemini-AIE/ethereum-docker.git
+# sol/truffle-box | https://github.com/truffle-box/truffle-box-uport.git
+# sol/zeppelin-solidity | git@github.com:Solvocracy/zeppelin-solidity.git | https://github.com/OpenZeppelin/zeppelin-solidity.git
+# sol/backfeed | git@github.com:Solvocracy/backfeed.git
+# sol/backfeed-protocol | git@github.com:Solvocracy/backfeed-protocol.git
+# sol/ant | git@github.com:Solvocracy/aragon-network-token.git | https://github.com/aragon/aragon-network-token.git
+# sol/aragon-core | git@github.com:Solvocracy/aragon-core.git | https://github.com/aragon/aragon-core.git
+# sol/dapp-ide | git@github.com:Solvocracy/instant-dapp-ide.git | https://github.com/dominicwilliams/instant-dapp-ide.git
+# sol/discussion-docker | git@github.com:Solvocracy/discourse_docker.git | https://github.com/discourse/discourse_docker.git
 
 ## district0x
-d0x/token | https://github.com/district0x/district0x-network-token.git |
-d0x/ethlance | https://github.com/district0x/ethlance.git |
-d0x/infra | https://github.com/district0x/d0xINFRA-frontend |
-d0x/web3 | https://github.com/district0x/cljs-web3 |
-d0x/re-frame-web3-fx | https://github.com/district0x/cljs-web3 |
-d0x/name-bazaar | https://github.com/district0x/name-bazaar.git |
+# d0x/token | https://github.com/district0x/district0x-network-token.git |
+# d0x/ethlance | https://github.com/district0x/ethlance.git |
+# d0x/infra | https://github.com/district0x/d0xINFRA-frontend |
+# d0x/web3 | https://github.com/district0x/cljs-web3 |
+# d0x/re-frame-web3-fx | https://github.com/district0x/cljs-web3 |
+# d0x/name-bazaar | https://github.com/district0x/name-bazaar.git |
 
