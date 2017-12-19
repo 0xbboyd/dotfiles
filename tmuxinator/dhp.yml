@@ -37,4 +37,4 @@ windows:
   - vagrant:
       panes:
         - sh ./init.sh
-        - xfreerdp /u:vagrant /p:vagrant /v:127.0.0.1:3389 /f /toggle-fullscreen
+        - xfreerdp /u:vagrant /p:vagrant /v:127.0.0.1:3389 /f /toggle-fullscreen /drive:src,/home/brendan/src
