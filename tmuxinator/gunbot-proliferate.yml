@@ -28,8 +28,14 @@ attach: false
 # post: tmux -CC attach -t gunbot-proliferate
 
 windows:
-  - editor:
+  - proliferate:
       layout: main-horizontal
+      panes:
+        - emacs -nw
+        - git status
+  - config:
+      layout: main-horizontal
+      root: ~/src/own/gunbot-config
       panes:
         - emacs -nw
         - git status
