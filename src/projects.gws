@@ -27,6 +27,7 @@ work/instant-ide | git@github.com:BlueBanyanSolutions/instant-ide.git |
 work/ns-upload | git@github.com:BlueBanyanSolutions/netsuite-uploader-util.git | https://github.com/icsfl/netsuite-uploader-util.git
 work/bb-framework | git@bitbucket.org:bluebanyansolutions/bb.framework.git |
 work/solar-success | git@bitbucket.org:bluebanyansolutions/solar-success.git | 
+work/arcade-belts | git@bitbucket.org:bluebanyansolutions/arcade-belts.git |
 
 ## solvocracy
 # sol/solvocracy-dapp | git@github.com:Solvocracy/solvocracy-dapp.git
