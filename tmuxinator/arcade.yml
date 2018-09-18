@@ -34,6 +34,10 @@ windows:
       panes:
         - emacs -nw
         - git status
+  - data-migration:
+      root: ~/Documents/Arcade/Exports
+      panes:
+        - nemo .
   # start a docker sdf-cli process that listens to a mounted src volume for changes, and runs
   # a gulp build task, or pre-commit hooks
   #- docker: 
