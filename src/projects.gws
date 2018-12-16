@@ -7,7 +7,7 @@ own/sdf-cli | git@github.com:firemound/sdf-cli.git |
 own/gunbot-proliferate | git@github.com:firemound/gunbot-proliferate.git | 
 own/generator-gunbot | git@github.com:firemound/generator-gunbot.git | https://github.com/BeerK0in/generator-gunbot.git
 own/packer-windows | git@github.com:firemound/packer-windows.git | https://github.com/joefitzgerald/packer-windows.git
-own/ditchquick | git@bitbucket.org:brendan_boyd/ditchquick.git |
+own/ditchquick | git@bitbucket.org:tolaeon/ditchquick.git |
 
 ## work
 
