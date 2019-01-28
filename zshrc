@@ -60,7 +60,7 @@ calc() {
 
 export NVM_DIR="/home/bboyd/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-export NODE_PATH=/usr/lib/nodejs:/usr/lib/node_modules:/usr/share/javascript:/home/brendan/.nvm/versions/node/v4.4.7/lib/node_modules
+export NODE_PATH=$NODE_PATH:/home/bboyd/.nvm/versions/node/v10.14.2/lib/node_modules
 
 if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
    source /etc/profile.d/vte.sh
