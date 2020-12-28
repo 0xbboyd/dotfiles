@@ -234,17 +234,3 @@ augroup vimrcEx
   " Allow stylesheets to autocomplete hyphenated words
   autocmd FileType css,scss,sass,less setlocal iskeyword+=-
 augroup END
-
-
-" TODO: Don't think I need this anymore? Pretty sure supertab handles it
-" Tab completion
-" will insert tab at beginning of line,
-" will use completion if not at beginning
-" function! InsertTabWrapper()
-"     let col = col('.') - 1
-"     if !col || getline('.')[col - 1] !~ '\k'
-"         return "\<tab>"
-"     else
-"         return "\<c-p>"
-"     endif
-" endfunction
