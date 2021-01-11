@@ -29,14 +29,14 @@ root: ~/src/keeco
 
 windows:
   - netsuite:
-      root: ~/src/keeco/netsuite-account
       layout: main-vertical
+      root: ~/src/keeco/netsuite-account
       panes:
         - emacs -nw
         - git status
   - ansible-scale:
-      root: ~/src/keeco/ansible-scale
       layout: main-vertical
+      root: ~/src/keeco/ansible-scale
       panes:
         - emacs -nw
         - git status

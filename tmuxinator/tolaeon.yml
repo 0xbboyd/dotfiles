@@ -35,7 +35,7 @@ windows:
         - ssh root@192.168.1.157
   - pipeline:
       layout: main-vertical
-      root: ~/src/tolaeon/pipelines
+      root: ~/src/tolaeon/pipeline
       panes:
         - emacs -nw
         - git status
