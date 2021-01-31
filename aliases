@@ -42,6 +42,9 @@ alias k='kubectl'
 alias sc='suitecloud'
 alias sdf='sdfcli'
 
+# tolaeon
+alias okd-conn='ssh -f -q -N -C -D 1080 -J hermes.tolaeon.io root@10.0.0.100 && firefox -P okd-conn https://console-openshift-console.apps.delta.tolaeon.local'
+
 # bup
 alias bup-docs="~/.dotfiles/scripts/backup/bup_docs.sh"
 alias bup-keys="~/.dotfiles/scripts/backup/bup_keys.sh"
