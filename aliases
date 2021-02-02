@@ -66,6 +66,9 @@ alias deploy:feature='build:feature && sdf:addmissing && sdf:deploy'
 alias deploy:staged='build:staged && sdf:addmissing && sdf:deploy'
 alias deploy:release='build:release && sdf:addmissing && npm run sdf:deploy'
 
+# tolaeon
+alias okd-conn='ssh -f -q -N -C -D 1080 -J hermes.tolaeon.io root@10.0.0.100 && firefox -P okd-conn https://console-openshift-console.apps.delta.tolaeon.local'
+
 # bup
 alias bup-docs="~/.dotfiles/scripts/backup/bup_docs.sh"
 alias bup-keys="~/.dotfiles/scripts/backup/bup_keys.sh"
