@@ -31,7 +31,7 @@ windows:
   - olympus:
       layout: tiled
       panes:
-        - ssh root@olympus.tolaeon.io
+        - ssh root@hermes.tolaeon.io -p 50001
         - ssh root@192.168.1.157
   - pipeline:
       layout: main-vertical

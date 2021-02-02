@@ -40,7 +40,31 @@ alias k='kubectl'
 
 # netsuite
 alias sc='suitecloud'
-alias sdf='sdfcli'
+alias sdf='podman exec sdfcli sdfcli'
+
+# netsuite pipeline
+alias clean='rm -rf dist && mkdir -p dist/FileCabinet && mkdir -p dist/Objects'
+alias lint='eslint FileCabinet/SuiteScripts'
+alias lint:fix='eslint FileCabinet/SuiteScripts --fix'
+alias dist-grep="grep -s 'FileCabinet/.*\|Objects/.*'"
+alias cp:assets='cp deploy.xml ./dist && cp manifest.xml ./dist && cp .SDF ./dist'
+alias cp:release='git diff --name-only --diff-filter=d master.. | dist-grep | xargs -i cp --parents -p '{}' dist'
+alias cp:feature='git diff --name-only --diff-filter=d develop.. | dist-grep | xargs -i cp --parents -p '{}' dist'
+alias cp:staged='git diff --name-only --diff-filter=d --cached | dist-grep | xargs -i cp --parents -p '{}' dist'
+alias build:feature='clean && cp:assets && cp:feature'
+alias build:staged='clean && cp:assets && cp:staged'
+alias build:release='clean && cp:assets && cp:release'
+#alias sdf:issue='sdf issuetoken -account $account -email $email -role $role -url $url'
+alias sdf:deploy='sdf deploy -v -sw -np -p dist -authid $authid'
+#alias sc:deploy='suitecloud project:deploy'
+alias sdf:validate='sdf validate -p dist -authid $authid'
+alias sdf:preview='sdf preview -p dist -authid $authid'
+alias sdf:missing='sdf listmissingdependencies -p dist'
+alias sdf:addmissing='expect -f ./answerbot.exp'
+#alias sc:addmissing='suitecloud project:adddependencies'
+alias deploy:feature='build:feature && sdf:addmissing && sdf:deploy'
+alias deploy:staged='build:staged && sdf:addmissing && sdf:deploy'
+alias deploy:release='build:release && sdf:addmissing && npm run sdf:deploy'
 
 # bup
 alias bup-docs="~/.dotfiles/scripts/backup/bup_docs.sh"
