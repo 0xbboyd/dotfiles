@@ -35,6 +35,7 @@
 
   # Amend the currently staged files to the latest commit
   amend = commit --amend --reuse-message=HEAD
+	open-mr = push -o merge_request.create
 
 [color]
 
