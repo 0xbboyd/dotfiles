@@ -28,7 +28,7 @@ alias k='kubectl'
 
 # netsuite
 alias sc='suitecloud'
-alias sdf='podman exec sdfcli sdfcli'
+alias sdf='podman run --rm -it --env-file=.SDF --user=root -v sdf-data:/root/.sdf:z -v suitecloud-sdk-data:/root/.suitecloud-sdk:z -v $PWD:/root/src:Z -w /root/src tolaeon/sdf-docker:latest sdfcli'
 
 # netsuite pipeline
 alias clean='rm -rf dist && mkdir -p dist/FileCabinet && mkdir -p dist/Objects'
@@ -42,7 +42,7 @@ alias cp:staged='git diff --name-only --diff-filter=d --cached | dist-grep | xar
 alias build:feature='clean && cp:assets && cp:feature'
 alias build:staged='clean && cp:assets && cp:staged'
 alias build:release='clean && cp:assets && cp:release'
-#alias sdf:issue='sdf issuetoken -account $account -email $email -role $role -url $url'
+alias sdf:authenticate='sdf authenticate -account $account -authid $authid -savetoken -tokenid $tokenid -tokensecret $tokensecret'
 alias sdf:deploy='sdf deploy -v -sw -np -p dist -authid $authid'
 #alias sc:deploy='suitecloud project:deploy'
 alias sdf:validate='sdf validate -p dist -authid $authid'
@@ -52,7 +52,7 @@ alias sdf:addmissing='expect -f ./answerbot.exp'
 #alias sc:addmissing='suitecloud project:adddependencies'
 alias deploy:feature='build:feature && sdf:addmissing && sdf:deploy'
 alias deploy:staged='build:staged && sdf:addmissing && sdf:deploy'
-alias deploy:release='build:release && sdf:addmissing && npm run sdf:deploy'
+alias deploy:release='build:release && sdf:addmissing && sdf:deploy'
 
 # tolaeon
 alias okd-dev-socks-fg='ssh -C okd-dev-socks'

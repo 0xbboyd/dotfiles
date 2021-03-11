@@ -1,0 +1,10 @@
+[Unit]
+Description=Backup local system on a scheduled basis
+Requires=backup.service
+
+[Timer]
+Unit=backup.service
+OnCalendar=2:00:00
+
+[Install]
+WantedBy=timers.target

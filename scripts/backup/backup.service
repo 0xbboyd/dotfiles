@@ -1,0 +1,6 @@
+[Unit]
+Description=Backs up machine to olympus server
+Wants=network.service
+
+[Service]
+ExecStart=/home/bboyd/.dotfiles/scripts/backup/backup.sh
