@@ -25,6 +25,7 @@ alias timestamp='date +%s'
 
 # k8s
 alias k='kubectl'
+alias toc='ssh okd-dev-lb oc'
 
 # netsuite
 alias sc='suitecloud'
