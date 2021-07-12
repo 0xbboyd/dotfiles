@@ -19,9 +19,20 @@ POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
 antigen theme bhilburn/powerlevel9k powerlevel9k
 
 antigen bundles <<EOBUNDLES
+ansible
+aws
 command-not-found
+common-aliases
 extract
+emacs
+dnf
 git
+git-flow
+kubectl
+rsync
+sudo
+systemd
+terraform
 node
 npm
 golang
@@ -29,9 +40,6 @@ vagrant
 tmux
 tmuxinator
 colored-man-pages
-zsh-users/zsh-completions src
-zsh-users/zsh-history-substring-search
-zsh-users/zsh-syntax-highlighting
 EOBUNDLES
 
 # apply antigen config

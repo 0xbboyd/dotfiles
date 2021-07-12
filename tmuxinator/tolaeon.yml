@@ -32,21 +32,8 @@ windows:
       layout: tiled
       panes:
         - ssh root@olympus.tolaeon.io
-  - pipeline:
+  - kbst:
       layout: main-vertical
-      root: ~/src/tolaeon/pipeline
+      root: ~/src/tolaeon/kubestack-tolaeon
       panes:
-        - emacs -nw
-        - git status
-  - delta-studio:
-      layout: main-vertical
-      root: ~/src/tolaeon/delta-studio
-      panes:
-        - emacs -nw
-        - git status
-  - kubeinit:
-      layout: main-vertical
-      root: ~/src/tolaeon/kubeinit
-      panes:
-        - emacs -nw
         - git status

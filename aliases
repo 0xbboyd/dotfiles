@@ -23,6 +23,12 @@ alias grep='grep -s --color=auto --exclude-dir=\.svn --exclude-dir=\.git'
 alias realpath="python -c 'import os,sys;print os.path.realpath(sys.argv[1])'"
 alias timestamp='date +%s'
 
+#podman
+alias docker='podman'
+
+#kubestack
+alias kbst-run='podman run --rm -it -v $PWD:/infra:Z localhost/kubestack:v0.14.1-beta.0'
+
 # k8s
 alias k='kubectl'
 alias toc='ssh okd-dev-lb oc'
@@ -44,16 +50,17 @@ alias build:feature='clean && cp:assets && cp:feature'
 alias build:staged='clean && cp:assets && cp:staged'
 alias build:release='clean && cp:assets && cp:release'
 alias sdf:authenticate='sdf authenticate -account $account -authid $authid -savetoken -tokenid $tokenid -tokensecret $tokensecret'
-alias sdf:deploy='sdf deploy -v -sw -np -p dist -authid $authid'
+alias sdf:update='sdf update -authid $authid -p dist -scriptid'
+alias sdf:deploy='sdf deploy -sw -np -p dist -authid $authid'
 #alias sc:deploy='suitecloud project:deploy'
-alias sdf:validate='sdf validate -p dist -authid $authid'
+alias sdf:validate='sdf validate -p dist -authid $authid -s'
 alias sdf:preview='sdf preview -p dist -authid $authid'
 alias sdf:missing='sdf listmissingdependencies -p dist'
 alias sdf:addmissing='expect -f ./answerbot.exp'
 #alias sc:addmissing='suitecloud project:adddependencies'
 alias deploy:feature='build:feature && sdf:addmissing && sdf:deploy'
 alias deploy:staged='build:staged && sdf:addmissing && sdf:deploy'
-alias deploy:release='build:release && sdf:addmissing && sdf:deploy'
+alias deploy:release='build:release && sdf:addmissing && sdf:validate && sdf:deploy'
 
 # tolaeon
 alias okd-dev-socks-fg='ssh -C okd-dev-socks'
