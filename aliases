@@ -2,7 +2,7 @@
 alias ll='ls -ohF --color=auto'
 alias l='ll'
 alias la='ll -A'
-alias lsd='tree -dL 2'
+alias lsd='tree -dCL 2'
 
 # directory changing
 alias ..="cd .."
@@ -22,16 +22,18 @@ alias cp='cp -i'
 alias grep='grep -s --color=auto --exclude-dir=\.svn --exclude-dir=\.git'
 alias realpath="python -c 'import os,sys;print os.path.realpath(sys.argv[1])'"
 alias timestamp='date +%s'
+command -v bat > /dev/null && alias cat='bat --paging=never'
+command -v bat > /dev/null && alias less='bat'
 
 #podman
-alias docker='podman'
+# alias docker='podman'
 
 #kubestack
-alias kbst-run='podman run --rm -it -v $PWD:/infra:Z localhost/kubestack:v0.14.1-beta.0'
+# alias kbst-run='podman run --rm -it -v $PWD:/infra:Z localhost/kubestack:v0.14.1-beta.0'
 
 # k8s
 alias k='kubectl'
-alias toc='ssh okd-dev-lb oc'
+# alias toc='ssh okd-dev-lb oc'
 
 # netsuite
 alias sc='suitecloud'
@@ -63,23 +65,23 @@ alias deploy:staged='build:staged && sdf:addmissing && sdf:deploy'
 alias deploy:release='build:release && sdf:addmissing && sdf:validate && sdf:deploy'
 
 # tolaeon
-alias okd-dev-socks-fg='ssh -C okd-dev-socks'
-alias okd-dev-socks-bg='ssh -f -q -N -C okd-dev-socks'
-alias okd-dev-open='firefox -P okd-conn https://console-openshift-console.apps.delta.tolaeon.local'
+# alias okd-dev-socks-fg='ssh -C okd-dev-socks'
+# alias okd-dev-socks-bg='ssh -f -q -N -C okd-dev-socks'
+# alias okd-dev-open='firefox -P okd-conn https://console-openshift-console.apps.delta.tolaeon.local'
 
 # bup
-alias backup="rsync -avuzbP /home/bboyd root@hermes.tolaeon.io:/mnt/backups/desktop/home"
-alias bup-docs="~/.dotfiles/scripts/backup/bup_docs.sh"
-alias bup-keys="~/.dotfiles/scripts/backup/bup_keys.sh"
+# alias backup="rsync -avuzbP /home/bboyd root@hermes.tolaeon.io:/mnt/backups/desktop/home"
+# alias bup-docs="~/.dotfiles/scripts/backup/bup_docs.sh"
+# alias bup-keys="~/.dotfiles/scripts/backup/bup_keys.sh"
 
 # set gopath to pwd
-alias gopath="export GOPATH=\`pwd\`"
+# alias gopath="export GOPATH=\`pwd\`"
 
 # Intuitive map function
 # For example, to list all directories that contain a certain file:
 # find . -name .gitattributes | map dirname
-alias map="xargs -n1"
+# alias map="xargs -n1"
 
 ### Linux
-alias empty-trash="gvfs-trash --empty"
+# alias empty-trash="gvfs-trash --empty"
 
