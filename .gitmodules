@@ -1,9 +1,9 @@
 [submodule "external/dotbot"]
 	path = external/dotbot
 	url = https://github.com/anishathalye/dotbot
-; [submodule "external/gws"]
-; 	path = external/gws
-; 	url = https://github.com/StreakyCobra/gws
+[submodule "external/gws"]
+	path = external/gws
+	url = https://github.com/StreakyCobra/gws
 [submodule "external/antigen"]
 	path = external/antigen
 	url = https://github.com/zsh-users/antigen.git
