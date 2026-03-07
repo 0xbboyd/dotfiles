@@ -144,7 +144,7 @@ endif
 filetype plugin indent on
 
 """ SYSTEM CLIPBOARD COPY & PASTE SUPPORT
-set pastetoggle=<F2> "F2 before pasting to preserve indentation
+" set pastetoggle=<F2> "F2 before pasting to preserve indentation (NOT SUPPORTED IN MODERN NVIM)
 "Copy paste to/from clipboard
 vnoremap <C-c> "*y
 map <silent><Leader>p :set paste<CR>o<esc>"*]p:set nopaste<cr>"

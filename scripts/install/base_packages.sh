@@ -10,7 +10,6 @@ sudo apt-get install -y xclip \
                         vim-addon-manager \
                         tmux \
                         tmuxinator \
-                        neovim \
                         npm \
                         gnupg \
                         jq \
