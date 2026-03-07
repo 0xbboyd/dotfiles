@@ -2,6 +2,7 @@
 
 sudo apt-get update
 sudo apt-get install -y xclip \
+                        wl-clipboard \
                         tree \
                         git \
                         zsh \

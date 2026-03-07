@@ -25,6 +25,8 @@ config.scrollback_lines = 10000
 
 -- Keybindings
 config.keys = {
+  -- Ctrl + V to paste from clipboard
+  { key = 'V', mods = 'CTRL', action = wezterm.action.PasteFrom 'Clipboard' },
   -- Cmd/Ctrl + Shift + L to show the debug overlay
   { key = 'L', mods = 'CTRL|SHIFT', action = wezterm.action.ShowDebugOverlay },
 }
