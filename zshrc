@@ -29,6 +29,7 @@ antigen theme romkatv/powerlevel10k powerlevel10k
 antigen bundles <<EOBUNDLES
 ansible
 aws
+autovenv
 command-not-found
 common-aliases
 extract
@@ -80,9 +81,9 @@ calc() {
   awk "BEGIN{ print $* }"
 }
 
-# export NVM_DIR="/home/bboyd/.nvm"
-# [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-# export NODE_PATH=$NODE_PATH:/home/bboyd/.nvm/versions/node/v10.14.2/lib/node_modules
+export NVM_DIR="/home/bboyd/.nvm"
+[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
+export NODE_PATH=$NODE_PATH:/home/bboyd/.nvm/versions/node/v18.18.1/lib/node_modules
 
 # if [ $TILIX_ID ] || [ $VTE_VERSION ]; then
 #    source /etc/profile.d/vte.sh
@@ -98,3 +99,15 @@ HIST_STAMPS=mm/dd/yyyy
 HISTSIZE=5000
 SAVEHIST=5000
 [ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
+
+export PATH=$PATH:/usr/local/go/bin
+export PATH="$HOME/go/bin:$PATH"
+export PATH="/home/bboyd/src/flutter/bin:$PATH"
+
+# opencode
+export PATH=/home/bboyd/.opencode/bin:$PATH
+
+# 1Password CLI — sign in at shell startup so op run never prompts mid-command
+if command -v op &>/dev/null; then
+    eval "$(op signin 2>/dev/null)" 2>/dev/null || true
+fi

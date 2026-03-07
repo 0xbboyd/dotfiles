@@ -1,13 +1,1 @@
 
-jinnifyme | git@gitlab.com:bboyd/jinnifyme.git
-
-tolaeon/sdf-docker | git@gitlab.com:tolaeon/sdf-docker.git
-tolaeon/sdf-starter | git@gitlab.com:tolaeon/sdf-starter.git
-tolaeon/suiteconnect-cli | git@gitlab.com:tolaeon/suiteconnect-cli.git
-tolaeon/ns-work-queue | git@gitlab.com:tolaeon/ns-work-queue.git
-
-keeco/netsuite | git@gitlab.com:keeco/netsuite-account.git
-
-## upstream example
-# work/netsuite-deploy | git@github.com:BlueBanyanSolutions/netsuite-deploy.git | https://github.com/michoelchaikin/netsuite-deploy.git
-
