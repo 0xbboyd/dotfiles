@@ -10,6 +10,6 @@ SCRIPTDIR="$(dirname $(readlink -f $0))"
 BASEDIR="$(cd ${SCRIPTDIR}/.. && pwd)"
 
 cd "${BASEDIR}"
-git submodule update --init --recursive "${DOTBOT_DIR}"
+# git submodule update --init --recursive "${DOTBOT_DIR}"
 
-"${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"
+PYTHONPATH="${BASEDIR}/${DOTBOT_DIR}/src" python3 "${BASEDIR}/${DOTBOT_DIR}/${DOTBOT_BIN}" -d "${BASEDIR}" -c "${CONFIG}" "${@}"

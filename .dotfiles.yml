@@ -4,6 +4,7 @@
     - "git submodule update --init --recursive external/gws"
     - "git submodule update --init --recursive external/antigen"
     - "mkdir -p ~/src"
+    - "mkdir -p ~/.config"
     - "mkdir -p ~/.local/bin"
     - "mkdir -p ~/.local/share"
     - "mkdir -p ~/.local/tools"
@@ -37,6 +38,9 @@
     # tools / scripts
     "~/.local/bin/gws": "external/gws/src/gws"
     "~/.local/bin/git_delete_stale_branches": "scripts/commands/git_delete_stale_branches.sh"
+    "~/.local/bin/clip-image": "scripts/commands/clip_image.sh"
 
     # other config
     "~/src/.projects.gws": "src/projects.gws"
+    "~/.config/nvim": "config/nvim"
+    "~/.wezterm.lua": "config/wezterm.lua"

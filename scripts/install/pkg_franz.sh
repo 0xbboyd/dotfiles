@@ -3,24 +3,13 @@
 sudo rm -fr /opt/franz
 sudo rm -fr /usr/share/applications/franz.desktop
 
-
 # create installation dir
 sudo mkdir -p /opt/franz
 
-#install franz
-wget -qO- https://github.com/meetfranz/franz-app/releases/download/4.0.4/Franz-linux-x64-4.0.4.tgz | sudo tar xvz -C /opt/franz/
+# Install Franz (Update to 5.10.0)
+FRANZ_VERSION="5.10.0"
+wget -q "https://github.com/meetfranz/franz/releases/download/v${FRANZ_VERSION}/franz_${FRANZ_VERSION}_amd64.deb" -O /tmp/franz.deb
+sudo apt-get install -y /tmp/franz.deb
+rm /tmp/franz.deb
 
-# add app icon
-sudo wget "https://cdn-images-1.medium.com/max/360/1*v86tTomtFZIdqzMNpvwIZw.png" -O /opt/franz/franz-icon.png
-
-# configure app for desktop use
-sudo bash -c "cat <<EOF > /usr/share/applications/franz.desktop                                                                 
-[Desktop Entry]
-Name=Franz
-Comment=
-Exec=/opt/franz/Franz
-Icon=/opt/franz/franz-icon.png
-Terminal=false
-Type=Application
-Categories=Messaging,Internet
-EOF"
+echo "Franz ${FRANZ_VERSION} installed successfully."

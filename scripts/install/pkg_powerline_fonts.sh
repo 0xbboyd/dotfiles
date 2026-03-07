@@ -1,9 +1,15 @@
-#! /bin/sh
+#!/usr/bin/env sh
 
 # install powerline & powerline fonts
-su -c 'pip install git+git://github.com/Lokaltog/powerline'
+# Powerline utility (Python)
+sudo apt-get install -y python3-powerline
 
+# Powerline fonts repository
 mkdir -p ~/src/tools && cd ~/src/tools
-git clone https://github.com/powerline/fonts.git
-fonts/install.sh
+if [ ! -d "fonts" ]; then
+    git clone https://github.com/powerline/fonts.git
+fi
+cd fonts
+./install.sh
 
+echo "Powerline fonts installed."

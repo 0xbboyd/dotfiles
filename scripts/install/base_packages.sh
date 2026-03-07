@@ -9,6 +9,7 @@ sudo apt-get install -y xclip \
                         vim-addon-manager \
                         tmux \
                         tmuxinator \
+                        neovim \
                         npm \
                         gnupg \
                         jq \
@@ -21,6 +22,6 @@ sudo apt-get install -y xclip \
                         keepass2 \
                         caffeine \
                         htop \
-                        python-pip \
+                        python3-pip \
                         dia \
                         tig \

@@ -12,7 +12,7 @@ export LANG=en_US.UTF-8
 # general settings
 COMPLETION_WAITING_DOTS="true"
 
-source $HOME/.dotfiles/external/antigen/antigen.zsh
+source $HOME/src/dotfiles/external/antigen/antigen.zsh
 
 # oh my zsh framework
 antigen use oh-my-zsh
@@ -89,7 +89,9 @@ export NODE_PATH=$NODE_PATH:/home/bboyd/.nvm/versions/node/v18.18.1/lib/node_mod
 #    source /etc/profile.d/vte.sh
 # fi
 
-eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# if [ -d "/home/linuxbrew/.linuxbrew" ]; then
+#    eval "$(/home/linuxbrew/.linuxbrew/bin/brew shellenv)"
+# fi
 
 # To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
 [[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh

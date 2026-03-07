@@ -1,3 +1,8 @@
+# editors
+alias v='nvim'
+alias vi='nvim'
+alias vim='nvim'
+
 # directory listing
 alias ll='ls -ohF --color=auto'
 alias l='ll'

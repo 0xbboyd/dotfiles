@@ -1,6 +1,6 @@
 #!/usr/bin/env sh
 
-sudo sh -c 'echo "deb [arch=amd64] https://apt-mo.trafficmanager.net/repos/dotnet-release/ xenial main" > /etc/apt/sources.list.d/dotnetdev.list'
-sudo apt-key adv --keyserver apt-mo.trafficmanager.net --recv-keys 417A0893
+# .NET SDK Installation for Ubuntu 24.04
+# Ubuntu 24.04 has .NET SDK in the official repositories.
 sudo apt-get update
-sudo apt-get install dotnet-dev-2.0.0-preview1-005977
+sudo apt-get install -y dotnet-sdk-8.0
