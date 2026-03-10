@@ -16,6 +16,9 @@ config.window_background_opacity = 0.95
 config.enable_tab_bar = true
 config.hide_tab_bar_if_only_one_tab = true
 
+-- Wayland: disable native Wayland to avoid buffer scale mismatch on HiDPI
+config.enable_wayland = false
+
 -- Performance
 config.scrollback_lines = 10000
 

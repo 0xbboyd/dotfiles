@@ -13,15 +13,9 @@ sudo apt-get install -y xclip \
                         npm \
                         gnupg \
                         jq \
-                        geoclue-2.0 \
-                        redshift \
-                        redshift-gtk \
                         ppa-purge \
                         network-manager-openvpn \
                         network-manager-openvpn-gnome \
-                        keepass2 \
-                        caffeine \
                         htop \
                         python3-pip \
-                        dia \
                         tig \
