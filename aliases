@@ -90,3 +90,4 @@ alias deploy:release='build:release && sdf:addmissing && sdf:validate && sdf:dep
 ### Linux
 # alias empty-trash="gvfs-trash --empty"
 
+alias muxit='tmuxinator start universal'
