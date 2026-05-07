@@ -434,5 +434,6 @@ if __name__ == "__main__":
     patch_tmux(p)
     patch_yazi(p)
     patch_nvim(p)
+    patch_p10k(p)
     patch_lazygit(p)
-    print(f"\nDone. Restart tmux/yazi/nvim/lazygit to see changes.")
+    print(f"\nDone. Restart tmux/yazi/nvim/p10k/lazygit to see changes.")
