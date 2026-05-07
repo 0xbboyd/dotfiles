@@ -1,3 +1,10 @@
+# OPENSPEC:START
+# OpenSpec shell completions configuration
+fpath=("/home/bboyd/.zsh/completions" $fpath)
+autoload -Uz compinit
+compinit
+# OPENSPEC:END
+
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
@@ -109,7 +116,36 @@ export PATH="/home/bboyd/src/flutter/bin:$PATH"
 # opencode
 export PATH=/home/bboyd/.opencode/bin:$PATH
 
+# Gemini commit message
+function gcommit() {
+  diff=$(git diff --staged)
+
+  if [ -z "$diff" ]; then
+    echo "No staged changes to commit."
+    return 1
+  fi
+  echo "Generating commit message..."
+  msg=$(echo "$diff" | gemini -p "Write a concise Conventional Commit message for this diff. Output ONLY the message.")
+  git commit -m "$msg"
+}
+
 # 1Password CLI — sign in at shell startup so op run never prompts mid-command
 if command -v op &>/dev/null; then
     eval "$(op signin 2>/dev/null)" 2>/dev/null || true
 fi
+
+#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
+export SDKMAN_DIR="$HOME/.sdkman"
+[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
+
+# bun completions
+[ -s "/home/bboyd/.bun/_bun" ] && source "/home/bboyd/.bun/_bun"
+
+# bun
+export BUN_INSTALL="$HOME/.bun"
+export PATH="$BUN_INSTALL/bin:$PATH"
+export PATH="$(npm prefix -g)/bin:$PATH"
+
+# peon-ping quick controls
+alias peon="bash /home/bboyd/.claude/hooks/peon-ping/peon.sh"
+[ -f /home/bboyd/.claude/hooks/peon-ping/completions.bash ] && source /home/bboyd/.claude/hooks/peon-ping/completions.bash

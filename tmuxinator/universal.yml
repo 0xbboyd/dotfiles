@@ -4,8 +4,8 @@ name: <%= File.basename(Dir.pwd).gsub('.', '_') %>
 root: <%= Dir.pwd %>
 
 windows:
-  - editor:
-      layout: main-vertical
+  - <%= File.basename(Dir.pwd) %>:
+      layout: even-horizontal
       panes:
-        - nvim .
-        - 
+        - hermes sessions browse
+        - yazi
