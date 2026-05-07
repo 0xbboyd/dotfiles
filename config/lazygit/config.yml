@@ -1,0 +1,30 @@
+# Yendo Cowboy lazygit theme
+# Generated from config/yendo-cowboy/palette.yaml — do not edit by hand.
+gui:
+  theme:
+    activeBorderColor:
+      - '#e87530'
+      - bold
+    inactiveBorderColor:
+      - '#a0522d'
+    searchingActiveBorderColor:
+      - '#f5a623'
+      - bold
+    optionsTextColor:
+      - '#f5a623'
+    selectedLineBgColor:
+      - '#2d1810'
+    inactiveViewSelectedLineBgColor:
+      - '#2d1810'
+    cherryPickedCommitFgColor:
+      - '#fff5e1'
+    cherryPickedCommitBgColor:
+      - '#c4522a'
+    markedBaseCommitFgColor:
+      - '#fff5e1'
+    markedBaseCommitBgColor:
+      - '#f5a623'
+    unstagedChangesColor:
+      - '#ef5350'
+    defaultFgColor:
+      - '#fff5e1'
