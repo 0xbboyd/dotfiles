@@ -59,9 +59,29 @@ def patch_tmux(p):
 
 
 def patch_yazi(p):
-    """Verify palette hexes exist — yazi theme has too many icons for full generation."""
+    """Verify palette hexes exist and ensure flavor is activated.
+    yazi theme has too many icons for full generation."""
     path = DOTFILES / "config/yazi/theme.toml"
     content = path.read_text()
+
+    # Ensure [flavor] section activates yendo-cowboy
+    flavor_block = "[flavor]\ndark = \"yendo-cowboy\"\n"
+    if flavor_block not in content:
+        # Insert after the palette comment block (after last '#' comment before [mgr])
+        lines = content.splitlines(keepends=True)
+        insert_at = None
+        for i, line in enumerate(lines):
+            if line.startswith("[mgr]"):
+                insert_at = i
+                break
+        if insert_at is not None:
+            lines.insert(insert_at, "\n" + flavor_block + "\n")
+            content = "".join(lines)
+            path.write_text(content)
+            print(f"  yazi theme.toml — added [flavor] section")
+        else:
+            print(f"  yazi: WARNING — could not find [mgr] section to insert [flavor]")
+
     palette_hexes = set(p.values())
     found = set()
     for line in content.splitlines():

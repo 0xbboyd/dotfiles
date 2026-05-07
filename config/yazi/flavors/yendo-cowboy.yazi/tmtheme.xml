@@ -1,0 +1,217 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE plist PUBLIC "-//Apple//DTD PLIST 1.0//EN" "http://www.apple.com/DTDs/PropertyList-1.0.dtd">
+<plist version="1.0">
+<dict>
+  <key>name</key>
+  <string>Yendo Cowboy</string>
+  <key>author</key>
+  <string>Brendan Boyd</string>
+  <key>semanticClass</key>
+  <string>theme.dark.yendo-cowboy</string>
+  <key>colorSpaceName</key>
+  <string>sRGB</string>
+  <key>gutterSettings</key>
+  <dict>
+    <key>background</key>            <string>#1a0f0a</string>
+    <key>foreground</key>            <string>#8b4513</string>
+  </dict>
+  <key>settings</key>
+  <array>
+    <!-- Global defaults -->
+    <dict>
+      <key>settings</key>
+      <dict>
+        <key>background</key>        <string>#1a0f0a</string>
+        <key>foreground</key>        <string>#fff5e1</string>
+        <key>caret</key>             <string>#fff5e1</string>
+        <key>selection</key>         <string>#2d1810</string>
+        <key>invisibles</key>        <string>#3d1e0f</string>
+        <key>lineHighlight</key>     <string>#2d1810</string>
+        <key>findHighlight</key>     <string>#f5a623</string>
+        <key>findHighlightForeground</key> <string>#1a0f0a</string>
+        <key>guide</key>             <string>#2d1810</string>
+        <key>activeGuide</key>       <string>#c4522a</string>
+      </dict>
+    </dict>
+
+    <!-- Comment — saddle brown, italic -->
+    <dict>
+      <key>name</key>  <string>Comment</string>
+      <key>scope</key> <string>comment, punctuation.definition.comment</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#8b4513</string>
+        <key>fontStyle</key>  <string>italic</string>
+      </dict>
+    </dict>
+
+    <!-- String — prairie green -->
+    <dict>
+      <key>name</key>  <string>String</string>
+      <key>scope</key> <string>string, string constant.character.escape, string constant.character</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#4caf50</string>
+      </dict>
+    </dict>
+
+    <!-- Constant / Number — golden amber -->
+    <dict>
+      <key>name</key>  <string>Constant</string>
+      <key>scope</key> <string>constant.numeric, constant.language, constant.other, constant.character.escape</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#f5a623</string>
+      </dict>
+    </dict>
+
+    <!-- Keyword — sunset orange, bold -->
+    <dict>
+      <key>name</key>  <string>Keyword</string>
+      <key>scope</key> <string>keyword, keyword.control, keyword.operator</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#e87530</string>
+        <key>fontStyle</key>  <string>bold</string>
+      </dict>
+    </dict>
+
+    <!-- Storage (type/modifier keywords) — sunset orange -->
+    <dict>
+      <key>name</key>  <string>Storage</string>
+      <key>scope</key> <string>storage, storage.type, storage.modifier</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#e87530</string>
+      </dict>
+    </dict>
+
+    <!-- Entity (functions, types, classes) — sunset orange -->
+    <dict>
+      <key>name</key>  <string>Entity</string>
+      <key>scope</key> <string>entity.name.function, entity.name.type, entity.name.class, entity.name.tag, entity.other.inherited-class</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#e87530</string>
+      </dict>
+    </dict>
+
+    <!-- Support (built-in functions/types) — rust red -->
+    <dict>
+      <key>name</key>  <string>Support</string>
+      <key>scope</key> <string>support.function, support.type, support.class, support.constant</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#c4522a</string>
+      </dict>
+    </dict>
+
+    <!-- Variable / parameter — warm cream -->
+    <dict>
+      <key>name</key>  <string>Variable</string>
+      <key>scope</key> <string>variable, variable.parameter, variable.other, variable.language</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#fff5e1</string>
+      </dict>
+    </dict>
+
+    <!-- Invalid / error — fire red bg -->
+    <dict>
+      <key>name</key>  <string>Invalid</string>
+      <key>scope</key> <string>invalid, invalid.deprecated, invalid.illegal</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#ef5350</string>
+        <key>fontStyle</key>  <string>bold</string>
+      </dict>
+    </dict>
+
+    <!-- Punctuation / operators — sienna -->
+    <dict>
+      <key>name</key>  <string>Punctuation</string>
+      <key>scope</key> <string>punctuation, punctuation.definition, keyword.operator</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#a0522d</string>
+      </dict>
+    </dict>
+
+    <!-- Markup heading — sunset orange, bold -->
+    <dict>
+      <key>name</key>  <string>Heading</string>
+      <key>scope</key> <string>markup.heading, markup.heading.*</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#e87530</string>
+        <key>fontStyle</key>  <string>bold</string>
+      </dict>
+    </dict>
+
+    <!-- Markup bold — golden amber -->
+    <dict>
+      <key>name</key>  <string>Bold</string>
+      <key>scope</key> <string>markup.bold</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#f5a623</string>
+        <key>fontStyle</key>  <string>bold</string>
+      </dict>
+    </dict>
+
+    <!-- Markup italic — sienna -->
+    <dict>
+      <key>name</key>  <string>Italic</string>
+      <key>scope</key> <string>markup.italic</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#a0522d</string>
+        <key>fontStyle</key>  <string>italic</string>
+      </dict>
+    </dict>
+
+    <!-- Markup link / raw — sienna -->
+    <dict>
+      <key>name</key>  <string>Link</string>
+      <key>scope</key> <string>markup.underline.link, markup.raw, markup.raw.inline</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#c4522a</string>
+      </dict>
+    </dict>
+
+    <!-- Diff additions — prairie green -->
+    <dict>
+      <key>name</key>  <string>Diff Added</string>
+      <key>scope</key> <string>markup.inserted, markup.inserted.*, meta.diff.header.added, meta.diff.range.added</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#4caf50</string>
+      </dict>
+    </dict>
+
+    <!-- Diff deletions — fire red -->
+    <dict>
+      <key>name</key>  <string>Diff Deleted</string>
+      <key>scope</key> <string>markup.deleted, markup.deleted.*, meta.diff.header.deleted, meta.diff.range.deleted</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#ef5350</string>
+      </dict>
+    </dict>
+
+    <!-- Diff changes — golden amber -->
+    <dict>
+      <key>name</key>  <string>Diff Changed</string>
+      <key>scope</key> <string>markup.changed, markup.changed.*, meta.diff.header.changed, meta.diff.range.changed</string>
+      <key>settings</key>
+      <dict>
+        <key>foreground</key> <string>#f5a623</string>
+      </dict>
+    </dict>
+
+  </array>
+  <key>uuid</key>
+  <string>yendo-cowboy-001</string>
+</dict>
+</plist>

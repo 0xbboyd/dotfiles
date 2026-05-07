@@ -35,7 +35,6 @@ tab_inactive    = { fg = "#a0522d", bg = "#2d1810" }
 tab_width       = 1
 border_symbol   = "│"
 border_style    = { fg = "#a0522d" }
-syntect_theme   = ""
 
 [status]
 separator_open  = ""
