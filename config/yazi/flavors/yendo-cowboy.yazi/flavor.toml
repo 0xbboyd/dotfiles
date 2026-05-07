@@ -1,0 +1,165 @@
+# Yendo Cowboy — Yazi flavor
+# Dusty sunset cowboy aesthetic ported from the yendo-agent TUI skin.
+# Warm rusts, ambers, saddle browns, parchment creams, fire accents.
+#
+# Palette:
+#   #1a0f0a  deep mahogany   — darkest background
+#   #2d1810  dark saddle     — secondary background
+#   #3d1e0f  mid leather     — tertiary background
+#   #8b4513  saddle brown    — muted/dim text
+#   #a0522d  sienna          — subdued accents, borders
+#   #c4522a  rust red        — primary accent, borders, labels
+#   #e87530  sunset orange   — primary text accent, headings
+#   #f5a623  golden amber    — highlights, selections, mode badges
+#   #fff5e1  warm cream      — primary foreground text
+#   #4caf50  prairie green   — success / executable / ok
+#   #ef5350  fire red        — errors, delete, cut
+
+[mgr]
+cwd = { fg = "#e87530", bold = true }
+
+# File list entries
+hovered         = { fg = "#fff5e1", bg = "#3d1e0f", bold = true }
+previewed       = { bg = "#2d1810" }
+count_copied    = { fg = "#1a0f0a", bg = "#4caf50" }
+count_cut       = { fg = "#1a0f0a", bg = "#ef5350" }
+count_selected  = { fg = "#1a0f0a", bg = "#f5a623" }
+find_keyword    = { fg = "#f5a623", bold = true, italic = true }
+find_position   = { fg = "#c4522a", bold = true }
+marker_copied   = { fg = "#4caf50",  bg = "#4caf50" }
+marker_cut      = { fg = "#ef5350",  bg = "#ef5350" }
+marker_marked   = { fg = "#f5a623",  bg = "#f5a623" }
+marker_selected = { fg = "#f5a623",  bg = "#f5a623" }
+tab_active      = { fg = "#fff5e1", bg = "#c4522a", bold = true }
+tab_inactive    = { fg = "#a0522d", bg = "#2d1810" }
+tab_width       = 1
+border_symbol   = "│"
+border_style    = { fg = "#a0522d" }
+syntect_theme   = ""
+
+[status]
+separator_open  = ""
+separator_close = ""
+separator_style = { fg = "#a0522d", bg = "#1a0f0a" }
+
+mode_normal = { fg = "#1a0f0a", bg = "#f5a623", bold = true }
+mode_select = { fg = "#1a0f0a", bg = "#4caf50", bold = true }
+mode_unset  = { fg = "#fff5e1", bg = "#8b4513", bold = true }
+
+progress_label  = { fg = "#fff5e1", bold = true }
+progress_normal = { fg = "#e87530", bg = "#2d1810" }
+progress_error  = { fg = "#ef5350", bg = "#2d1810" }
+
+permissions_t = { fg = "#8b4513" }
+permissions_r = { fg = "#f5a623" }
+permissions_w = { fg = "#ef5350" }
+permissions_x = { fg = "#4caf50" }
+permissions_s = { fg = "#c4522a" }
+
+[input]
+border   = { fg = "#c4522a" }
+title    = { fg = "#e87530", bold = true }
+value    = { fg = "#fff5e1" }
+selected = { reversed = true }
+
+[select]
+border   = { fg = "#c4522a" }
+active   = { fg = "#f5a623", bold = true }
+inactive = { fg = "#8b4513" }
+
+[tasks]
+border  = { fg = "#c4522a" }
+title   = { fg = "#e87530", bold = true }
+hovered = { underline = true }
+
+[which]
+mask            = { bg = "#1a0f0a" }
+cand            = { fg = "#e87530" }
+rest            = { fg = "#8b4513" }
+desc            = { fg = "#fff5e1" }
+separator       = "  "
+separator_style = { fg = "#c4522a" }
+
+[notify]
+title_info  = { fg = "#f5a623", bold = true }
+title_warn  = { fg = "#e87530", bold = true }
+title_error = { fg = "#ef5350", bold = true }
+icon_info   = ""
+icon_warn   = ""
+icon_error  = ""
+border_info  = { fg = "#f5a623" }
+border_warn  = { fg = "#e87530" }
+border_error = { fg = "#ef5350" }
+
+[help]
+on      = { fg = "#f5a623" }
+exec    = { fg = "#e87530" }
+desc    = { fg = "#fff5e1" }
+hovered = { bg = "#2d1810", bold = true }
+footer  = { fg = "#fff5e1", bg = "#a0522d" }
+
+[filetype]
+rules = [
+  # Directories — sunset orange
+  { mime = "inode/directory",                 fg = "#e87530", bold = true },
+
+  # Images — amber
+  { mime = "image/*",                         fg = "#f5a623" },
+
+  # Video — rust red
+  { mime = "video/*",                         fg = "#c4522a" },
+
+  # Audio — prairie green
+  { mime = "audio/*",                         fg = "#4caf50" },
+
+  # Archives / compressed — sienna
+  { mime = "application/zip",                 fg = "#a0522d" },
+  { mime = "application/gzip",                fg = "#a0522d" },
+  { mime = "application/x-tar",               fg = "#a0522d" },
+  { mime = "application/x-bzip*",             fg = "#a0522d" },
+  { mime = "application/x-7z-compressed",     fg = "#a0522d" },
+  { mime = "application/x-rar",               fg = "#a0522d" },
+  { mime = "application/x-xz",               fg = "#a0522d" },
+  { mime = "application/zstd",               fg = "#a0522d" },
+
+  # Documents — warm cream (slightly dimmed)
+  { mime = "application/pdf",                 fg = "#fff5e1" },
+  { mime = "application/msword",              fg = "#fff5e1" },
+  { mime = "application/vnd.openxmlformats*", fg = "#fff5e1" },
+  { mime = "text/csv",                        fg = "#fff5e1" },
+
+  # Executables — prairie green
+  { mime = "application/x-executable",        fg = "#4caf50", bold = true },
+  { mime = "application/x-sharedlib",         fg = "#4caf50" },
+  { mime = "application/x-pie-executable",    fg = "#4caf50", bold = true },
+
+  # Source / code — sunset orange
+  { mime = "text/x-*",                        fg = "#e87530" },
+  { mime = "application/json",                fg = "#e87530" },
+  { mime = "application/x-yaml",              fg = "#e87530" },
+  { mime = "application/toml",                fg = "#e87530" },
+  { mime = "text/html",                       fg = "#e87530" },
+  { mime = "text/css",                        fg = "#e87530" },
+  { mime = "text/javascript",                 fg = "#e87530" },
+
+  # Plain text — cream
+  { mime = "text/*",                          fg = "#fff5e1" },
+
+  # Symlinks — amber italic
+  { mime = "inode/symlink",                   fg = "#f5a623", italic = true },
+
+  # Sockets / pipes — saddle brown
+  { mime = "inode/socket",                    fg = "#8b4513" },
+  { mime = "inode/fifo",                      fg = "#8b4513" },
+
+  # Block / char devices — rust dim
+  { mime = "inode/blockdevice",               fg = "#c4522a" },
+  { mime = "inode/chardevice",                fg = "#c4522a" },
+
+  # Orphaned symlink — fire red
+  { mime = "inode/symlink/*",                 fg = "#ef5350" },
+
+  # Fallback
+  { name = "*",  fg = "#fff5e1" },
+  { name = "*/", fg = "#e87530", bold = true },
+]
