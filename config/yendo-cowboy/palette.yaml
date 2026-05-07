@@ -1,0 +1,30 @@
+# Yendo Cowboy — canonical palette
+# Source of truth for tmux, yazi, nvim, and any future tools.
+# Edit colors here, then run generate.sh to propagate.
+#
+# Semantic names:
+#   bg          deep mahogany     — primary backgrounds
+#   bg_darker   darker earth      — deepest bg (tmux status, nvim bg_dark)
+#   bg_mid      dark saddle       — secondary bg (hover, gutter, section B)
+#   bg_tertiary mid leather       — tertiary bg (visual select, diff text)
+#   fg          warm cream        — primary foreground / text
+#   primary     sunset orange     — primary accent, active elements
+#   accent      golden amber      — highlights, warnings, info, amber
+#   border      rust red          — borders, separators, purple/cyan replacement
+#   ok          prairie green     — success, insert mode, exec icons
+#   error       fire red          — errors, delete, replace mode
+#   dim         saddle brown      — muted text, comments, inactive
+#   muted       sienna            — subdued text, secondary fg, tab borders
+
+bg:         "#1a0f0a"
+bg_darker:  "#0d0704"
+bg_mid:     "#2d1810"
+bg_tertiary: "#3d1e0f"
+fg:         "#fff5e1"
+primary:    "#e87530"
+accent:     "#f5a623"
+border:     "#c4522a"
+ok:         "#4caf50"
+error:      "#ef5350"
+dim:        "#8b4513"
+muted:      "#a0522d"
