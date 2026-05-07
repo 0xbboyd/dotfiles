@@ -191,21 +191,35 @@ def _nvim_lualine(p):
 
 def patch_nvim(p):
     path = DOTFILES / "config/nvim/lua/plugins/colorscheme.lua"
-    content = path.read_text()
+    lines = path.read_text().splitlines(keepends=True)
 
-    # Replace on_colors body between sentinel markers
+    # Replace on_colors body between sentinel markers (line-based, can't compound)
     on_colors_block = _nvim_on_colors(p)
-    pattern = r'(-- ── BEGIN_ON_COLORS ──.*?\n)(.*?)(\n.*?-- ── END_ON_COLORS ──)'
-    replacement = r'\1' + on_colors_block + r'\3'
-    content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+    begin_oc, end_oc = None, None
+    for i, line in enumerate(lines):
+        if "BEGIN_ON_COLORS" in line:
+            begin_oc = i
+        elif "END_ON_COLORS" in line:
+            end_oc = i
+    if begin_oc is None or end_oc is None:
+        print("ERROR: nvim sentinel markers for on_colors not found", file=sys.stderr)
+        return
+    lines[begin_oc + 1 : end_oc] = [on_colors_block + "\n"]
 
     # Replace lualine theme body between sentinel markers
     lualine_block = _nvim_lualine(p)
-    pattern = r'(-- ── BEGIN_LUALINE ──.*?\n)(.*?)(\n.*?-- ── END_LUALINE ──)'
-    replacement = r'\1' + lualine_block + r'\3'
-    content = re.sub(pattern, replacement, content, flags=re.DOTALL)
+    begin_ll, end_ll = None, None
+    for i, line in enumerate(lines):
+        if "BEGIN_LUALINE" in line:
+            begin_ll = i
+        elif "END_LUALINE" in line:
+            end_ll = i
+    if begin_ll is None or end_ll is None:
+        print("ERROR: nvim sentinel markers for lualine not found", file=sys.stderr)
+        return
+    lines[begin_ll + 1 : end_ll] = [lualine_block + "\n"]
 
-    path.write_text(content)
+    path.write_text("".join(lines))
     print(f"  nvim colorscheme.lua — regenerated on_colors + lualine theme")
 
 
