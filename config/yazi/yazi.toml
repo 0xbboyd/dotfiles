@@ -1,3 +1,6 @@
+[mgr]
+ratio = [1, 2, 5]
+
 [plugin]
 prepend_previewers = [
   { url = "*.csv",     run = "duckdb" },
