@@ -5,6 +5,7 @@ Reads config/yendo-cowboy/palette.yaml, then regenerates color sections in:
   - tmux.conf
   - config/yazi/theme.toml  (hex verification only — icons are manual)
   - config/nvim/lua/plugins/colorscheme.lua
+  - config/btop/themes/yendo-cowboy.theme
 
 Usage:  python3 config/yendo-cowboy/generate.py
 """
@@ -1018,6 +1019,98 @@ def patch_p10k(p):
     path.write_text(content)
     print(f"  ~/.p10k.zsh — patched")
 
+def patch_btop(p):
+    """Generate config/btop/themes/yendo-cowboy.theme from the palette."""
+    path = DOTFILES / "config/btop/themes/yendo-cowboy.theme"
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    content = textwrap.dedent(f"""\
+    # Theme: Yendo Cowboy
+    # Generated from config/yendo-cowboy/palette.yaml — do not edit by hand.
+    # Run: python3 config/yendo-cowboy/generate.py
+
+    # Main bg
+    theme[main_bg]="{p['bg']}"
+
+    # Main text color
+    theme[main_fg]="{p['fg']}"
+
+    # Title color for boxes
+    theme[title]="{p['primary']}"
+
+    # Highlight color for keyboard shortcuts
+    theme[hi_fg]="{p['accent']}"
+
+    # Background color of selected item in processes box
+    theme[selected_bg]="{p['bg_mid']}"
+
+    # Foreground color of selected item in processes box
+    theme[selected_fg]="{p['fg']}"
+
+    # Color of inactive/disabled text
+    theme[inactive_fg]="{p['dim']}"
+
+    # Misc colors for processes box including mini cpu graphs, details memory graph and details status text
+    theme[proc_misc]="{p['accent']}"
+
+    # Cpu box outline color
+    theme[cpu_box]="{p['primary']}"
+
+    # Memory/disks box outline color
+    theme[mem_box]="{p['ok']}"
+
+    # Net up/down box outline color
+    theme[net_box]="{p['accent']}"
+
+    # Processes box outline color
+    theme[proc_box]="{p['border']}"
+
+    # Box divider line and small boxes line color
+    theme[div_line]="{p['muted']}"
+
+    # Temperature graph colors
+    theme[temp_start]="{p['ok']}"
+    theme[temp_mid]="{p['accent']}"
+    theme[temp_end]="{p['error']}"
+
+    # CPU graph colors
+    theme[cpu_start]="{p['ok']}"
+    theme[cpu_mid]="{p['accent']}"
+    theme[cpu_end]="{p['error']}"
+
+    # Mem/Disk free meter
+    theme[free_start]="{p['ok']}"
+    theme[free_mid]="{p['accent']}"
+    theme[free_end]="{p['error']}"
+
+    # Mem/Disk cached meter
+    theme[cached_start]="{p['bg_tertiary']}"
+    theme[cached_mid]="{p['muted']}"
+    theme[cached_end]="{p['accent']}"
+
+    # Mem/Disk available meter
+    theme[available_start]="{p['ok']}"
+    theme[available_mid]="{p['accent']}"
+    theme[available_end]="{p['primary']}"
+
+    # Mem/Disk used meter
+    theme[used_start]="{p['ok']}"
+    theme[used_mid]="{p['accent']}"
+    theme[used_end]="{p['error']}"
+
+    # Download graph colors
+    theme[download_start]="{p['bg_tertiary']}"
+    theme[download_mid]="{p['muted']}"
+    theme[download_end]="{p['accent']}"
+
+    # Upload graph colors
+    theme[upload_start]="{p['dim']}"
+    theme[upload_mid]="{p['primary']}"
+    theme[upload_end]="{p['error']}"
+    """)
+    path.write_text(content)
+    print(f"  config/btop/themes/yendo-cowboy.theme — generated")
+
 
 def patch_lazygit(p):
     """Generate config/lazygit/config.yml from the yendo-cowboy palette."""
@@ -1069,5 +1162,6 @@ if __name__ == "__main__":
     patch_nvim_colors(p)
     patch_nvim(p)
     patch_p10k(p)
+    patch_btop(p)
     patch_lazygit(p)
-    print(f"\nDone. Restart tmux/yazi/nvim/p10k/lazygit to see changes.")
+    print(f"\nDone. Restart tmux/yazi/nvim/p10k/btop/lazygit to see changes.")
