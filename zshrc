@@ -34,24 +34,21 @@ export TERM="xterm-256color"
 antigen theme romkatv/powerlevel10k powerlevel10k
 
 antigen bundles <<EOBUNDLES
-ansible
-aws
 autovenv
 command-not-found
 common-aliases
 extract
-dnf
 git
 git-flow
+gh
+podman
 kubectl
 rsync
 sudo
 systemd
-terraform
 node
 npm
 golang
-vagrant
 tmux
 tmuxinator
 colored-man-pages
