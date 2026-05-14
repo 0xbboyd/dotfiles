@@ -7,5 +7,5 @@ windows:
   - <%= File.basename(Dir.pwd) %>:
       layout: even-horizontal
       panes:
-        - hermes sessions browse
+        - hermes --yolo
         - yazi
