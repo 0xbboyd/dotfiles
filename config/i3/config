@@ -32,16 +32,14 @@ exec --no-startup-id flameshot
 # Use exec_always so i3 restarts repair a missing agent, but guard against duplicates.
 exec_always --no-startup-id sh -c 'pgrep -f "^/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1$" >/dev/null && exit 0; p=/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1; [ -x "$p" ] && exec "$p"; true'
 
-# Apply display layout every time i3 starts/restarts.
-# auto.sh chooses dual-monitor layout when HDMI-1 is connected, otherwise laptop-only.
-exec_always --no-startup-id sh -c '[ -x "$HOME/.screenlayout/auto.sh" ] && "$HOME/.screenlayout/auto.sh" || true'
-# Re-apply display layout manually after plugging/unplugging monitors.
-bindsym $mod+Shift+x exec --no-startup-id "$HOME/.screenlayout/auto.sh"
+# Apply display layout, wallpaper, and Polybar in order every time i3 starts/restarts.
+# This prevents Polybar/feh from racing XRandR monitor changes.
+exec_always --no-startup-id /home/bboyd/.screenlayout/apply-desktop.sh
+# Re-apply full desktop surface manually after plugging/unplugging monitors.
+bindsym $mod+Shift+x exec --no-startup-id /home/bboyd/.screenlayout/apply-desktop.sh
 
-# Optional compositor/background/status bar. These are intentionally dependency-safe.
+# Optional compositor. Display/background/status bar are handled by apply-desktop.sh above.
 exec --no-startup-id picom
-exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/pixel-frontier-sunset-stockcake.jpg
-exec_always --no-startup-id /home/bboyd/.config/polybar/launch.sh
 
 # Media / system keys
 set $refresh_i3status killall -SIGUSR1 i3status

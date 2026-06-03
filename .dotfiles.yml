@@ -58,13 +58,15 @@
     "~/.config/rofi/config.rasi": "config/rofi/config.rasi"
     "~/.config/flameshot/flameshot.ini": "config/flameshot/flameshot.ini"
     "~/.screenlayout/auto.sh": "screenlayout/auto.sh"
+    "~/.screenlayout/layout.sh": "screenlayout/layout.sh"
+    "~/.screenlayout/apply-desktop.sh": "screenlayout/apply-desktop.sh"
     "~/.config/autorandr": "config/autorandr"
     "~/.config/gtk-3.0/settings.ini": "config/gtk-3.0/settings.ini"
     "~/.config/gtk-4.0/settings.ini": "config/gtk-4.0/settings.ini"
     "~/.gtkrc-2.0": "gtkrc-2.0"
     "~/.config/environment.d/gtk-dark.conf": "config/environment.d/gtk-dark.conf"
     "~/.local/share/applications/org.gnome.Nautilus.desktop": "local/share/applications/org.gnome.Nautilus.desktop"
-    "~/.config/wallpapers/pixel-frontier-sunset-stockcake.jpg": "config/wallpapers/pixel-frontier-sunset-stockcake.jpg"
+    "~/.config/wallpapers/pixel-frontier-sunset-stockcake-1680x1050-focal.jpg": "config/wallpapers/pixel-frontier-sunset-stockcake-1680x1050-focal.jpg"
 
     # qutebrowser integration
     "~/.config/qutebrowser/config.py": "config/qutebrowser/config.py"

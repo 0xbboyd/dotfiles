@@ -9,10 +9,12 @@ This repo now captures the Ubuntu/GDM + i3 desktop setup built on 2026-06-02.
 - `config/rofi/config.rasi` — themed Rofi launcher config.
 - `config/flameshot/flameshot.ini` — screenshot tool config.
 - `screenlayout/auto.sh` — monitor layout auto-detection wrapper.
+- `screenlayout/layout.sh` — docked HDMI-left/eDP-right fallback XRandR layout.
+- `screenlayout/apply-desktop.sh` — applies display layout, wallpaper, and Polybar in dependency order to avoid startup races.
 - `config/autorandr/` — saved `docked` and `mobile` monitor profiles.
 - `config/gtk-3.0/settings.ini`, `config/gtk-4.0/settings.ini`, `gtkrc-2.0`, `config/environment.d/gtk-dark.conf` — GTK/libadwaita dark-mode fallbacks.
 - `local/share/applications/org.gnome.Nautilus.desktop` — Nautilus override forcing dark mode and avoiding D-Bus activation ambiguity.
-- `config/wallpapers/pixel-frontier-sunset-stockcake.jpg` — active i3 wallpaper.
+- `config/wallpapers/pixel-frontier-sunset-stockcake-1680x1050-focal.jpg` — active i3 wallpaper.
 - `config/qutebrowser/config.py` and `local/share/qutebrowser/userscripts/qute-1password-okta` — qutebrowser keybinding for 1Password-backed Okta filling.
 
 ## Packages expected on Ubuntu 24.04
@@ -50,15 +52,29 @@ Verify after login/restart:
 pgrep -af '^/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1$'
 ```
 
+### Display, wallpaper, and Polybar ordering
+
+The i3 config intentionally runs one sequenced script instead of separate `exec_always` entries for XRandR, `feh`, and Polybar:
+
+```text
+~/.screenlayout/apply-desktop.sh
+```
+
+That script applies monitor layout first, waits briefly for XRandR clients to observe final geometry, then applies the wallpaper and launches one Polybar per monitor. The manual recovery binding is:
+
+```text
+Mod+Shift+x
+```
+
 ### Wallpaper path
 
 The dotfiles-managed i3 config uses:
 
 ```text
-~/.config/wallpapers/pixel-frontier-sunset-stockcake.jpg
+~/.config/wallpapers/pixel-frontier-sunset-stockcake-1680x1050-focal.jpg
 ```
 
-The live machine previously used `~/Downloads/pixel-frontier-sunset-stockcake.jpg`; the dotfiles copy intentionally points at the managed wallpaper path.
+The live machine previously used `~/Pictures/Wallpapers/pixel-frontier-sunset-stockcake-1680x1050-focal.jpg`; the dotfiles copy intentionally points at the managed wallpaper path.
 
 ### qutebrowser + 1Password
 
