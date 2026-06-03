@@ -91,3 +91,10 @@ alias deploy:release='build:release && sdf:addmissing && sdf:validate && sdf:dep
 # alias empty-trash="gvfs-trash --empty"
 
 alias muxit='tmuxinator start universal'
+
+# Hermes focused sessions
+# Use per-invocation toolsets to stay under OpenAI's 128-tool limit while keeping GSD + Chief of Staff MCP enabled.
+alias hnet='hermes chat --toolsets terminal,file,code_execution,skills,memory,session_search,todo,clarify,vision'
+alias hplan='hermes chat --toolsets terminal,file,web,skills,memory,session_search,todo,clarify,cronjob'
+alias hfull='hermes chat'
+

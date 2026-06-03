@@ -5,8 +5,12 @@
     - "git submodule update --init --recursive external/antigen"
     - "mkdir -p ~/src"
     - "mkdir -p ~/.config"
+    - "mkdir -p ~/.config/i3 ~/.config/polybar ~/.config/rofi ~/.config/flameshot ~/.config/autorandr"
+    - "mkdir -p ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.config/environment.d ~/.config/qutebrowser ~/.config/wallpapers"
+    - "mkdir -p ~/.screenlayout"
     - "mkdir -p ~/.local/bin"
     - "mkdir -p ~/.local/share"
+    - "mkdir -p ~/.local/share/applications ~/.local/share/qutebrowser/userscripts"
     - "mkdir -p ~/.local/tools"
     - "mkdir -p ~/.vim/autoload ~/.vim/bundle ~/.vim/backups ~/.vim/swaps"
     - "rm ~/.profile"
@@ -46,3 +50,23 @@
     "~/src/.projects.gws": "src/projects.gws"
     "~/.config/nvim": "config/nvim"
     "~/.wezterm.lua": "config/wezterm.lua"
+
+    # desktop / i3 environment
+    "~/.config/i3/config": "config/i3/config"
+    "~/.config/polybar/config.ini": "config/polybar/config.ini"
+    "~/.config/polybar/launch.sh": "config/polybar/launch.sh"
+    "~/.config/rofi/config.rasi": "config/rofi/config.rasi"
+    "~/.config/flameshot/flameshot.ini": "config/flameshot/flameshot.ini"
+    "~/.screenlayout/auto.sh": "screenlayout/auto.sh"
+    "~/.config/autorandr": "config/autorandr"
+    "~/.config/gtk-3.0/settings.ini": "config/gtk-3.0/settings.ini"
+    "~/.config/gtk-4.0/settings.ini": "config/gtk-4.0/settings.ini"
+    "~/.gtkrc-2.0": "gtkrc-2.0"
+    "~/.config/environment.d/gtk-dark.conf": "config/environment.d/gtk-dark.conf"
+    "~/.local/share/applications/org.gnome.Nautilus.desktop": "local/share/applications/org.gnome.Nautilus.desktop"
+    "~/.config/wallpapers/pixel-frontier-sunset-stockcake.jpg": "config/wallpapers/pixel-frontier-sunset-stockcake.jpg"
+
+    # qutebrowser integration
+    "~/.config/qutebrowser/config.py": "config/qutebrowser/config.py"
+    "~/.local/share/qutebrowser/userscripts/qute-1password-okta": "local/share/qutebrowser/userscripts/qute-1password-okta"
+

@@ -1,0 +1,152 @@
+/* Rofi config for Brendan's i3 session.
+ * Palette matches the Yendo Cowboy i3 theme in ~/.config/i3/config.
+ */
+
+configuration {
+    modes: "drun,run,window,ssh";
+    font: "monospace 13";
+    show-icons: true;
+    icon-theme: "Papirus-Dark";
+    terminal: "wezterm";
+    drun-display-format: "{name}";
+    display-drun: "Apps";
+    display-run: "Run";
+    display-window: "Windows";
+    display-ssh: "SSH";
+    matching: "fuzzy";
+    sorting-method: "fzf";
+    sort: true;
+    case-sensitive: false;
+    cycle: true;
+    sidebar-mode: true;
+    kb-row-up: "Up,Control+p";
+    kb-row-down: "Down,Control+n";
+    kb-accept-entry: "Return,KP_Enter,Control+j";
+    kb-cancel: "Escape,Control+g";
+}
+
+* {
+    bg:          #1a0f0a;
+    bg-darker:   #0d0704;
+    bg-mid:      #2d1810;
+    bg-tertiary: #3d1e0f;
+    fg:          #fff5e1;
+    primary:     #e87530;
+    accent:      #f5a623;
+    border:      #c4522a;
+    error:       #ef5350;
+    dim:         #8b4513;
+    muted:       #a0522d;
+
+    background-color: transparent;
+    text-color: @fg;
+    font: "monospace 13";
+}
+
+window {
+    location: center;
+    anchor: center;
+    width: 42%;
+    border: 2px;
+    border-color: @primary;
+    border-radius: 14px;
+    background-color: @bg;
+    padding: 16px;
+}
+
+mainbox {
+    background-color: @bg;
+    spacing: 12px;
+    padding: 0px;
+}
+
+inputbar {
+    children: [ prompt, entry ];
+    background-color: @bg-mid;
+    border: 1px;
+    border-color: @border;
+    border-radius: 10px;
+    padding: 10px 12px;
+    spacing: 10px;
+}
+
+prompt {
+    text-color: @accent;
+    font: "monospace bold 13";
+}
+
+entry {
+    placeholder: "type to search";
+    placeholder-color: @muted;
+    text-color: @fg;
+}
+
+message {
+    background-color: @bg-mid;
+    border: 1px;
+    border-color: @error;
+    border-radius: 10px;
+    padding: 10px;
+}
+
+textbox {
+    text-color: @fg;
+}
+
+listview {
+    background-color: @bg;
+    columns: 1;
+    lines: 10;
+    fixed-height: false;
+    scrollbar: false;
+    spacing: 6px;
+}
+
+element {
+    background-color: @bg;
+    text-color: @fg;
+    border-radius: 8px;
+    padding: 8px 10px;
+    spacing: 10px;
+}
+
+element selected {
+    background-color: @primary;
+    text-color: @bg;
+}
+
+element normal active,
+element alternate active {
+    text-color: @accent;
+}
+
+element urgent,
+element selected urgent {
+    background-color: @error;
+    text-color: @bg;
+}
+
+element-icon {
+    size: 1.25em;
+}
+
+element-text {
+    text-color: inherit;
+}
+
+mode-switcher {
+    background-color: @bg;
+    spacing: 6px;
+}
+
+button {
+    background-color: @bg-mid;
+    text-color: @muted;
+    border-radius: 8px;
+    padding: 7px 10px;
+}
+
+button selected {
+    background-color: @accent;
+    text-color: @bg;
+}

@@ -158,7 +158,4 @@ rules = [
   # Orphaned symlink — fire red
   { mime = "inode/symlink/*",                 fg = "#ef5350" },
 
-  # Fallback
-  { name = "*",  fg = "#fff5e1" },
-  { name = "*/", fg = "#e87530", bold = true },
 ]

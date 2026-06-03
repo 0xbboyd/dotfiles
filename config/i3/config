@@ -1,0 +1,199 @@
+# i3 config file (v4)
+# Adapted for Brendan from https://github.com/ashyxz/dotfiles/blob/master/i3/.config/i3/config
+# Original config backed up at ~/.config/i3/config.backup-20260602-144658
+
+set $mod Mod4
+set $term wezterm
+set $layout_script ~/.screenlayout/auto.sh
+
+# Font
+font pango:monospace 11
+
+# Window appearance / gaps
+for_window [class=".*"] border pixel 2
+set $inner 10
+set $outer 0
+gaps inner $inner
+gaps outer $outer
+
+# Mouse behavior
+floating_modifier $mod
+tiling_drag modifier titlebar
+focus_follows_mouse yes
+
+# Autostart / desktop integration
+# Force libadwaita apps launched through D-Bus (notably Nautilus) to use dark mode in i3.
+exec --no-startup-id sh -c 'export ADW_DEBUG_COLOR_SCHEME=force-dark; dbus-update-activation-environment --systemd ADW_DEBUG_COLOR_SCHEME >/dev/null 2>&1 || dbus-update-activation-environment ADW_DEBUG_COLOR_SCHEME >/dev/null 2>&1; systemctl --user import-environment ADW_DEBUG_COLOR_SCHEME >/dev/null 2>&1 || true'
+exec --no-startup-id dex --autostart --environment i3
+exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id nm-applet
+exec --no-startup-id flameshot
+# Ensure GUI PAM/PolKit prompts exist in bare i3 sessions (needed by 1Password system auth).
+# Use exec_always so i3 restarts repair a missing agent, but guard against duplicates.
+exec_always --no-startup-id sh -c 'pgrep -f "^/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1$" >/dev/null && exit 0; p=/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1; [ -x "$p" ] && exec "$p"; true'
+
+# Apply display layout every time i3 starts/restarts.
+# auto.sh chooses dual-monitor layout when HDMI-1 is connected, otherwise laptop-only.
+exec_always --no-startup-id sh -c '[ -x "$HOME/.screenlayout/auto.sh" ] && "$HOME/.screenlayout/auto.sh" || true'
+# Re-apply display layout manually after plugging/unplugging monitors.
+bindsym $mod+Shift+x exec --no-startup-id "$HOME/.screenlayout/auto.sh"
+
+# Optional compositor/background/status bar. These are intentionally dependency-safe.
+exec --no-startup-id picom
+exec_always --no-startup-id feh --bg-fill ~/.config/wallpapers/pixel-frontier-sunset-stockcake.jpg
+exec_always --no-startup-id /home/bboyd/.config/polybar/launch.sh
+
+# Media / system keys
+set $refresh_i3status killall -SIGUSR1 i3status
+bindsym XF86AudioRaiseVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ +10% && $refresh_i3status
+bindsym XF86AudioLowerVolume exec --no-startup-id pactl set-sink-volume @DEFAULT_SINK@ -10% && $refresh_i3status
+bindsym XF86AudioMute exec --no-startup-id pactl set-sink-mute @DEFAULT_SINK@ toggle && $refresh_i3status
+bindsym XF86AudioMicMute exec --no-startup-id pactl set-source-mute @DEFAULT_SOURCE@ toggle && $refresh_i3status
+
+# Screenshots
+# Print: interactively select/annotate a region. Flameshot can save and/or copy from the UI.
+bindsym --release Print exec --no-startup-id flameshot gui
+# Mod+Print: capture all monitors to clipboard.
+bindsym --release $mod+Print exec --no-startup-id flameshot full -c
+# Shift+Print: save all monitors to ~/Pictures/Screenshots.
+bindsym --release Shift+Print exec --no-startup-id flameshot full -p /home/bboyd/Pictures/Screenshots
+
+# Launchers
+bindsym $mod+Return exec $term
+bindsym $mod+d exec --no-startup-id rofi -show drun
+bindsym $mod+Shift+d exec --no-startup-id rofi -show run
+bindsym $mod+Tab exec --no-startup-id rofi -show window
+# Keep dmenu as a fallback if rofi ever fails.
+bindsym $mod+Shift+p exec --no-startup-id dmenu_run
+
+# Window controls
+bindsym $mod+Shift+q kill
+bindsym $mod+q exec --no-startup-id i3lock -c 1a0f0a
+
+# Focus: vim-style h/j/k/l plus arrow keys
+bindsym $mod+h focus left
+bindsym $mod+j focus down
+bindsym $mod+k focus up
+bindsym $mod+l focus right
+bindsym $mod+Left focus left
+bindsym $mod+Down focus down
+bindsym $mod+Up focus up
+bindsym $mod+Right focus right
+
+# Move focused window
+bindsym $mod+Shift+h move left
+bindsym $mod+Shift+j move down
+bindsym $mod+Shift+k move up
+bindsym $mod+Shift+l move right
+bindsym $mod+Shift+Left move left
+bindsym $mod+Shift+Down move down
+bindsym $mod+Shift+Up move up
+bindsym $mod+Shift+Right move right
+
+# Move the current workspace between monitors/outputs.
+bindsym $mod+Ctrl+h move workspace to output left
+bindsym $mod+Ctrl+l move workspace to output right
+bindsym $mod+Ctrl+Left move workspace to output left
+bindsym $mod+Ctrl+Right move workspace to output right
+
+# Splits / layouts
+bindsym $mod+g split h
+bindsym $mod+v split v
+bindsym $mod+f fullscreen toggle
+bindsym $mod+comma layout tabbed
+bindsym $mod+s layout stacking
+bindsym $mod+e layout toggle split
+bindsym $mod+Shift+space floating toggle
+bindsym $mod+space focus mode_toggle
+bindsym $mod+a focus parent
+
+# Workspaces
+set $ws1 "1"
+set $ws2 "2"
+set $ws3 "3"
+set $ws4 "4"
+set $ws5 "5"
+set $ws6 "6"
+set $ws7 "7"
+set $ws8 "8"
+set $ws9 "9"
+set $ws10 "10"
+
+bindsym $mod+1 workspace number $ws1
+bindsym $mod+2 workspace number $ws2
+bindsym $mod+3 workspace number $ws3
+bindsym $mod+4 workspace number $ws4
+bindsym $mod+5 workspace number $ws5
+bindsym $mod+6 workspace number $ws6
+bindsym $mod+7 workspace number $ws7
+bindsym $mod+8 workspace number $ws8
+bindsym $mod+9 workspace number $ws9
+bindsym $mod+0 workspace number $ws10
+
+# Move window to workspace and follow it, like ashyxz's config.
+bindsym $mod+Shift+1 move container to workspace number $ws1; workspace number $ws1; focus
+bindsym $mod+Shift+2 move container to workspace number $ws2; workspace number $ws2; focus
+bindsym $mod+Shift+3 move container to workspace number $ws3; workspace number $ws3; focus
+bindsym $mod+Shift+4 move container to workspace number $ws4; workspace number $ws4; focus
+bindsym $mod+Shift+5 move container to workspace number $ws5; workspace number $ws5; focus
+bindsym $mod+Shift+6 move container to workspace number $ws6; workspace number $ws6; focus
+bindsym $mod+Shift+7 move container to workspace number $ws7; workspace number $ws7; focus
+bindsym $mod+Shift+8 move container to workspace number $ws8; workspace number $ws8; focus
+bindsym $mod+Shift+9 move container to workspace number $ws9; workspace number $ws9; focus
+bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number $ws10; focus
+
+# Reload / restart / logout
+bindsym $mod+Shift+c reload
+bindsym $mod+Shift+r restart
+bindsym $mod+Shift+e exec "i3-nagbar -t warning -m 'Exit i3? This will end your X session.' -B 'Yes, exit i3' 'i3-msg exit'"
+
+# Resize mode
+mode "resize" {
+    bindsym h resize shrink width 10 px or 10 ppt
+    bindsym l resize grow width 10 px or 10 ppt
+    bindsym k resize shrink height 10 px or 10 ppt
+    bindsym j resize grow height 10 px or 10 ppt
+
+    bindsym Left resize shrink width 10 px or 10 ppt
+    bindsym Right resize grow width 10 px or 10 ppt
+    bindsym Up resize shrink height 10 px or 10 ppt
+    bindsym Down resize grow height 10 px or 10 ppt
+
+    bindsym Return mode "default"
+    bindsym Escape mode "default"
+    bindsym $mod+r mode "default"
+}
+bindsym $mod+r mode "resize"
+
+# Theme: Yendo Cowboy palette from ~/src/dotfiles/config/yendo-cowboy/palette.yaml.
+# Deep mahogany backgrounds, saddle/rust borders, sunset-orange active elements.
+set $bg          #1a0f0a
+set $bg_darker   #0d0704
+set $bg_mid      #2d1810
+set $bg_tertiary #3d1e0f
+set $fg          #fff5e1
+set $primary     #e87530
+set $accent      #f5a623
+set $border      #c4522a
+set $ok          #4caf50
+set $error       #ef5350
+set $dim         #8b4513
+set $muted       #a0522d
+
+# Colors                border      backgr       text       indicator   child_border
+client.focused          $primary    $primary     $bg        $accent     $primary
+client.focused_inactive $muted      $bg_mid      $fg        $border     $muted
+client.unfocused        $dim        $bg_darker   $muted     $border     $dim
+client.urgent           $error      $error       $bg        $error      $error
+client.placeholder      $bg_mid     $bg_mid      $fg        $accent     $bg_mid
+client.background       $bg
+
+# Floating rules
+for_window [class="Rofi"] floating enable, border none
+for_window [window_role="pop-up"] floating enable
+for_window [window_role="task_dialog"] floating enable
+for_window [window_type="dialog"] floating enable
+for_window [window_type="menu"] floating enable
+
+# Polybar replaces stock i3bar. Config: ~/.config/polybar/config.ini
+# Launch: ~/.config/polybar/launch.sh

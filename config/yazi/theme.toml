@@ -145,17 +145,13 @@ rules = [
   # Documents — cream
   { mime = "application/{pdf,doc,rtf,vnd.*}",  fg = "#fff5e1" },
 
-  # Orphan symlinks — fire red bg
-  { name = "*", is = "orphan", bg = "#ef5350" },
+  # Directories — sunset orange
+  { mime = "inode/directory", fg = "#e87530", bold = true },
 
   # Executables — prairie green
-  { name = "*", is = "exec", fg = "#4caf50", bold = true },
-
-  # Directories — sunset orange
-  { name = "*/", fg = "#e87530", bold = true },
-
-  # Fallback
-  { name = "*", fg = "#fff5e1" },
+  { mime = "application/x-executable", fg = "#4caf50", bold = true },
+  { mime = "application/x-pie-executable", fg = "#4caf50", bold = true },
+  { mime = "application/x-sharedlib", fg = "#4caf50" },
 ]
 
 [icon]

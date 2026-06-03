@@ -21,6 +21,10 @@ URL to ssh:
 
     git remote set-url origin git@github.com:firemound/dotfiles.git
 
+## Desktop customizations
+
+The current Ubuntu/GDM + i3 desktop setup is documented in [`docs/i3-desktop-customizations.md`](docs/i3-desktop-customizations.md). It captures i3, Polybar, Rofi, Flameshot, autorandr, GTK dark-mode fallbacks, qutebrowser/1Password integration, and the active wallpaper.
+
 ## Recources
 
 A brief list of helpful tools and resources:
