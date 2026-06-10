@@ -1,0 +1,78 @@
+# Herdr config — Yendo Cowboy
+# Generated from config/yendo-cowboy/palette.yaml — do not edit theme colors by hand.
+# Run: python3 config/yendo-cowboy/generate.py
+
+onboarding = false
+
+[theme]
+# Herdr does not support arbitrary named custom themes yet; use the neutral base
+# and override its palette with Yendo Cowboy tokens.
+name = "terminal"
+
+[theme.custom]
+panel_bg = "#1a0f0a"
+accent = "#e87530"
+green = "#4caf50"
+blue = "#c4522a"
+red = "#ef5350"
+yellow = "#f5a623"
+
+[terminal]
+new_cwd = "follow"
+
+[keys]
+# Match ~/.tmux.conf's screen-style prefix.
+prefix = "ctrl+z"
+
+# tmux-like tab/window lifecycle.
+new_tab = "prefix+c"
+close_tab = "prefix+k"
+previous_tab = ["prefix+ctrl+h", "prefix+p"]
+next_tab = ["prefix+ctrl+l", "prefix+n"]
+switch_tab = "prefix+1..9"
+
+# tmux-like pane actions.
+split_horizontal = "prefix+h"
+split_vertical = "prefix+v"
+last_pane = "prefix+ctrl+a"
+close_pane = "prefix+x"
+zoom = "prefix+z"
+resize_mode = "prefix+shift+r"
+
+# Prefix+r reloads config, matching tmux's source-file binding.
+reload_config = "prefix+r"
+
+# Keep vim-style pane movement where it does not conflict with the tmux split binding.
+focus_pane_left = "prefix+left"
+focus_pane_down = "prefix+j"
+focus_pane_up = "prefix+up"
+focus_pane_right = "prefix+l"
+navigate_pane_left = "h"
+navigate_pane_down = "j"
+navigate_pane_up = "k"
+navigate_pane_right = "l"
+
+# Useful workspace/navigation defaults retained.
+detach = "prefix+q"
+workspace_picker = "prefix+w"
+goto = "prefix+g"
+new_workspace = "prefix+shift+n"
+new_worktree = "prefix+shift+g"
+rename_workspace = "prefix+shift+w"
+close_workspace = "prefix+shift+d"
+rename_tab = "prefix+shift+t"
+edit_scrollback = "prefix+["
+copy_mode = ""
+cycle_pane_next = "prefix+tab"
+cycle_pane_previous = "prefix+shift+tab"
+toggle_sidebar = "prefix+b"
+
+[ui]
+show_agent_labels_on_pane_borders = true
+accent = "#e87530"
+
+[ui.toast]
+delivery = "system"
+
+[experimental]
+pane_history = true
