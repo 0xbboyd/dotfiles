@@ -22,10 +22,12 @@ tiling_drag modifier titlebar
 focus_follows_mouse yes
 
 # Autostart / desktop integration
+# Disable automatic idle blanking/locking; manual lock remains on $mod+q.
+exec --no-startup-id xset s off -dpms s noblank
 # Force libadwaita apps launched through D-Bus (notably Nautilus) to use dark mode in i3.
 exec --no-startup-id sh -c 'export ADW_DEBUG_COLOR_SCHEME=force-dark; dbus-update-activation-environment --systemd ADW_DEBUG_COLOR_SCHEME >/dev/null 2>&1 || dbus-update-activation-environment ADW_DEBUG_COLOR_SCHEME >/dev/null 2>&1; systemctl --user import-environment ADW_DEBUG_COLOR_SCHEME >/dev/null 2>&1 || true'
 exec --no-startup-id dex --autostart --environment i3
-exec --no-startup-id xss-lock --transfer-sleep-lock -- i3lock --nofork
+exec --no-startup-id xss-lock --transfer-sleep-lock -- /home/bboyd/.config/i3/scripts/lock.sh
 exec --no-startup-id nm-applet
 exec --no-startup-id flameshot
 # Ensure GUI PAM/PolKit prompts exist in bare i3 sessions (needed by 1Password system auth).
@@ -52,9 +54,9 @@ bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOUR
 # Print: interactively select/annotate a region. Flameshot can save and/or copy from the UI.
 bindsym --release Print exec --no-startup-id flameshot gui
 # Mod+Print: capture all monitors to clipboard.
-bindsym --release $mod+Print exec --no-startup-id flameshot full -c
+bindsym --release $mod+Print exec --no-startup-id flameshot screen -c
 # Shift+Print: save all monitors to ~/Pictures/Screenshots.
-bindsym --release Shift+Print exec --no-startup-id flameshot full -p /home/bboyd/Pictures/Screenshots
+bindsym --release Shift+Print exec --no-startup-id flameshot screen -p /home/bboyd/Pictures/Screenshots
 
 # Launchers
 bindsym $mod+Return exec $term
@@ -66,7 +68,7 @@ bindsym $mod+Shift+p exec --no-startup-id dmenu_run
 
 # Window controls
 bindsym $mod+Shift+q kill
-bindsym $mod+q exec --no-startup-id i3lock -c 1a0f0a
+bindsym $mod+q exec --no-startup-id /home/bboyd/.config/i3/scripts/lock.sh
 
 # Focus: vim-style h/j/k/l plus arrow keys
 bindsym $mod+h focus left

@@ -6,6 +6,7 @@ Reads config/yendo-cowboy/palette.yaml, then regenerates color sections in:
   - config/yazi/theme.toml  (hex verification only — icons are manual)
   - config/nvim/lua/plugins/colorscheme.lua
   - config/btop/themes/yendo-cowboy.theme
+  - config/herdr/config.toml
 
 Usage:  python3 config/yendo-cowboy/generate.py
 """
@@ -1112,6 +1113,95 @@ def patch_btop(p):
     print(f"  config/btop/themes/yendo-cowboy.theme — generated")
 
 
+def patch_herdr(p):
+    """Generate config/herdr/config.toml with tmux-like keys and Yendo Cowboy colors."""
+    path = DOTFILES / "config/herdr/config.toml"
+    path.parent.mkdir(parents=True, exist_ok=True)
+
+    content = textwrap.dedent(f"""\
+    # Herdr config — Yendo Cowboy
+    # Generated from config/yendo-cowboy/palette.yaml — do not edit theme colors by hand.
+    # Run: python3 config/yendo-cowboy/generate.py
+
+    onboarding = false
+
+    [theme]
+    # Herdr does not support arbitrary named custom themes yet; use the neutral base
+    # and override its palette with Yendo Cowboy tokens.
+    name = "terminal"
+
+    [theme.custom]
+    panel_bg = "{p['bg']}"
+    accent = "{p['primary']}"
+    green = "{p['ok']}"
+    blue = "{p['border']}"
+    red = "{p['error']}"
+    yellow = "{p['accent']}"
+
+    [terminal]
+    new_cwd = "follow"
+
+    [keys]
+    # Match ~/.tmux.conf's screen-style prefix.
+    prefix = "ctrl+z"
+
+    # tmux-like tab/window lifecycle.
+    new_tab = "prefix+c"
+    close_tab = "prefix+k"
+    previous_tab = ["prefix+ctrl+h", "prefix+p"]
+    next_tab = ["prefix+ctrl+l", "prefix+n"]
+    switch_tab = "prefix+1..9"
+
+    # tmux-like pane actions.
+    split_horizontal = "prefix+h"
+    split_vertical = "prefix+v"
+    last_pane = "prefix+ctrl+a"
+    close_pane = "prefix+x"
+    zoom = "prefix+z"
+    resize_mode = "prefix+shift+r"
+
+    # Prefix+r reloads config, matching tmux's source-file binding.
+    reload_config = "prefix+r"
+
+    # Keep vim-style pane movement where it does not conflict with the tmux split binding.
+    focus_pane_left = "prefix+left"
+    focus_pane_down = "prefix+j"
+    focus_pane_up = "prefix+up"
+    focus_pane_right = "prefix+l"
+    navigate_pane_left = "h"
+    navigate_pane_down = "j"
+    navigate_pane_up = "k"
+    navigate_pane_right = "l"
+
+    # Useful workspace/navigation defaults retained.
+    detach = "prefix+q"
+    workspace_picker = "prefix+w"
+    goto = "prefix+g"
+    new_workspace = "prefix+shift+n"
+    new_worktree = "prefix+shift+g"
+    rename_workspace = "prefix+shift+w"
+    close_workspace = "prefix+shift+d"
+    rename_tab = "prefix+shift+t"
+    edit_scrollback = "prefix+["
+    copy_mode = ""
+    cycle_pane_next = "prefix+tab"
+    cycle_pane_previous = "prefix+shift+tab"
+    toggle_sidebar = "prefix+b"
+
+    [ui]
+    show_agent_labels_on_pane_borders = true
+    accent = "{p['primary']}"
+
+    [ui.toast]
+    delivery = "system"
+
+    [experimental]
+    pane_history = true
+    """)
+    path.write_text(content)
+    print(f"  config/herdr/config.toml — generated")
+
+
 def patch_lazygit(p):
     """Generate config/lazygit/config.yml from the yendo-cowboy palette."""
     path = DOTFILES / "config/lazygit/config.yml"
@@ -1163,5 +1253,6 @@ if __name__ == "__main__":
     patch_nvim(p)
     patch_p10k(p)
     patch_btop(p)
+    patch_herdr(p)
     patch_lazygit(p)
-    print(f"\nDone. Restart tmux/yazi/nvim/p10k/btop/lazygit to see changes.")
+    print(f"\nDone. Restart tmux/yazi/nvim/p10k/btop/herdr/lazygit to see changes.")

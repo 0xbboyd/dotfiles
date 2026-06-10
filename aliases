@@ -97,4 +97,5 @@ alias muxit='tmuxinator start universal'
 alias hnet='hermes chat --toolsets terminal,file,code_execution,skills,memory,session_search,todo,clarify,vision'
 alias hplan='hermes chat --toolsets terminal,file,web,skills,memory,session_search,todo,clarify,cronjob'
 alias hfull='hermes chat'
+alias hcm='git-hermes-commit-message'
 
