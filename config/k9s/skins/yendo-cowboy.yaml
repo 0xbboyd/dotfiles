@@ -1,0 +1,112 @@
+# Yendo Cowboy k9s skin
+# Generated from config/yendo-cowboy/palette.yaml — do not edit by hand.
+# Run: python3 config/yendo-cowboy/generate.py
+
+bg: &bg "#1a0f0a"
+bg_darker: &bg_darker "#0d0704"
+bg_mid: &bg_mid "#2d1810"
+bg_tertiary: &bg_tertiary "#3d1e0f"
+fg: &fg "#fff5e1"
+primary: &primary "#e87530"
+accent: &accent "#f5a623"
+border: &border "#c4522a"
+ok: &ok "#4caf50"
+error: &error "#ef5350"
+dim: &dim "#8b4513"
+muted: &muted "#a0522d"
+
+k9s:
+  body:
+    fgColor: *fg
+    bgColor: *bg
+    logoColor: *primary
+
+  prompt:
+    fgColor: *fg
+    bgColor: *bg_darker
+    suggestColor: *accent
+
+  info:
+    fgColor: *accent
+    sectionColor: *primary
+
+  dialog:
+    fgColor: *fg
+    bgColor: *bg
+    buttonFgColor: *bg_darker
+    buttonBgColor: *primary
+    buttonFocusFgColor: *bg_darker
+    buttonFocusBgColor: *accent
+    labelFgColor: *accent
+    fieldFgColor: *fg
+
+  frame:
+    border:
+      fgColor: *muted
+      focusColor: *primary
+
+    menu:
+      fgColor: *fg
+      keyColor: *accent
+      numKeyColor: *primary
+
+    crumbs:
+      fgColor: *bg_darker
+      bgColor: *primary
+      activeColor: *accent
+
+    status:
+      newColor: *accent
+      modifyColor: *primary
+      addColor: *ok
+      errorColor: *error
+      highlightColor: *accent
+      killColor: *error
+      completedColor: *dim
+
+    title:
+      fgColor: *fg
+      bgColor: *bg_mid
+      highlightColor: *primary
+      counterColor: *accent
+      filterColor: *border
+
+  views:
+    charts:
+      bgColor: default
+      defaultDialColors:
+        - *ok
+        - *error
+      defaultChartColors:
+        - *primary
+        - *accent
+
+    table:
+      fgColor: *fg
+      bgColor: *bg
+      cursorColor: *bg_mid
+      header:
+        fgColor: *accent
+        bgColor: *bg_darker
+        sorterColor: *primary
+
+    xray:
+      fgColor: *fg
+      bgColor: *bg
+      cursorColor: *bg_mid
+      graphicColor: *primary
+      showIcons: false
+
+    yaml:
+      keyColor: *primary
+      colonColor: *border
+      valueColor: *fg
+
+    logs:
+      fgColor: *fg
+      bgColor: *bg_darker
+      indicator:
+        fgColor: *fg
+        bgColor: *bg_mid
+        toggleOnColor: *ok
+        toggleOffColor: *muted

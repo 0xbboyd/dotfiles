@@ -7,6 +7,7 @@ Reads config/yendo-cowboy/palette.yaml, then regenerates color sections in:
   - config/nvim/lua/plugins/colorscheme.lua
   - config/btop/themes/yendo-cowboy.theme
   - config/herdr/config.toml
+  - config/k9s/skins/yendo-cowboy.yaml
 
 Usage:  python3 config/yendo-cowboy/generate.py
 """
@@ -1242,6 +1243,128 @@ def patch_lazygit(p):
     print(f"  config/lazygit/config.yml — generated")
 
 
+def patch_k9s(p):
+    """Generate config/k9s/skins/yendo-cowboy.yaml from the palette."""
+    path = DOTFILES / "config/k9s/skins/yendo-cowboy.yaml"
+    path.parent.mkdir(parents=True, exist_ok=True)
+    content = textwrap.dedent(f"""\
+    # Yendo Cowboy k9s skin
+    # Generated from config/yendo-cowboy/palette.yaml — do not edit by hand.
+    # Run: python3 config/yendo-cowboy/generate.py
+
+    bg: &bg "{p['bg']}"
+    bg_darker: &bg_darker "{p['bg_darker']}"
+    bg_mid: &bg_mid "{p['bg_mid']}"
+    bg_tertiary: &bg_tertiary "{p['bg_tertiary']}"
+    fg: &fg "{p['fg']}"
+    primary: &primary "{p['primary']}"
+    accent: &accent "{p['accent']}"
+    border: &border "{p['border']}"
+    ok: &ok "{p['ok']}"
+    error: &error "{p['error']}"
+    dim: &dim "{p['dim']}"
+    muted: &muted "{p['muted']}"
+
+    k9s:
+      body:
+        fgColor: *fg
+        bgColor: *bg
+        logoColor: *primary
+
+      prompt:
+        fgColor: *fg
+        bgColor: *bg_darker
+        suggestColor: *accent
+
+      info:
+        fgColor: *accent
+        sectionColor: *primary
+
+      dialog:
+        fgColor: *fg
+        bgColor: *bg
+        buttonFgColor: *bg_darker
+        buttonBgColor: *primary
+        buttonFocusFgColor: *bg_darker
+        buttonFocusBgColor: *accent
+        labelFgColor: *accent
+        fieldFgColor: *fg
+
+      frame:
+        border:
+          fgColor: *muted
+          focusColor: *primary
+
+        menu:
+          fgColor: *fg
+          keyColor: *accent
+          numKeyColor: *primary
+
+        crumbs:
+          fgColor: *bg_darker
+          bgColor: *primary
+          activeColor: *accent
+
+        status:
+          newColor: *accent
+          modifyColor: *primary
+          addColor: *ok
+          errorColor: *error
+          highlightColor: *accent
+          killColor: *error
+          completedColor: *dim
+
+        title:
+          fgColor: *fg
+          bgColor: *bg_mid
+          highlightColor: *primary
+          counterColor: *accent
+          filterColor: *border
+
+      views:
+        charts:
+          bgColor: default
+          defaultDialColors:
+            - *ok
+            - *error
+          defaultChartColors:
+            - *primary
+            - *accent
+
+        table:
+          fgColor: *fg
+          bgColor: *bg
+          cursorColor: *bg_mid
+          header:
+            fgColor: *accent
+            bgColor: *bg_darker
+            sorterColor: *primary
+
+        xray:
+          fgColor: *fg
+          bgColor: *bg
+          cursorColor: *bg_mid
+          graphicColor: *primary
+          showIcons: false
+
+        yaml:
+          keyColor: *primary
+          colonColor: *border
+          valueColor: *fg
+
+        logs:
+          fgColor: *fg
+          bgColor: *bg_darker
+          indicator:
+            fgColor: *fg
+            bgColor: *bg_mid
+            toggleOnColor: *ok
+            toggleOffColor: *muted
+    """)
+    path.write_text(content)
+    print(f"  config/k9s/skins/yendo-cowboy.yaml — generated")
+
+
 if __name__ == "__main__":
     p = load_palette()
     print(f"Palette: {len(p)} colors from config/yendo-cowboy/palette.yaml")
@@ -1255,4 +1378,5 @@ if __name__ == "__main__":
     patch_btop(p)
     patch_herdr(p)
     patch_lazygit(p)
-    print(f"\nDone. Restart tmux/yazi/nvim/p10k/btop/herdr/lazygit to see changes.")
+    patch_k9s(p)
+    print(f"\nDone. Restart tmux/yazi/nvim/p10k/btop/herdr/lazygit/k9s to see changes.")

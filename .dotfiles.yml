@@ -6,6 +6,7 @@
     - "mkdir -p ~/src"
     - "mkdir -p ~/.config"
     - "mkdir -p ~/.config/i3 ~/.config/polybar ~/.config/rofi ~/.config/flameshot ~/.config/autorandr ~/.config/herdr"
+    - "mkdir -p ~/.config/k9s/skins"
     - "mkdir -p ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.config/environment.d ~/.config/qutebrowser ~/.config/wallpapers"
     - "mkdir -p ~/.screenlayout"
     - "mkdir -p ~/.local/bin"
@@ -52,6 +53,7 @@
     "~/.config/nvim": "config/nvim"
     "~/.wezterm.lua": "config/wezterm.lua"
     "~/.config/herdr/config.toml": "config/herdr/config.toml"
+    "~/.config/k9s/skins/yendo-cowboy.yaml": "config/k9s/skins/yendo-cowboy.yaml"
 
     # desktop / i3 environment
     "~/.config/i3/config": "config/i3/config"
