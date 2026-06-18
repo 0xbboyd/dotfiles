@@ -29,6 +29,7 @@ exec --no-startup-id sh -c 'export ADW_DEBUG_COLOR_SCHEME=force-dark; dbus-updat
 exec --no-startup-id dex --autostart --environment i3
 exec --no-startup-id xss-lock --transfer-sleep-lock -- /home/bboyd/.config/i3/scripts/lock.sh
 exec --no-startup-id nm-applet
+exec --no-startup-id blueman-applet
 exec --no-startup-id flameshot
 # Ensure GUI PAM/PolKit prompts exist in bare i3 sessions (needed by 1Password system auth).
 # Use exec_always so i3 restarts repair a missing agent, but guard against duplicates.
@@ -63,6 +64,7 @@ bindsym $mod+Return exec $term
 bindsym $mod+d exec --no-startup-id rofi -show drun
 bindsym $mod+Shift+d exec --no-startup-id rofi -show run
 bindsym $mod+Tab exec --no-startup-id rofi -show window
+bindsym $mod+Shift+a exec --no-startup-id /home/bboyd/.config/i3/scripts/bluetooth-audio-picker.sh
 # Keep dmenu as a fallback if rofi ever fails.
 bindsym $mod+Shift+p exec --no-startup-id dmenu_run
 

@@ -58,6 +58,7 @@
     # desktop / i3 environment
     "~/.config/i3/config": "config/i3/config"
     "~/.config/i3/scripts/lock.sh": "config/i3/scripts/lock.sh"
+    "~/.config/i3/scripts/bluetooth-audio-picker.sh": "config/i3/scripts/bluetooth-audio-picker.sh"
     "~/.config/polybar/config.ini": "config/polybar/config.ini"
     "~/.config/polybar/launch.sh": "config/polybar/launch.sh"
     "~/.config/rofi/config.rasi": "config/rofi/config.rasi"
