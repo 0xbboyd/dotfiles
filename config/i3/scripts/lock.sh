@@ -13,8 +13,20 @@ WALLPAPER="$HOME/.config/wallpapers/pixel-frontier-sunset-stockcake-1680x1050-fo
 DISPLAY_VALUE="${DISPLAY:-:0}"
 LOCK_STYLE="${LOCK_STYLE:-gradient}"
 MODE="${1:-}"
+LOCK_PID_FILE="${XDG_RUNTIME_DIR:-/tmp}/i3lock-yendo.pid"
 
 mkdir -p "$CACHE_DIR"
+
+if [[ "$MODE" != "--preview" ]]; then
+    if [[ -s "$LOCK_PID_FILE" ]]; then
+        existing_pid="$(cat "$LOCK_PID_FILE" 2>/dev/null || true)"
+        if [[ "$existing_pid" =~ ^[0-9]+$ ]] && kill -0 "$existing_pid" 2>/dev/null; then
+            exit 0
+        fi
+    fi
+    printf '%s\n' "$$" > "$LOCK_PID_FILE"
+    trap 'rm -f "$LOCK_PID_FILE"' EXIT
+fi
 
 fallback_lock() {
     if [[ "$MODE" == "--preview" ]]; then
