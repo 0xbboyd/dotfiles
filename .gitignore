@@ -1,1 +1,4 @@
 scripts/backup/backup.tar.gz.gpg
+# Machine-local secrets — must never be tracked
+**/*.local
+**/secrets.env

@@ -31,7 +31,7 @@ windows:
   - olympus:
       layout: tiled
       panes:
-        - ssh root@olympus.tolaeon.io
+        - ssh root@${BACKUP_HOST}
   - kbst:
       layout: main-vertical
       root: ~/src/tolaeon/kubestack-tolaeon

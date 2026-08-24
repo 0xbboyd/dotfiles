@@ -9,10 +9,15 @@ echo "remove old sdf dir"
 sudo rm -fr /opt/sdf
 sudo mkdir -p /opt/sdf
 
+# URLs contain an internal NetSuite account ID — sourced from
+# ~/.config/dotfiles/secrets.env (untracked), not hardcoded here.
+: "${NS_SDF_JAR_URL:?NS_SDF_JAR_URL is not set — source ~/.config/dotfiles/secrets.env}"
+: "${NS_SDF_SUPPORT_URL:?NS_SDF_SUPPORT_URL is not set — source ~/.config/dotfiles/secrets.env}"
+
 echo "get sdf jar"
-wget https://system.netsuite.com/download/ide/update_17_1/plugins/com.netsuite.ide.core_2017.1.2.jar -O /opt/sdf/com.netsuite.ide.core_2017.1.2.jar
+wget "$NS_SDF_JAR_URL" -O /opt/sdf/com.netsuite.ide.core_2017.1.2.jar
 echo "get support files"
-sudo wget -qO- "https://system.netsuite.com/core/media/media.nl?id=78304610&c=NLCORP&h=7815ede561a186622753&_xd=T&_xt=.bin" | sudo tar xvz -C /opt/sdf/
+sudo wget -qO- "$NS_SDF_SUPPORT_URL" | sudo tar xvz -C /opt/sdf/
 
 echo "create sdfcli sh file"
 sudo bash -c "cat <<EOF > /opt/sdf/sdfcli

@@ -93,7 +93,7 @@ op://Employee/Okta/password
 
 Safety properties:
 
-- host allowlist: `login.yendo.com`, `yendo.okta.com`, `yendo-admin.okta.com`
+- host allowlist: read from `$YENDO_OKTA_HOSTS` env var (space-separated), set in `~/.config/dotfiles/secrets.env` (untracked)
 - no clipboard writes
 - no credential writes to disk
 

@@ -146,3 +146,7 @@ export PATH="$(npm prefix -g)/bin:$PATH"
 # peon-ping quick controls
 alias peon="bash /home/bboyd/.claude/hooks/peon-ping/peon.sh"
 [ -f /home/bboyd/.claude/hooks/peon-ping/completions.bash ] && source /home/bboyd/.claude/hooks/peon-ping/completions.bash
+
+# Machine-local shell config (secrets, internal infra, host-specific paths).
+# Lives at ~/.zshrc.local — intentionally NOT tracked by the dotfiles repo.
+[[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
