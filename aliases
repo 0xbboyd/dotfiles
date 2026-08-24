@@ -19,6 +19,16 @@ alias -- -="cd -"
 alias cd..='cd ..'
 alias src="cd ~/src"
 
+# git diff through delta
+# A shell function is used because aliases cannot override only `git diff`.
+git() {
+  if [[ "$1" == diff ]]; then
+    command git "$@" | delta --side-by-side
+  else
+    command git "$@"
+  fi
+}
+
 # misc
 alias x='exit'
 alias sudo='sudo '
