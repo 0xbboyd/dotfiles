@@ -9,6 +9,7 @@
 #   bg_tertiary mid leather       — tertiary bg (visual select, diff text)
 #   fg          warm cream        — primary foreground / text
 #   primary     sunset orange     — primary accent, active elements
+#   primary_dim dark orange       — gutter line numbers (readable but subdued)
 #   accent      golden amber      — highlights, warnings, info, amber
 #   border      rust red          — borders, separators, purple/cyan replacement
 #   ok          prairie green     — success, insert mode, exec icons
@@ -22,6 +23,7 @@ bg_mid:     "#2d1810"
 bg_tertiary: "#3d1e0f"
 fg:         "#fff5e1"
 primary:    "#e87530"
+primary_dim: "#9c5028"
 accent:     "#f5a623"
 border:     "#c4522a"
 ok:         "#4caf50"
