@@ -8,6 +8,10 @@ configuration {
     show-icons: true;
     icon-theme: "Papirus-Dark";
     terminal: "wezterm";
+    ssh-client: "ssh";
+    ssh-command: "wezterm start -- ssh {host} [-p {port}]";
+    parse-known-hosts: true;
+    parse-hosts: true;
     drun-display-format: "{name}";
     display-drun: "Apps";
     display-run: "Run";
