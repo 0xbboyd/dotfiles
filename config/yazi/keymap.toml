@@ -22,3 +22,23 @@ desc = "Open with duckdb"
 on   = [ "g", "u" ]
 run  = "plugin duckdb -ui"
 desc = "Open with duckdb UI"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "a", "a" ]
+run  = "plugin compress"
+desc = "Archive selected files"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "a", "p" ]
+run  = "plugin compress -p"
+desc = "Archive selected files (password)"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "a", "l" ]
+run  = "plugin compress -l"
+desc = "Archive selected files (compression level)"
+
+[[mgr.prepend_keymap]]
+on   = [ "c", "a", "g" ]
+run  = "plugin compress tar.gz"
+desc = "Archive selected files to tar.gz"
