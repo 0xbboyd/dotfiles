@@ -1,6 +1,15 @@
 # Yendo Cowboy lazygit theme
 # Generated from config/yendo-cowboy/palette.yaml — do not edit by hand.
+git:
+  pagers:
+    - name: delta side-by-side
+      pager: delta --dark --paging=never --side-by-side --line-numbers
+    - name: delta unified
+      pager: delta --dark --paging=never --line-numbers
+    - name: default
+      pager: ""
 gui:
+  sidePanelWidth: 0.2
   theme:
     activeBorderColor:
       - '#e87530'
