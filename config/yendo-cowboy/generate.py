@@ -113,6 +113,7 @@ def patch_nvim_colors(p):
     bg_t        = p["bg_tertiary"]
     fg          = p["fg"]
     pri         = p["primary"]
+    pri_dim     = p["primary_dim"]
     acc         = p["accent"]
     bor         = p["border"]
     ok          = p["ok"]
@@ -160,9 +161,9 @@ def patch_nvim_colors(p):
         hi("CursorLine",     bg=bg_m),
         hi("CursorColumn",   bg=bg_m),
         hi("CursorLineNr",   fg=pri, bold=True),
-        hi("LineNr",         fg=bg_m),
-        hi("LineNrAbove",    fg=bg_m),
-        hi("LineNrBelow",    fg=bg_m),
+        hi("LineNr",         fg=pri_dim),
+        hi("LineNrAbove",    fg=pri_dim),
+        hi("LineNrBelow",    fg=pri_dim),
         hi("SignColumn",     fg=bg_m, bg=bg),
         hi("SignColumnSB",   fg=bg_m, bg=bg),
         hi("FoldColumn",     fg=dim, bg=bg),

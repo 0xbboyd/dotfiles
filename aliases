@@ -80,13 +80,13 @@ alias deploy:feature='build:feature && sdf:addmissing && sdf:deploy'
 alias deploy:staged='build:staged && sdf:addmissing && sdf:deploy'
 alias deploy:release='build:release && sdf:addmissing && sdf:validate && sdf:deploy'
 
-# tolaeon
+# tolaeon (personal infra — hostnames sourced from secrets.env, not hardcoded here)
 # alias okd-dev-socks-fg='ssh -C okd-dev-socks'
 # alias okd-dev-socks-bg='ssh -f -q -N -C okd-dev-socks'
-# alias okd-dev-open='firefox -P okd-conn https://console-openshift-console.apps.delta.tolaeon.local'
+# alias okd-dev-open='firefox -P okd-conn https://console-openshift-console.apps.delta.<BACKUP_HOST>'
 
 # bup
-# alias backup="rsync -avuzbP /home/bboyd root@hermes.tolaeon.io:/mnt/backups/desktop/home"
+# alias backup="rsync -avuzbP /home/bboyd root@${BACKUP_HOST}:/mnt/backups/desktop/home"
 # alias bup-docs="~/.dotfiles/scripts/backup/bup_docs.sh"
 # alias bup-keys="~/.dotfiles/scripts/backup/bup_keys.sh"
 

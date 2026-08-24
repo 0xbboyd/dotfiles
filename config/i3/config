@@ -53,11 +53,18 @@ bindsym XF86AudioMicMute exec --no-startup-id wpctl set-mute @DEFAULT_AUDIO_SOUR
 
 # Screenshots
 # Print: interactively select/annotate a region. Flameshot can save and/or copy from the UI.
-bindsym --release Print exec --no-startup-id flameshot gui
-# Mod+Print: capture all monitors to clipboard.
-bindsym --release $mod+Print exec --no-startup-id flameshot screen -c
-# Shift+Print: save all monitors to ~/Pictures/Screenshots.
-bindsym --release Shift+Print exec --no-startup-id flameshot screen -p /home/bboyd/Pictures/Screenshots
+# No --release: that flag causes Print to silently fail when another grabber (kernel SysRq,
+# IBus, or residual dconf) captures the key-press; i3 then never sees the release event.
+bindsym Print exec --no-startup-id flameshot gui
+# Mod+Print: capture current monitor to clipboard.
+bindsym $mod+Print exec --no-startup-id flameshot screen -c
+# Shift+Print: save current monitor to ~/Pictures/Screenshots.
+bindsym Shift+Print exec --no-startup-id flameshot screen -p /home/bboyd/Pictures/Screenshots
+# Super+Shift+S: reliable alternative that does not depend on the Print keysym at all.
+bindsym $mod+Shift+s exec --no-startup-id flameshot gui
+# USB foot switch: Input Remapper maps its right pedal to F13 only.
+# Save the active screen directly; do not depend on Flameshot's clipboard behavior.
+bindsym F13 exec --no-startup-id flameshot screen -p /home/bboyd/Pictures/Screenshots
 
 # Launchers
 bindsym $mod+Return exec $term
