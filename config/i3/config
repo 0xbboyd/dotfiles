@@ -42,7 +42,7 @@ exec_always --no-startup-id /home/bboyd/.screenlayout/apply-desktop.sh
 bindsym $mod+Shift+x exec --no-startup-id /home/bboyd/.screenlayout/apply-desktop.sh
 
 # Optional compositor. Display/background/status bar are handled by apply-desktop.sh above.
-exec --no-startup-id picom
+# exec --no-startup-id picom
 
 # Media / system keys
 # PipeWire/WirePlumber volume controls. Use wpctl because this i3 session has PipeWire but no pactl.
