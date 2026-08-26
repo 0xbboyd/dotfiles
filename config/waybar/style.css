@@ -1,0 +1,106 @@
+/* Yendo Cowboy Waybar style
+ * Palette: ~/src/dotfiles/config/yendo-cowboy/palette.yaml
+ */
+
+* {
+    border: none;
+    border-radius: 0;
+    font-family: "DejaVu Sans Mono", "PowerlineSymbols";
+    font-size: 10px;
+    min-height: 0;
+}
+
+window#waybar {
+    background-color: rgba(26, 15, 10, 0);
+    color: #fff5e1;
+}
+
+#workspaces {
+    background-color: #0d0704;
+}
+
+#workspaces button {
+    padding: 0 6px;
+    color: #fff5e1;
+    background-color: #0d0704;
+}
+
+#workspaces button.focused {
+    background-color: #e87530;
+    color: #1a0f0a;
+    border-bottom: 2px solid #f5a623;
+}
+
+#workspaces button.urgent {
+    background-color: #ef5350;
+    color: #1a0f0a;
+}
+
+#workspaces button.visible {
+    background-color: #2d1810;
+    color: #f5a623;
+}
+
+#mode {
+    background-color: #f5a623;
+    color: #1a0f0a;
+    padding: 0 6px;
+}
+
+#clock {
+    background-color: #0d0704;
+    color: #fff5e1;
+    padding: 0 6px;
+}
+
+#cpu {
+    background-color: #3d1e0f;
+    color: #fff5e1;
+    padding: 0 6px;
+}
+
+#memory {
+    background-color: #c4522a;
+    color: #fff5e1;
+    padding: 0 6px;
+}
+
+#pulseaudio {
+    background-color: #e87530;
+    color: #1a0f0a;
+    padding: 0 6px;
+}
+
+#pulseaudio.muted {
+    background-color: #a0522d;
+    color: #1a0f0a;
+}
+
+#battery {
+    background-color: #f5a623;
+    color: #1a0f0a;
+    padding: 0 6px;
+}
+
+#battery.warning {
+    background-color: #c4522a;
+}
+
+#battery.critical {
+    background-color: #ef5350;
+}
+
+#network {
+    background-color: #2d1810;
+    color: #fff5e1;
+    padding: 0 6px;
+}
+
+#network.disconnected {
+    color: #a0522d;
+}
+
+#tray {
+    background-color: #2d1810;
+    padding: 0 4px;
+}

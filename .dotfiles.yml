@@ -5,7 +5,7 @@
     - "git submodule update --init --recursive external/antigen"
     - "mkdir -p ~/src"
     - "mkdir -p ~/.config"
-    - "mkdir -p ~/.config/i3 ~/.config/polybar ~/.config/rofi ~/.config/flameshot ~/.config/autorandr ~/.config/herdr"
+    - "mkdir -p ~/.config/i3 ~/.config/polybar ~/.config/rofi ~/.config/flameshot ~/.config/autorandr ~/.config/herdr ~/.config/sway ~/.config/waybar"
     - "mkdir -p ~/.config/k9s/skins"
     - "mkdir -p ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.config/environment.d ~/.config/qutebrowser ~/.config/wallpapers"
     - "mkdir -p ~/.screenlayout"
@@ -73,6 +73,11 @@
     "~/.config/environment.d/gtk-dark.conf": "config/environment.d/gtk-dark.conf"
     "~/.local/share/applications/org.gnome.Nautilus.desktop": "local/share/applications/org.gnome.Nautilus.desktop"
     "~/.config/wallpapers/pixel-frontier-sunset-stockcake-1680x1050-focal.jpg": "config/wallpapers/pixel-frontier-sunset-stockcake-1680x1050-focal.jpg"
+
+    # desktop / sway environment (side-by-side with i3, selectable at GDM login)
+    "~/.config/sway/config": "config/sway/config"
+    "~/.config/waybar/config": "config/waybar/config"
+    "~/.config/waybar/style.css": "config/waybar/style.css"
 
     # qutebrowser integration
     "~/.config/qutebrowser/config.py": "config/qutebrowser/config.py"
