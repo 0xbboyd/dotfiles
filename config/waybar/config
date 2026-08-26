@@ -3,26 +3,25 @@
     "position": "top",
     "height": 28,
     "spacing": 0,
-    "modules-left": ["sway/workspaces", "sway/mode"],
+    "modules-left": [
+        "sway/workspaces",
+        "sway/mode"
+    ],
     "modules-center": [],
-    "modules-right": ["network", "cpu", "memory", "pulseaudio", "battery", "clock", "tray"],
-
-    // Yendo Cowboy palette
-    "custom/colors": {
-        "bg": "#1a0f0a",
-        "bg_darker": "#0d0704",
-        "bg_mid": "#2d1810",
-        "bg_tertiary": "#3d1e0f",
-        "fg": "#fff5e1",
-        "primary": "#e87530",
-        "accent": "#f5a623",
-        "border": "#c4522a",
-        "ok": "#4caf50",
-        "error": "#ef5350",
-        "dim": "#8b4513",
-        "muted": "#a0522d"
-    },
-
+    "modules-right": [
+        "network",
+        "custom/sep-cpu",
+        "cpu",
+        "custom/sep-memory",
+        "memory",
+        "custom/sep-pulseaudio",
+        "pulseaudio",
+        "custom/sep-battery",
+        "battery",
+        "custom/sep-date",
+        "clock",
+        "tray"
+    ],
     "sway/workspaces": {
         "format": " {name} ",
         "format-icons": {
@@ -30,34 +29,28 @@
             "default": ""
         }
     },
-
     "sway/mode": {
         "format": " {} ",
         "tooltip": false
     },
-
     "clock": {
         "format": " {:%a %b %d %I:%M %p} ",
         "tooltip-format": "<big>{:%Y %B}</big>\n<tt><small>{calendar}</small></tt>"
     },
-
     "cpu": {
         "format": " CPU {usage}% ",
         "interval": 2
     },
-
     "memory": {
         "format": " MEM {percentage}% ",
         "interval": 5
     },
-
     "pulseaudio": {
         "format": " VOL {volume}% ",
         "format-muted": " VOL muted ",
         "scroll-step": 5,
         "on-click": "pavucontrol"
     },
-
     "battery": {
         "bat": "BAT0",
         "adapter": "AC",
@@ -70,7 +63,6 @@
             "critical": 15
         }
     },
-
     "network": {
         "interface": "wlp0s20f3",
         "interval": 5,
@@ -78,8 +70,22 @@
         "format-disconnected": " WLAN down ",
         "tooltip-format": "{ifname} {ipaddr}"
     },
-
     "tray": {
         "spacing": 4
+    },
+    "custom/sep-cpu": {
+        "format": "▸"
+    },
+    "custom/sep-memory": {
+        "format": "▸"
+    },
+    "custom/sep-pulseaudio": {
+        "format": "▸"
+    },
+    "custom/sep-battery": {
+        "format": "▸"
+    },
+    "custom/sep-date": {
+        "format": "▸"
     }
 }
