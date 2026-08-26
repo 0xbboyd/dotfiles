@@ -58,6 +58,8 @@ exec_always sh -c 'pgrep -f "polkit-gnome-authentication-agent-1" >/dev/null && 
 exec nm-applet --indicator
 # Bluetooth applet
 exec blueman-applet
+# XDG autostart (1Password, sgnconnect, etc. — same as i3's dex)
+exec dex --autostart --environment sway
 # Screenshots use grim+slurp (Wayland-native); flameshot is X11-only
 
 # Media / system keys (PipeWire/WirePlumber — same as i3)
