@@ -1,14 +1,16 @@
 /* Yendo Cowboy Waybar style — powerline segmented
  * Palette: ~/src/dotfiles/config/yendo-cowboy/palette.yaml
  * Segmented bar matching polybar config.ini layout.
- * Each module has a distinct background; separators use U+25B8
- * (BLACK RIGHT-POINTING SMALL TRIANGLE) rendered in DejaVu Sans Mono.
+ * Separators use U+E0B2 (LEFT-pointing hard divider) from
+ * DejaVuSansM Nerd Font Mono — same glyph as polybar's PowerlineSymbols.
+ * triangle color (foreground) = NEXT module bg
+ * separator background = PREV module bg
  */
 
 * {
     border: none;
     border-radius: 0;
-    font-family: "DejaVu Sans Mono";
+    font-family: "DejaVuSansM Nerd Font Mono", "DejaVu Sans Mono";
     font-size: 10px;
     min-height: 0;
 }
@@ -66,11 +68,11 @@ window#waybar {
 }
 
 /* === Separator: network -> cpu ===
- * prev bg: #2d1810 (network)  next bg: #3d1e0f (cpu) */
+ * triangle color: #3d1e0f (cpu bg)  background: #2d1810 (network bg) */
 #custom-sep-cpu {
     color: #3d1e0f;
     background-color: #2d1810;
-    padding: 0 2px;
+    padding: 0;
     margin: 0;
 }
 
@@ -82,11 +84,11 @@ window#waybar {
 }
 
 /* === Separator: cpu -> memory ===
- * prev bg: #3d1e0f (cpu)  next bg: #c4522a (memory) */
+ * triangle color: #c4522a (memory bg)  background: #3d1e0f (cpu bg) */
 #custom-sep-memory {
     color: #c4522a;
     background-color: #3d1e0f;
-    padding: 0 2px;
+    padding: 0;
     margin: 0;
 }
 
@@ -98,11 +100,11 @@ window#waybar {
 }
 
 /* === Separator: memory -> pulseaudio ===
- * prev bg: #c4522a (memory)  next bg: #e87530 (pulseaudio) */
+ * triangle color: #e87530 (pulseaudio bg)  background: #c4522a (memory bg) */
 #custom-sep-pulseaudio {
     color: #e87530;
     background-color: #c4522a;
-    padding: 0 2px;
+    padding: 0;
     margin: 0;
 }
 
@@ -119,11 +121,11 @@ window#waybar {
 }
 
 /* === Separator: pulseaudio -> battery ===
- * prev bg: #e87530 (pulseaudio)  next bg: #f5a623 (battery) */
+ * triangle color: #f5a623 (battery bg)  background: #e87530 (pulseaudio bg) */
 #custom-sep-battery {
     color: #f5a623;
     background-color: #e87530;
-    padding: 0 2px;
+    padding: 0;
     margin: 0;
 }
 
@@ -143,11 +145,11 @@ window#waybar {
 }
 
 /* === Separator: battery -> clock ===
- * prev bg: #f5a623 (battery)  next bg: #0d0704 (clock) */
+ * triangle color: #0d0704 (clock bg)  background: #f5a623 (battery bg) */
 #custom-sep-date {
     color: #0d0704;
     background-color: #f5a623;
-    padding: 0 2px;
+    padding: 0;
     margin: 0;
 }
 

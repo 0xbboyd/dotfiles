@@ -74,18 +74,18 @@
         "spacing": 4
     },
     "custom/sep-cpu": {
-        "format": "▸"
+        "format": ""
     },
     "custom/sep-memory": {
-        "format": "▸"
+        "format": ""
     },
     "custom/sep-pulseaudio": {
-        "format": "▸"
+        "format": ""
     },
     "custom/sep-battery": {
-        "format": "▸"
+        "format": ""
     },
     "custom/sep-date": {
-        "format": "▸"
+        "format": ""
     }
 }
