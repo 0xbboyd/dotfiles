@@ -5,11 +5,11 @@
     "spacing": 0,
     "modules-left": [
         "sway/workspaces",
-        "sway/mode",
-        "custom/left-cap"
+        "sway/mode"
     ],
     "modules-center": [],
     "modules-right": [
+        "custom/left-cap",
         "network",
         "custom/sep-cpu",
         "cpu",

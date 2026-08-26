@@ -80,9 +80,9 @@ window#waybar {
 }
 
 /* === Left cap: closes the workspace block ===
- * triangle color: #0d0704 (workspace bg)  background: transparent */
+ * triangle color: #2d1810 (network bg)  background: transparent */
 #custom-left-cap {
-    color: #0d0704;
+    color: #2d1810;
     background-color: transparent;
     padding: 0;
     margin: 0;
