@@ -70,12 +70,22 @@ window#waybar {
 /* === Powerline separator font sizing ===
  * U+E0B2 glyph is 117.6% of em in DejaVuSansM Nerd Font Mono.
  * 26px font-size produces a ~30px glyph that fills the bar height. */
+#custom-left-cap,
 #custom-sep-cpu,
 #custom-sep-memory,
 #custom-sep-pulseaudio,
 #custom-sep-battery,
 #custom-sep-date {
     font-size: 26px;
+}
+
+/* === Left cap: closes the workspace block ===
+ * triangle color: #0d0704 (workspace bg)  background: transparent */
+#custom-left-cap {
+    color: #0d0704;
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
 }
 
 /* === Separator: network -> cpu ===

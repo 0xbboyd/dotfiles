@@ -5,7 +5,8 @@
     "spacing": 0,
     "modules-left": [
         "sway/workspaces",
-        "sway/mode"
+        "sway/mode",
+        "custom/left-cap"
     ],
     "modules-center": [],
     "modules-right": [
@@ -72,6 +73,9 @@
     },
     "tray": {
         "spacing": 4
+    },
+    "custom/left-cap": {
+        "format": ""
     },
     "custom/sep-cpu": {
         "format": ""
