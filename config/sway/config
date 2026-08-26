@@ -58,8 +58,7 @@ exec_always sh -c 'pgrep -f "polkit-gnome-authentication-agent-1" >/dev/null && 
 exec nm-applet --indicator
 # Bluetooth applet
 exec blueman-applet
-# Flameshot (works under XWayland)
-exec flameshot
+# Screenshots use grim+slurp (Wayland-native); flameshot is X11-only
 
 # Media / system keys (PipeWire/WirePlumber — same as i3)
 bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 10%+
@@ -67,12 +66,17 @@ bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-
 bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
 bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
 
-# Screenshots (flameshot via XWayland)
-bindsym Print exec flameshot gui
-bindsym $mod+Print exec flameshot screen -c
-bindsym Shift+Print exec flameshot screen -p ~/Pictures/Screenshots
-bindsym $mod+Shift+s exec flameshot gui
-bindsym F13 exec flameshot screen -p ~/Pictures/Screenshots
+# Screenshots (grim+slurp+swappy — Wayland-native, replaces flameshot)
+# Print: select region, annotate in swappy, then copy/save from swappy
+bindsym Print exec grim -g "$(slurp)" - | swappy -f -
+# Mod+Print: full screen, annotate in swappy
+bindsym $mod+Print exec grim - | swappy -f -
+# Shift+Print: select region, save directly to ~/Pictures/Screenshots (no annotation)
+bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png
+# Mod+Shift+s: same as Print (region select + annotation)
+bindsym $mod+Shift+s exec grim -g "$(slurp)" - | swappy -f -
+# F13: full screen, save directly to ~/Pictures/Screenshots (no annotation)
+bindsym F13 exec grim ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png
 
 # Launchers
 bindsym $mod+Return exec $term
