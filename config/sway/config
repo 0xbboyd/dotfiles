@@ -28,13 +28,13 @@ gaps outer 0
 # Mouse behavior
 floating_modifier $mod normal
 focus_follows_mouse yes
-tiling_drag modifier titlebar
+tiling_drag modifier
 
 # Output configuration (replaces xrandr)
-# HDMI-1: 1920x1080 external, left of eDP-1
-# eDP-1: 1680x1050 laptop, primary
-output HDMI-1 resolution 1920x1080 position 0,0
-output eDP-1 resolution 1680x1050 position 1920,0
+# HDMI-A-1: 1920x1080 external (Samsung LS32B30), left of eDP-1
+# eDP-1: 2880x1800 laptop panel, primary (scale 2 = 1440x900 logical)
+output HDMI-A-1 resolution 1920x1080 position 0,0
+output eDP-1 resolution 2880x1800 scale 2 position 1920,0
 
 # Wallpaper (replaces feh)
 exec swaybg -o "*" -i ~/.config/wallpapers/pixel-frontier-sunset-stockcake-1680x1050-focal.jpg -m fill
