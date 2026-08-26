@@ -67,6 +67,17 @@ window#waybar {
     color: #a0522d;
 }
 
+/* === Powerline separator font sizing ===
+ * U+E0B2 glyph is 117.6% of em in DejaVuSansM Nerd Font Mono.
+ * 26px font-size produces a ~30px glyph that fills the bar height. */
+#custom-sep-cpu,
+#custom-sep-memory,
+#custom-sep-pulseaudio,
+#custom-sep-battery,
+#custom-sep-date {
+    font-size: 26px;
+}
+
 /* === Separator: network -> cpu ===
  * triangle color: #3d1e0f (cpu bg)  background: #2d1810 (network bg) */
 #custom-sep-cpu {
