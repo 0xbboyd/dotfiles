@@ -36,3 +36,18 @@
   - `./scripts/install/pkg_npm_packages.sh`
   - `./scripts/install/pkg_arc_theme.sh`
   - Install the dropbox package, signin, and then install bups
+
+### package managers
+
+  After base packages, set up the three-layer package manager stack.
+  See [docs/package-manager-layering.md](docs/package-manager-layering.md) for
+  the full ownership matrix and PATH rules.
+
+  - apt: already installed via base_packages.sh (system foundation)
+  - nix: `sh <(curl -L https://nixos.org/nix/install) --daemon`
+    - Migrate dev tools from apt: neovim, eza, git-delta, ripgrep, bat
+    - Remove the neovim unstable PPA after migration
+  - mise: `curl https://mise.run | sh`
+    - Runtimes: node, python, go, java, bun
+    - Agent harnesses: claude-code, opencode, codex, hermes-agent
+    - Config at `~/.config/mise/mise.toml` (not tracked by dotfiles)
