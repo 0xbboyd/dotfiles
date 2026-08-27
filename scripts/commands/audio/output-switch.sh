@@ -4,6 +4,8 @@
 # Ported from: ~/src/omarchy/bin/omarchy-audio-output-switch
 # Stripped: omarchy-audio-tuning fronted-sink resolution, omarchy-osd.
 
+
+export PATH="$HOME/.local/bin:$PATH"
 sinks=$(timeout 2 pactl -f json list sinks |
   jq '[.[]
     | select((.ports | length == 0) or ([.ports[]? | .availability != "not available"] | any))]')

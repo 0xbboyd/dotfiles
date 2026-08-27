@@ -4,6 +4,8 @@
 # Uses systemd user timers for reliability. Reminders survive shell exits.
 # Ported from: ~/src/omarchy/bin/omarchy-reminder
 
+
+export PATH="$HOME/.local/bin:$PATH"
 set -euo pipefail
 
 format_remaining() {

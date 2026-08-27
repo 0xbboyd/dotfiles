@@ -17,6 +17,9 @@ set $mod Mod4
 set $term wezterm
 set $menu rofi -show drun
 
+# Ensure ~/.local/bin is in PATH for Omarchy-ported scripts
+set $scripts ~/.local/bin
+
 # Font
 font monospace 11
 
@@ -65,37 +68,37 @@ exec dex --autostart --environment sway
 # Screenshots use grim+slurp (Wayland-native); flameshot is X11-only
 
 # Media / system keys (use Omarchy-ported scripts for DSP-aware volume + OSD fallback)
-bindsym XF86AudioRaiseVolume exec audio-volume raise
-bindsym XF86AudioLowerVolume exec audio-volume lower
-bindsym XF86AudioMute exec audio-volume mute-toggle
-bindsym XF86AudioMicMute exec audio-mute
+bindsym XF86AudioRaiseVolume exec $scripts/audio-volume raise
+bindsym XF86AudioLowerVolume exec $scripts/audio-volume lower
+bindsym XF86AudioMute exec $scripts/audio-volume mute-toggle
+bindsym XF86AudioMicMute exec $scripts/audio-mute
 # Mod+Shift+a: switch audio output (preserves mute/volume state)
-bindsym $mod+Shift+a exec audio-output-switch
+bindsym $mod+Shift+a exec $scripts/audio-output-switch
 
 # Screenshots (use Omarchy-ported scripts — clipboard + file, annotation editor)
 # Print: select region, copy to clipboard + save to file, open in swappy
-bindsym Print exec screenshot smart slurp
+bindsym Print exec $scripts/screenshot smart slurp
 # Mod+Print: full screen, copy to clipboard + save to file
-bindsym $mod+Print exec screenshot fullscreen slurp
+bindsym $mod+Print exec $scripts/screenshot fullscreen slurp
 # Shift+Print: select region, save to file only (no clipboard, no annotation)
-bindsym Shift+Print exec screenshot region save
+bindsym Shift+Print exec $scripts/screenshot region save
 # Mod+Shift+s: same as Print (region select + annotation)
-bindsym $mod+Shift+s exec screenshot smart slurp
+bindsym $mod+Shift+s exec $scripts/screenshot smart slurp
 # F13: full screen, save to file only
-bindsym F13 exec screenshot fullscreen save
+bindsym F13 exec $scripts/screenshot fullscreen save
 # Mod+Ctrl+Print: OCR text extraction from screen region to clipboard
-bindsym $mod+Ctrl+Print exec ocr-screenshot
+bindsym $mod+Ctrl+Print exec $scripts/ocr-screenshot
 # Mod+Alt+Print: QR code decode from screen region to clipboard
-bindsym $mod+Alt+Print exec qr-screenshot
+bindsym $mod+Alt+Print exec $scripts/qr-screenshot
+
 # Brightness (use Omarchy-ported script for non-uniform step size)
-bindsym XF86MonBrightnessUp exec brightness +5%
-bindsym XF86MonBrightnessDown exec brightness 5%-
+bindsym XF86MonBrightnessUp exec $scripts/brightness +5%
+bindsym XF86MonBrightnessDown exec $scripts/brightness 5%-
 
 # Reminders (use Omarchy-ported reminder script)
-bindsym $mod+Ctrl+r exec reminder -i
-bindsym $mod+Ctrl+Shift+r exec reminder show
-bindsym $mod+Ctrl+Alt+r exec reminder clear
-
+bindsym $mod+Ctrl+r exec $scripts/reminder -i
+bindsym $mod+Ctrl+Shift+r exec $scripts/reminder show
+bindsym $mod+Ctrl+Alt+r exec $scripts/reminder clear
 # Launchers
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu

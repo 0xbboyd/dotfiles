@@ -5,6 +5,8 @@
 # Ported from: ~/src/omarchy/bin/omarchy-capture-text
 # Stripped: hyprpicker screen freeze overlay.
 
+
+export PATH="$HOME/.local/bin:$PATH"
 SELECTION=$(slurp 2>/dev/null)
 
 [[ -z $SELECTION ]] && exit 0

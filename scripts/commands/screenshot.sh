@@ -6,6 +6,8 @@
 # Ported from: ~/src/omarchy/bin/omarchy-capture-screenshot
 # Stripped: hyprpicker screen freeze, hyprctl hardware cursor workaround.
 
+
+export PATH="$HOME/.local/bin:$PATH"
 [[ -f ~/.config/user-dirs.dirs ]] && source ~/.config/user-dirs.dirs
 OUTPUT_DIR="${SCREENSHOT_DIR:-${XDG_PICTURES_DIR:-$HOME/Pictures}}"
 

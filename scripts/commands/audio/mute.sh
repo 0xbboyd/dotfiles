@@ -4,6 +4,8 @@
 # Ported from: ~/src/omarchy/bin/omarchy-audio-input-mute
 # Stripped: omarchy-osd, omarchy-brightness-keyboard-mute. Uses notify for feedback.
 
+
+export PATH="$HOME/.local/bin:$PATH"
 wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle >/dev/null
 
 if wpctl get-volume @DEFAULT_AUDIO_SOURCE@ | grep -q MUTED; then

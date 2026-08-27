@@ -4,6 +4,8 @@
 # Ported from: ~/src/omarchy/bin/omarchy-audio-output-volume
 # Stripped: omarchy-osd (Quickshell OSD). Uses notify for optional feedback.
 
+
+export PATH="$HOME/.local/bin:$PATH"
 action="${1:-}"
 
 if [[ -z $action ]]; then

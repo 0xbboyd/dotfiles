@@ -6,6 +6,8 @@
 # Stripped: hyprctl monitor detection, omarchy-osd, omarchy-hw-display.
 # Uses /sys/class/backlight for device discovery and notify for feedback.
 
+
+export PATH="$HOME/.local/bin:$PATH"
 no_notify=0
 monitor=""
 
