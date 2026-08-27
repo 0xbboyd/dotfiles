@@ -1212,13 +1212,13 @@ def patch_lazygit(p):
     # Yendo Cowboy lazygit theme
     # Generated from config/yendo-cowboy/palette.yaml — do not edit by hand.
     git:
-      pagers:
+      diffRenderers:
         - name: delta side-by-side
-          pager: delta --dark --paging=never --side-by-side --line-numbers
+          command: delta --dark --paging=never --side-by-side --line-numbers
         - name: delta unified
-          pager: delta --dark --paging=never --line-numbers
+          command: delta --dark --paging=never --line-numbers
         - name: default
-          pager: ""
+          type: rawGit
     gui:
       sidePanelWidth: 0.2
       theme:
