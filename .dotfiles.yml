@@ -7,7 +7,7 @@
     - "mkdir -p ~/.config"
     - "mkdir -p ~/.config/i3 ~/.config/polybar ~/.config/rofi ~/.config/flameshot ~/.config/autorandr ~/.config/herdr ~/.config/sway ~/.config/waybar"
     - "mkdir -p ~/.config/k9s/skins"
-    - "mkdir -p ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.config/environment.d ~/.config/qutebrowser ~/.config/wallpapers"
+    - "mkdir -p ~/.config/environment.d ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.config/qutebrowser ~/.config/wallpapers"
     - "mkdir -p ~/.screenlayout"
     - "mkdir -p ~/.local/bin"
     - "mkdir -p ~/.local/share"
@@ -71,6 +71,7 @@
     "~/.config/gtk-4.0/settings.ini": "config/gtk-4.0/settings.ini"
     "~/.gtkrc-2.0": "gtkrc-2.0"
     "~/.config/environment.d/gtk-dark.conf": "config/environment.d/gtk-dark.conf"
+    "~/.config/environment.d/nix-path.conf": "config/environment.d/nix-path.conf"
     "~/.local/share/applications/org.gnome.Nautilus.desktop": "local/share/applications/org.gnome.Nautilus.desktop"
     "~/.config/wallpapers/pixel-frontier-sunset-stockcake-1680x1050-focal.jpg": "config/wallpapers/pixel-frontier-sunset-stockcake-1680x1050-focal.jpg"
 
