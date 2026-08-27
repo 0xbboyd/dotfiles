@@ -29,6 +29,9 @@ antigen use oh-my-zsh
 export TERM="xterm-256color"
 
 # OMZ powerlevel theme
+# _P9K_FORCE_LOAD=1 overrides gitstatus.plugin.zsh's interactive check
+# (needed for zsh 5.9 on Ubuntu where the check fails in some contexts)
+export _P9K_FORCE_LOAD=1
 antigen theme romkatv/powerlevel10k powerlevel10k
 
 antigen bundles <<EOBUNDLES
@@ -78,9 +81,6 @@ fi
 # mise — single version manager for runtimes and agent harnesses
 eval "$(/home/bboyd/.local/bin/mise activate zsh)"
 
-export NVM_DIR="/home/bboyd/.nvm"
-[ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
-
 # Prompt — Powerlevel10k is the default. To use starship instead, set USE_STARSHIP=1.
 if [[ -n ${USE_STARSHIP:-} ]] && command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
@@ -92,11 +92,6 @@ HISTFILE=~/.zsh_history
 HIST_STAMPS=mm/dd/yyyy
 HISTSIZE=5000
 SAVEHIST=5000
-[ -s "$NVM_DIR/bash_completion" ] && \. "$NVM_DIR/bash_completion"  # This loads nvm bash_completion
-
-# Go paths (also in .profile, but nvm resets PATH so re-add here)
-export PATH=$PATH:/usr/local/go/bin
-export PATH="$HOME/go/bin:$PATH"
 
 # opencode
 export PATH=/home/bboyd/.opencode/bin:$PATH
@@ -106,23 +101,11 @@ export PATH=/home/bboyd/.opencode/bin:$PATH
 #    eval "$(op signin 2>/dev/null)" 2>/dev/null || true
 #fi
 
-#THIS MUST BE AT THE END OF THE FILE FOR SDKMAN TO WORK!!!
-export SDKMAN_DIR="$HOME/.sdkman"
-[[ -s "$HOME/.sdkman/bin/sdkman-init.sh" ]] && source "$HOME/.sdkman/bin/sdkman-init.sh"
-
-# bun completions
-[ -s "/home/bboyd/.bun/_bun" ] && source "/home/bboyd/.bun/_bun"
-
-# bun
-export BUN_INSTALL="$HOME/.bun"
-export PATH="$BUN_INSTALL/bin:$PATH"
-export PATH="$(npm prefix -g)/bin:$PATH"
-
 # peon-ping quick controls
 alias peon="bash /home/bboyd/.claude/hooks/peon-ping/peon.sh"
 [ -f /home/bboyd/.claude/hooks/peon-ping/completions.bash ] && source /home/bboyd/.claude/hooks/peon-ping/completions.bash
 
-# User-local binaries (also in .profile, re-added here after nvm resets PATH)
+# User-local binaries (in .profile; no nvm to reset PATH anymore)
 export PATH="$HOME/.local/bin:$PATH"
 
 # i3 workspace rename helper.

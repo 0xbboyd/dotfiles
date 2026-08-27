@@ -15,7 +15,4 @@ export CHE_DATA_FOLDER=~/workspace/che
 # Ubuntu make installation of Ubuntu Make binary symlink
 # PATH=/home/brendan/.local/share/umake/bin:$PATH
 
-# Go 1.25.7
-export GOROOT=/usr/local/go
-export GOPATH=$HOME/go
-export PATH=$GOPATH/bin:$GOROOT/bin:$PATH
+# Go paths managed by mise (no longer hardcoded here)
