@@ -75,18 +75,21 @@ What we ARE porting (in priority order):
   a static theme name (can't use Omarchy's dynamic theme staging path).
 - Packages: `btop` (nix — already installed)
 
-### 1.6 Terminal configs (foot, ghostty)
+### 1.6 Terminal configs (foot, ghostty, wezterm)
 
 - Source: `omarchy/config/foot/foot.ini`, `omarchy/config/ghostty/config`
-- Target: `config/foot/foot.ini`, `config/ghostty/config`
-- Dotbot: `~/.config/foot/foot.ini`, `~/.config/ghostty/config`
+- Target: `config/foot/foot.ini`, `config/ghostty/config`, `config/wezterm.lua`
+- Dotbot: `~/.config/foot/foot.ini`, `~/.config/ghostty/config`, `~/.wezterm.lua`
 - Rationale: Well-tuned terminal defaults with JetBrainsMono Nerd Font,
   Shift+Enter as CSI-u for TUIs, copy/paste bindings. Theme include paths
-  will be hardcoded to a single theme instead of Omarchy's dynamic staging.
-- Packages: `foot` (apt), `ghostty` (nix or apt)
+  are hardcoded to Tokyo Night instead of Omarchy's dynamic staging. Wezterm
+  config upgraded from built-in color scheme to the same Tokyo Night palette
+  with full ansi/brights, tab bar colors, and CSI-u keybinding for TUI parity.
+- Packages: `foot` (apt), `ghostty` (nix or apt), `wezterm` (apt)
 - Adaptation: Replace `include=~/.local/state/omarchy/current/theme/foot.ini`
   with inline colors or a static include path. Same for ghostty's
-  `config-file = ?"..."` line.
+  `config-file = ?"..."` line. Wezterm's `config.color_scheme` replaced with
+  an explicit `config.colors` table.
 
 ## Phase 2: Standalone scripts (trivial adaptation)
 
