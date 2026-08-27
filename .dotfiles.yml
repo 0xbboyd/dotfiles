@@ -91,6 +91,7 @@
     "~/.config/fontconfig/conf.d/50-omarchy-fonts.conf": "config/fontconfig/conf.d/50-omarchy-fonts.conf"
     "~/.config/btop/btop.conf": "config/btop/btop.conf"
     "~/.config/ghostty/config": "config/ghostty/config"
+    "~/.config/omarchy-themes": "config/omarchy-themes"
 
     # Omarchy-ported scripts (see docs/omarchy-integration.md)
     "~/.local/bin/notify": "scripts/commands/notify.sh"
@@ -107,4 +108,5 @@
     "~/.local/bin/screenshot": "scripts/commands/screenshot.sh"
     "~/.local/bin/ocr-screenshot": "scripts/commands/ocr-screenshot.sh"
     "~/.local/bin/qr-screenshot": "scripts/commands/qr-screenshot.sh"
+    "~/.local/bin/theme": "scripts/commands/theme.sh"
 

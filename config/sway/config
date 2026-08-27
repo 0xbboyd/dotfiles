@@ -99,6 +99,9 @@ bindsym XF86MonBrightnessDown exec $scripts/brightness 5%-
 bindsym $mod+Ctrl+r exec $scripts/reminder -i
 bindsym $mod+Ctrl+Shift+r exec $scripts/reminder show
 bindsym $mod+Ctrl+Alt+r exec $scripts/reminder clear
+
+# Theme switcher
+bindsym $mod+Ctrl+t exec $scripts/theme list | rofi -dmenu -i -p "Theme" | xargs -I{} $scripts/theme set "{}"
 # Launchers
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
@@ -207,27 +210,9 @@ mode "resize" {
 }
 bindsym $mod+r mode "resize"
 
-# Theme: Yendo Cowboy palette (same colors as i3 config)
-set $bg          #1a0f0a
-set $bg_darker   #0d0704
-set $bg_mid      #2d1810
-set $bg_tertiary #3d1e0f
-set $fg          #fff5e1
-set $primary     #e87530
-set $accent      #f5a623
-set $border      #c4522a
-set $ok          #4caf50
-set $error       #ef5350
-set $dim         #8b4513
-set $muted       #a0522d
-
-# Colors                border      backgr       text       indicator   child_border
-client.focused          $primary    $primary     $bg        $accent     $primary
-client.focused_inactive $muted      $bg_mid      $fg        $border     $muted
-client.unfocused        $dim        $bg_darker   $muted     $border     $dim
-client.urgent           $error      $error       $bg        $error      $error
-client.placeholder      $bg_mid     $bg_mid      $fg        $accent     $bg_mid
-client.background       $bg
+# Theme — includes generated colors from theme switcher.
+# Falls back to Yendo Cowboy palette if no theme has been set yet.
+include ~/.local/state/theme-current/sway-colors
 
 # Floating rules
 for_window [app_id="rofi"] floating enable, border none
