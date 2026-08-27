@@ -2,7 +2,7 @@
 # Source: ~/src/omarchy/config/ghostty/config + themes/tokyo-night/colors.toml
 
 # Font
-font-family = "JetBrainsMono Nerd Font"
+font-family = "DejaVuSansM Nerd Font Mono"
 font-style = Regular
 font-size = 9
 
