@@ -86,16 +86,16 @@ show_json() {
       label="${reminder_minutes}-min reminder"
     fi
 
-    item_json=$(jq -nc \\
-      --arg unit "$unit" \\
-      --arg timer "$timer" \\
-      --arg label "$label" \\
-      --arg message "$reminder_message" \\
-      --arg remaining "$(format_remaining "$remaining")" \\
-      --arg atTime "$(date -d "@$next" +%-H:%M)" \\
-      --argjson minutes "$reminder_minutes" \\
-      --argjson at "$next" \\
-      --argjson remainingSeconds "$remaining" \\
+    item_json=$(jq -nc \
+      --arg unit "$unit" \
+      --arg timer "$timer" \
+      --arg label "$label" \
+      --arg message "$reminder_message" \
+      --arg remaining "$(format_remaining "$remaining")" \
+      --arg atTime "$(date -d "@$next" +%-H:%M)" \
+      --argjson minutes "$reminder_minutes" \
+      --argjson at "$next" \
+      --argjson remainingSeconds "$remaining" \
       '{unit:$unit,timer:$timer,minutes:$minutes,message:$message,label:$label,remaining:$remaining,remainingSeconds:$remainingSeconds,at:$at,atTime:$atTime}')
     reminders_json=$(jq -nc --argjson reminders "$reminders_json" --argjson item "$item_json" '$reminders + [$item]')
   done < <(active_reminder_timers "$now")
@@ -113,14 +113,18 @@ clear_reminders() {
   local units
   local reminder_dir="${XDG_RUNTIME_DIR:-/tmp}/reminders"
 
-  units=$(systemctl --user list-timers --all --no-legend --no-pager "reminder-*.timer" 2>/dev/null | awk '{ print $(NF - 1), $NF }')
+  # Only stop the .timer units — the .service units may not be loaded yet
+  # (systemd-run --on-active creates a transient timer; the service only
+  # loads when the timer fires). Stopping a non-existent service fails and
+  # would abort the clear under set -e.
+  units=$(systemctl --user list-timers --all --no-legend --no-pager "reminder-*.timer" 2>/dev/null | awk '{ print $(NF - 1) }')
 
   if [[ -n $units ]]; then
-    xargs -r systemctl --user stop <<<"$units" || true
+    xargs -r systemctl --user stop <<<"$units" 2>/dev/null || true
   fi
 
   rm -f "$reminder_dir"/reminder-*.message 2>/dev/null || true
-  notify -g "All reminders have been cleared"
+  notify -g "All reminders have been cleared" 2>/dev/null || true
 }
 
 usage() {
