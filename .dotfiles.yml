@@ -8,6 +8,7 @@
     - "mkdir -p ~/.config/i3 ~/.config/polybar ~/.config/rofi ~/.config/flameshot ~/.config/autorandr ~/.config/herdr ~/.config/sway ~/.config/waybar"
     - "mkdir -p ~/.config/k9s/skins"
     - "mkdir -p ~/.config/environment.d ~/.config/gtk-3.0 ~/.config/gtk-4.0 ~/.config/qutebrowser ~/.config/wallpapers"
+    - "mkdir -p ~/.config/fontconfig/conf.d ~/.config/foot ~/.config/ghostty ~/.config/btop"
     - "mkdir -p ~/.screenlayout"
     - "mkdir -p ~/.local/bin"
     - "mkdir -p ~/.local/share"
@@ -85,4 +86,27 @@
     # qutebrowser integration
     "~/.config/qutebrowser/config.py": "config/qutebrowser/config.py"
     "~/.local/share/qutebrowser/userscripts/qute-1password-okta": "local/share/qutebrowser/userscripts/qute-1password-okta"
+
+    # Omarchy-ported configs (see docs/omarchy-integration.md)
+    "~/.config/fontconfig/conf.d/50-omarchy-fonts.conf": "config/fontconfig/conf.d/50-omarchy-fonts.conf"
+    "~/.config/starship.toml": "config/starship.toml"
+    "~/.config/btop/btop.conf": "config/btop/btop.conf"
+    "~/.config/foot/foot.ini": "config/foot/foot.ini"
+    "~/.config/ghostty/config": "config/ghostty/config"
+
+    # Omarchy-ported scripts (see docs/omarchy-integration.md)
+    "~/.local/bin/notify": "scripts/commands/notify.sh"
+    "~/.local/bin/reminder": "scripts/commands/reminder.sh"
+    "~/.local/bin/audio-volume": "scripts/commands/audio/volume.sh"
+    "~/.local/bin/audio-mute": "scripts/commands/audio/mute.sh"
+    "~/.local/bin/audio-output-switch": "scripts/commands/audio/output-switch.sh"
+    "~/.local/bin/audio-output-sink": "scripts/commands/audio/output-sink.sh"
+    "~/.local/bin/brightness": "scripts/commands/brightness.sh"
+    "~/.local/bin/kbd-brightness": "scripts/commands/kbd-brightness.sh"
+    "~/.local/bin/battery-status": "scripts/commands/battery.sh"
+    "~/.local/bin/battery-present": "scripts/commands/battery-present.sh"
+    "~/.local/bin/battery-low": "scripts/commands/battery-low.sh"
+    "~/.local/bin/screenshot": "scripts/commands/screenshot.sh"
+    "~/.local/bin/ocr-screenshot": "scripts/commands/ocr-screenshot.sh"
+    "~/.local/bin/qr-screenshot": "scripts/commands/qr-screenshot.sh"
 
