@@ -89,7 +89,6 @@
 
     # Omarchy-ported configs (see docs/omarchy-integration.md)
     "~/.config/fontconfig/conf.d/50-omarchy-fonts.conf": "config/fontconfig/conf.d/50-omarchy-fonts.conf"
-    "~/.config/starship.toml": "config/starship.toml"
     "~/.config/btop/btop.conf": "config/btop/btop.conf"
     "~/.config/ghostty/config": "config/ghostty/config"
 

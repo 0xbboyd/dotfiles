@@ -9,8 +9,7 @@ compinit
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-# Only load when using p10k — starship is the default prompt.
-if [[ -n ${USE_P10K:-} ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
@@ -29,11 +28,8 @@ antigen use oh-my-zsh
 # add support for 256 colors
 export TERM="xterm-256color"
 
-# OMZ powerlevel theme — only load p10k when USE_P10K is set.
-# Starship is the default prompt (see init block below).
-if [[ -n ${USE_P10K:-} ]]; then
-  antigen theme romkatv/powerlevel10k powerlevel10k
-fi
+# OMZ powerlevel theme
+antigen theme romkatv/powerlevel10k powerlevel10k
 
 antigen bundles <<EOBUNDLES
 autovenv
@@ -85,11 +81,8 @@ eval "$(/home/bboyd/.local/bin/mise activate zsh)"
 export NVM_DIR="/home/bboyd/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# Prompt — Starship (ported from Omarchy) or Powerlevel10k.
-# Starship is the default. To use p10k instead, set USE_P10K=1 in your shell env.
-if [[ -n ${USE_P10K:-} && -f ~/.p10k.zsh ]]; then
-  source ~/.p10k.zsh
-elif command -v starship &>/dev/null; then
+# Prompt — Powerlevel10k is the default. To use starship instead, set USE_STARSHIP=1.
+if [[ -n ${USE_STARSHIP:-} ]] && command -v starship &>/dev/null; then
   eval "$(starship init zsh)"
 elif [[ -f ~/.p10k.zsh ]]; then
   source ~/.p10k.zsh

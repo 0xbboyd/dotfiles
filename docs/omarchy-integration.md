@@ -45,15 +45,16 @@ What we ARE porting (in priority order):
   sections to the existing gitconfig. Don't touch existing `[alias]`,
   `[init]`, `[pull]`, `[push]` sections (already present).
 
-### 1.3 Starship prompt
+### 1.3 Starship prompt (opt-in, not linked by default)
 
 - Source: `omarchy/config/starship.toml`
 - Target: `config/starship.toml`
-- Dotbot: `~/.config/starship.toml`
-- Rationale: Minimal, fast prompt (directory + git branch/status, cyan accent,
-  repo-root highlighting). Compositor- and distro-agnostic.
+- Dotbot: Not linked — p10k remains the default prompt.
+- Rationale: Starship is a cross-shell prompt ported from Omarchy. Available as an opt-in
+  alternative by setting `USE_STARSHIP=1` and manually linking the config. P10k is superior
+  for this setup (instant prompt, transient prompt, state-dependent git colors, show-on-command).
 - Packages: `starship` (nix)
-- Shell hook: Add `eval "$(starship init zsh)"` to zshrc (after mise activate)
+- Shell hook: zshrc has `USE_STARSHIP=1` guard — p10k loads by default.
 
 ### 1.4 Tmux config upgrade
 
