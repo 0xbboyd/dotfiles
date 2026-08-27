@@ -1,6 +1,5 @@
 path+=$HOME/bin
 path+=$HOME/.local/bin
-path+=$PATH
 
 source $HOME/.aliases
 
