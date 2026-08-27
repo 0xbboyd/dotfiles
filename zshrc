@@ -84,8 +84,15 @@ eval "$(/home/bboyd/.local/bin/mise activate zsh)"
 export NVM_DIR="/home/bboyd/.nvm"
 [ -s "$NVM_DIR/nvm.sh" ] && . "$NVM_DIR/nvm.sh"  # This loads nvm
 
-# To customize prompt, run `p10k configure` or edit ~/.p10k.zsh.
-[[ ! -f ~/.p10k.zsh ]] || source ~/.p10k.zsh
+# Prompt — Starship (ported from Omarchy) or Powerlevel10k.
+# Starship is the default. To use p10k instead, set USE_P10K=1 in your shell env.
+if [[ -n ${USE_P10K:-} && -f ~/.p10k.zsh ]]; then
+  source ~/.p10k.zsh
+elif command -v starship &>/dev/null; then
+  eval "$(starship init zsh)"
+elif [[ -f ~/.p10k.zsh ]]; then
+  source ~/.p10k.zsh
+fi
 
 HISTFILE=~/.zsh_history
 HIST_STAMPS=mm/dd/yyyy
