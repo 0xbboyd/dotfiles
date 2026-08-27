@@ -1,36 +1,86 @@
-# Starship prompt config — ported from Omarchy
-# Minimal, fast prompt: directory + git branch/status, cyan accent.
-# Source: ~/src/omarchy/config/starship.toml
+# Starship prompt config — Yendo Cowboy powerline style
+# Ported from p10k rainbow config to starship format.
+# Uses DejaVuSansM Nerd Font Mono powerline glyphs (U+E0B0/E0B1/E0B2).
 
+# ── Global ──
 add_newline = true
 command_timeout = 200
-format = "[$directory$git_branch$git_status]($style)$character"
 
+# Two-line prompt: info on line 1, prompt char on line 2.
+# Powerline separators between segments using Nerd Font glyphs.
+format = """
+$directory\
+$git_branch\
+$git_status\
+$fill\
+$cmd_duration\
+$jobs\
+$kubernetes\
+$line_break\
+$character"""
+
+# ── Prompt character (line 2) ──
 [character]
-error_symbol = "[✗](bold cyan)"
-success_symbol = "[❯](bold cyan)"
+success_symbol = "[╰─❯](#f5a623)"
+error_symbol = "[╰─✗](#ef5350)"
 
+# ── Directory — orange segment with powerline tail ──
 [directory]
-truncation_length = 2
+style = "bg:#e87530 fg:#1a0f0a bold"
+format = "[ $path ]($style)[](#e87530 #2d1810)"
+truncation_length = 3
 truncation_symbol = "…/"
-repo_root_style = "bold cyan"
-repo_root_format = "[$repo_root]($repo_root_style)[$path]($style)[$read_only]($read_only_style) "
+repo_root_style = "bg:#e87530 fg:#1a0f0a bold"
+repo_root_format = "[ $repo_root ]($style)[](#e87530 #2d1810)[$path]($style)"
 
+# ── Git branch — dark segment ──
 [git_branch]
-format = "[$branch]($style) "
-style = "italic cyan"
+style = "bg:#2d1810 fg:#fff5e1"
+format = "[ $symbol$branch ]($style)[](#2d1810 #1a0f0a)"
+symbol = ""
 
+# ── Git status — dark segment, continues from branch ──
 [git_status]
-format     = '[$all_status]($style)'
-style      = "cyan"
-ahead      = "⇡${count} "
-diverged   = "⇕⇡${ahead_count}⇣${behind_count} "
-behind     = "⇣${count} "
-conflicted = ""
+style = "bg:#1a0f0a fg:#fff5e1"
+format = "[$all_status$ahead_behind ]($style)[](#1a0f0a default)"
+ahead = "⇡${count} "
+behind = "⇣${count} "
+diverged = "⇕⇡${ahead_count}⇣${behind_count} "
+conflicted = " "
 up_to_date = " "
-untracked  = "? "
-modified   = " "
-stashed    = ""
-staged     = ""
-renamed    = ""
-deleted    = ""
+untracked = "? "
+modified = " "
+stashed = ""
+staged = ""
+renamed = ""
+deleted = ""
+
+# ── Fill — pushes right-side modules to the right edge ──
+[fill]
+symbol = "─"
+style = "#a0522d"
+
+# ── Command duration — amber segment (right side) ──
+[cmd_duration]
+style = "bg:#f5a623 fg:#1a0f0a"
+format = "[](#1a0f0a #f5a623)[ $duration ]($style)"
+min_time = 3_000
+show_milliseconds = false
+
+# ── Background jobs ──
+[jobs]
+style = "bg:#1a0f0a fg:#f5a623"
+format = "[](default #1a0f0a)[ $symbol$number ]($style)"
+symbol = ""
+
+# ── Kubernetes context ──
+# Disabled by default — p10k showed it only when running k8s commands.
+# Starship can't do conditional display, so enable manually if wanted.
+[kubernetes]
+style = "bg:#ad8ee6 fg:#1a0f0a"
+format = "[](#1a0f0a #ad8ee6)[ ⎈ $context ]($style)"
+disabled = true
+
+# ── Line break — separates line 1 from line 2 ──
+[line_break]
+disabled = false
