@@ -162,7 +162,7 @@ from apt names (marked with *).
 | ffmpeg | ffmpeg | Media processing |
 | dos2unix | dos2unix | Line ending conversion |
 | gh | gh | GitHub CLI |
-| git-flow | git-flow | Git branching |
+| git-flow | gitflow * | Git branching |
 | xclip | xclip | X11 clipboard |
 | wl-clipboard | wl-clipboard | Wayland clipboard |
 | vim-addon-manager | (drop) | Legacy — neovim uses its own plugin manager |
@@ -183,7 +183,7 @@ Not currently installed. Add to nix profile.
 | fd | find replacement |
 | fzf | Fuzzy finder |
 | lazygit | Git TUI |
-| yq | YAML processor |
+| yq | yq-go * | YAML processor |
 | lua-language-server | Neovim LSP |
 | gopls | Go LSP |
 | pyright | Python LSP |
@@ -208,8 +208,8 @@ them prevents version conflicts.
 nix profile install nixpkgs#neovim nixpkgs#eza nixpkgs#delta nixpkgs#ripgrep \
   nixpkgs#jq nixpkgs#tmux nixpkgs#tig nixpkgs#htop nixpkgs#btop nixpkgs#tree \
   nixpkgs#universal-ctags nixpkgs#ffmpeg nixpkgs#dos2unix nixpkgs#gh \
-  nixpkgs#git-flow nixpkgs#xclip nixpkgs#wl-clipboard \
-  nixpkgs#bat nixpkgs#fd nixpkgs#fzf nixpkgs#lazygit nixpkgs#yq \
+  nixpkgs#gitflow nixpkgs#xclip nixpkgs#wl-clipboard \
+  nixpkgs#bat nixpkgs#fd nixpkgs#fzf nixpkgs#lazygit nixpkgs#yq-go \
   nixpkgs#lua-language-server nixpkgs#gopls nixpkgs#pyright \
   nixpkgs#typescript-language-server nixpkgs#tree-sitter nixpkgs#tmuxinator
 ```

@@ -73,6 +73,11 @@ calc() {
   awk "BEGIN{ print $* }"
 }
 
+# nix — dev tooling layer (must be before mise so mise shims win)
+if [ -e '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh' ]; then
+  . '/nix/var/nix/profiles/default/etc/profile.d/nix-daemon.sh'
+fi
+
 # mise — single version manager for runtimes and agent harnesses
 eval "$(/home/bboyd/.local/bin/mise activate zsh)"
 

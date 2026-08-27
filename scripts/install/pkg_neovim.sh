@@ -1,6 +1,5 @@
 #!/usr/bin/env sh
 
-# Install the latest Neovim (0.11+) via the unstable PPA for Ubuntu
-sudo add-apt-repository -y ppa:neovim-ppa/unstable
-sudo apt-get update
-sudo apt-get install -y neovim
+# Install Neovim via nix (replaces the old apt+unstable PPA approach)
+# Requires nix to be installed: sh <(curl -L https://nixos.org/nix/install) --daemon
+nix profile install nixpkgs#neovim
