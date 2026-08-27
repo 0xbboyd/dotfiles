@@ -43,17 +43,21 @@ These move to nix because Debian stable lags or because per-project
 isolation is valuable. Nix provides newer versions without PPAs and
 atomic rollbacks if an upgrade breaks something.
 
-- neovim (currently via apt+unstable PPA — migrate to nix)
-- eza (currently via apt — migrate to nix)
-- git-delta (currently via apt — migrate to nix)
-- ripgrep / fd / bat (currently via apt — migrate to nix)
-- fzf
-- lazygit
-- starship / powerlevel10k (if ever needed via nix)
-- Language servers: lua-language-server, gopls, pyright, typescript-language-server
-- tree-sitter CLI
-- yq (YAML processor)
-- gh (GitHub CLI, if a newer version than apt is needed)
+Migrated from apt:
+- neovim (was via apt+unstable PPA)
+- eza, git-delta (nixpkgs name: delta), ripgrep
+- jq, tmux, tig, htop, btop, tree
+- universal-ctags, ffmpeg, dos2unix
+- gh, git-flow
+- xclip, wl-clipboard
+
+New (not previously installed):
+- bat, fd, fzf, lazygit, yq
+- lua-language-server, gopls, pyright, typescript-language-server
+- tree-sitter, tmuxinator
+
+See the "Migration plan" section below for the full table with nixpkgs
+package names (some differ from apt names).
 
 Rule: CLI dev tools and language servers go here. Nothing that requires
 root or systemd.
@@ -137,23 +141,109 @@ trap — always remove from the old source first.
 
 ## Migration plan (apt -> nix)
 
-Tools currently on apt that should migrate to nix:
+### Phase 1: Migrate to nix (18 packages currently on apt)
 
-| Package | Current source | Action |
-|---------|---------------|--------|
-| neovim | apt (unstable PPA) | `sudo apt remove neovim` then `nix profile install nixpkgs#neovim` |
-| eza | apt | `sudo apt remove eza` then `nix profile install nixpkgs#eza` |
-| git-delta | apt | `sudo apt remove git-delta` then `nix profile install nixpkgs#git-delta` |
-| ripgrep | apt | `sudo apt remove ripgrep` then `nix profile install nixpkgs#ripgrep` |
-| bat | apt (batcat) | `sudo apt remove bat` then `nix profile install nixpkgs#bat` |
+Remove from apt, then install via nix. Note: some nixpkgs names differ
+from apt names (marked with *).
 
-After migration, also remove the neovim unstable PPA:
+| apt package | nixpkgs name | Category |
+|-------------|-------------|----------|
+| neovim | neovim | Editor |
+| eza | eza | File listing |
+| git-delta | delta * | Git diff |
+| ripgrep | ripgrep | Search |
+| jq | jq | JSON |
+| tmux | tmux | Terminal multiplexer |
+| tig | tig | Git TUI |
+| htop | htop | Process viewer |
+| btop | btop | Process viewer |
+| tree | tree | Directory tree |
+| universal-ctags | universal-ctags | Code indexing |
+| ffmpeg | ffmpeg | Media processing |
+| dos2unix | dos2unix | Line ending conversion |
+| gh | gh | GitHub CLI |
+| git-flow | git-flow | Git branching |
+| xclip | xclip | X11 clipboard |
+| wl-clipboard | wl-clipboard | Wayland clipboard |
+| vim-addon-manager | (drop) | Legacy — neovim uses its own plugin manager |
+
+After migrating neovim, remove the unstable PPA:
 
 ```bash
 sudo add-apt-repository --remove ppa:neovim-ppa/unstable
 ```
 
-And update `scripts/install/pkg_neovim.sh` to use nix instead of apt.
+### Phase 2: New packages to install via nix (11 packages)
+
+Not currently installed. Add to nix profile.
+
+| nixpkgs name | Category |
+|-------------|----------|
+| bat | cat replacement (apt had batcat) |
+| fd | find replacement |
+| fzf | Fuzzy finder |
+| lazygit | Git TUI |
+| yq | YAML processor |
+| lua-language-server | Neovim LSP |
+| gopls | Go LSP |
+| pyright | Python LSP |
+| typescript-language-server | TypeScript LSP |
+| tree-sitter | Parser generator (neovim dependency) |
+| tmuxinator | Tmux session manager |
+
+### Phase 3: Remove from apt (already on mise)
+
+These are managed by mise and should not be installed via apt. Removing
+them prevents version conflicts.
+
+| apt package | mise equivalent |
+|-------------|----------------|
+| npm | mise manages node (includes npm) |
+| python3-pip | mise manages python |
+| pipx | mise has pipx integration |
+
+### One-line install after nix is set up
+
+```bash
+nix profile install nixpkgs#neovim nixpkgs#eza nixpkgs#delta nixpkgs#ripgrep \
+  nixpkgs#jq nixpkgs#tmux nixpkgs#tig nixpkgs#htop nixpkgs#btop nixpkgs#tree \
+  nixpkgs#universal-ctags nixpkgs#ffmpeg nixpkgs#dos2unix nixpkgs#gh \
+  nixpkgs#git-flow nixpkgs#xclip nixpkgs#wl-clipboard \
+  nixpkgs#bat nixpkgs#fd nixpkgs#fzf nixpkgs#lazygit nixpkgs#yq \
+  nixpkgs#lua-language-server nixpkgs#gopls nixpkgs#pyright \
+  nixpkgs#typescript-language-server nixpkgs#tree-sitter nixpkgs#tmuxinator
+```
+
+### Post-migration verification
+
+```bash
+# nix layer
+for cmd in nvim eza delta rg jq tmux tig htop btop tree ctags ffmpeg gh bat fd fzf lazygit yq; do
+  printf "%-10s -> %s\n" "$cmd" "$(which $cmd 2>/dev/null || echo 'NOT FOUND')"
+done
+
+# mise layer
+for cmd in node python go npm; do
+  printf "%-10s -> %s\n" "$cmd" "$(which $cmd 2>/dev/null || echo 'NOT FOUND')"
+done
+
+# apt layer (spot check)
+for cmd in apt podman zsh git; do
+  printf "%-10s -> %s\n" "$cmd" "$(which $cmd 2>/dev/null || echo 'NOT FOUND')"
+done
+```
+
+Every nix-layer command should resolve to /nix/store or ~/.nix-profile.
+Every mise-layer command should resolve to a mise shim or mise install path.
+Every apt-layer command should resolve to /usr/bin.
+
+### Update install scripts
+
+After migration, update these dotfiles scripts to reflect the new layering:
+
+- `scripts/install/pkg_neovim.sh` — replace apt+PPA with nix profile install
+- `scripts/install/base_packages.sh` — remove packages that migrated to nix
+- `scripts/install/pkg_npm_packages.sh` — review whether still needed (npm now via mise)
 
 ## Nix installation (on Ubuntu, not NixOS)
 
