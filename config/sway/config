@@ -64,30 +64,47 @@ exec blueman-applet
 exec dex --autostart --environment sway
 # Screenshots use grim+slurp (Wayland-native); flameshot is X11-only
 
-# Media / system keys (PipeWire/WirePlumber — same as i3)
-bindsym XF86AudioRaiseVolume exec wpctl set-volume -l 1.0 @DEFAULT_AUDIO_SINK@ 10%+
-bindsym XF86AudioLowerVolume exec wpctl set-volume @DEFAULT_AUDIO_SINK@ 10%-
-bindsym XF86AudioMute exec wpctl set-mute @DEFAULT_AUDIO_SINK@ toggle
-bindsym XF86AudioMicMute exec wpctl set-mute @DEFAULT_AUDIO_SOURCE@ toggle
+# Media / system keys (use Omarchy-ported scripts for DSP-aware volume + OSD fallback)
+bindsym XF86AudioRaiseVolume exec audio-volume raise
+bindsym XF86AudioLowerVolume exec audio-volume lower
+bindsym XF86AudioMute exec audio-volume mute-toggle
+bindsym XF86AudioMicMute exec audio-mute
+# Mod+Shift+a: switch audio output (preserves mute/volume state)
+bindsym $mod+Shift+a exec audio-output-switch
 
-# Screenshots (grim+slurp+swappy — Wayland-native, replaces flameshot)
-# Print: select region, annotate in swappy, then copy/save from swappy
-bindsym Print exec grim -g "$(slurp)" - | swappy -f -
-# Mod+Print: full screen, annotate in swappy
-bindsym $mod+Print exec grim - | swappy -f -
-# Shift+Print: select region, save directly to ~/Pictures/Screenshots (no annotation)
-bindsym Shift+Print exec grim -g "$(slurp)" ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png
+# Screenshots (use Omarchy-ported scripts — clipboard + file, annotation editor)
+# Print: select region, copy to clipboard + save to file, open in swappy
+bindsym Print exec screenshot smart slurp
+# Mod+Print: full screen, copy to clipboard + save to file
+bindsym $mod+Print exec screenshot fullscreen slurp
+# Shift+Print: select region, save to file only (no clipboard, no annotation)
+bindsym Shift+Print exec screenshot region save
 # Mod+Shift+s: same as Print (region select + annotation)
-bindsym $mod+Shift+s exec grim -g "$(slurp)" - | swappy -f -
-# F13: full screen, save directly to ~/Pictures/Screenshots (no annotation)
-bindsym F13 exec grim ~/Pictures/Screenshots/$(date +%Y%m%d_%H%M%S).png
+bindsym $mod+Shift+s exec screenshot smart slurp
+# F13: full screen, save to file only
+bindsym F13 exec screenshot fullscreen save
+# Mod+Ctrl+Print: OCR text extraction from screen region to clipboard
+bindsym $mod+Ctrl+Print exec ocr-screenshot
+# Mod+Alt+Print: QR code decode from screen region to clipboard
+bindsym $mod+Alt+Print exec qr-screenshot
+# Mod+Shift+a: switch audio output (preserves mute/volume state)
+bindsym $mod+Shift+a exec audio-output-switch
+
+# Brightness (use Omarchy-ported script for non-uniform step size)
+bindsym XF86MonBrightnessUp exec brightness +5%
+bindsym XF86MonBrightnessDown exec brightness 5%-
+
+# Reminders (use Omarchy-ported reminder script)
+bindsym $mod+Ctrl+r exec reminder -i
+bindsym $mod+Ctrl+Shift+r exec reminder show
+bindsym $mod+Ctrl+Alt+r exec reminder clear
 
 # Launchers
 bindsym $mod+Return exec $term
 bindsym $mod+d exec $menu
 bindsym $mod+Shift+d exec rofi -show run
 bindsym $mod+Tab exec rofi -show window
-bindsym $mod+Shift+a exec ~/.config/i3/scripts/bluetooth-audio-picker.sh
+bindsym $mod+Shift+b exec ~/.config/i3/scripts/bluetooth-audio-picker.sh
 bindsym $mod+Shift+p exec dmenu_run
 
 # Window controls
