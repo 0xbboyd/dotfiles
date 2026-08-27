@@ -1,0 +1,64 @@
+#!/bin/bash
+# mise-bumps-check: Poll mise for major version bumps available outside
+# the pinned version ranges in mise.toml. Emits waybar JSON.
+#
+# Uses `mise outdated --bump` which shows cross-major updates like
+# node 24 -> 26, python 3.12 -> 3.14, etc.
+#
+# Output: waybar custom module JSON
+# State: ~/.local/state/mise-updates/dismissed-bump-<hash>
+
+set -euo pipefail
+
+STATE_DIR="${XDG_STATE_HOME:-$HOME/.local/state}/mise-updates"
+mkdir -p "$STATE_DIR"
+
+export PATH="$HOME/.local/bin:$PATH"
+export MISE_MINIMUM_RELEASE_AGE=0
+
+# mise outdated --bump shows updates outside the configured version ranges
+raw=$(mise outdated --bump 2>/dev/null || true)
+
+updates=()
+hash_input=""
+
+while IFS= read -r line; do
+    [[ -z $line ]] && continue
+    [[ $line == "mise "* ]] && continue
+    [[ $line =~ ^[[:space:]]*$ ]] && continue
+    # Parse: "tool  requested  current  bumped  latest  source"
+    tool=$(echo "$line" | awk '{print $1}')
+    current=$(echo "$line" | awk '{print $3}')
+    latest=$(echo "$line" | awk '{print $5}')
+    [[ -z $tool || -z $latest ]] && continue
+    updates+=("${tool}: ${current} -> ${latest}")
+    hash_input+="${tool}:${latest} "
+done <<< "$raw"
+
+count=${#updates[@]}
+
+if (( count == 0 )); then
+    printf '{"text":"","class":"mise-bumps-empty"}\n'
+    exit 0
+fi
+
+update_hash=$(echo -n "$hash_input" | md5sum | awk '{print $1}')
+dismiss_file="$STATE_DIR/dismissed-bump-$update_hash"
+
+if [[ -f $dismiss_file ]]; then
+    printf '{"text":"","class":"mise-bumps-dismissed"}\n'
+    exit 0
+fi
+
+tooltip=$(printf '%s\n' "${updates[@]}")
+tooltip_escaped=$(python3 -c "import json,sys; print(json.dumps(sys.stdin.read().strip())[1:-1])" <<< "$tooltip")
+
+icon="\uf0de"  # arrow-up icon
+if (( count == 1 )); then
+    text=" ${icon} 1 bump "
+else
+    text=" ${icon} ${count} bumps "
+fi
+
+printf '{"text":"%s","tooltip":"%s","class":"mise-bumps","percentage":%d}\n' \
+    "$text" "$tooltip_escaped" "$count"
