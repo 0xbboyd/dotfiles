@@ -9,7 +9,8 @@ compinit
 # Enable Powerlevel10k instant prompt. Should stay close to the top of ~/.zshrc.
 # Initialization code that may require console input (password prompts, [y/n]
 # confirmations, etc.) must go above this block; everything else may go below.
-if [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
+# Only load when using p10k — starship is the default prompt.
+if [[ -n ${USE_P10K:-} ]] && [[ -r "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh" ]]; then
   source "${XDG_CACHE_HOME:-$HOME/.cache}/p10k-instant-prompt-${(%):-%n}.zsh"
 fi
 
@@ -28,11 +29,11 @@ antigen use oh-my-zsh
 # add support for 256 colors
 export TERM="xterm-256color"
 
-# OMZ powerlevel theme
-# POWERLEVEL9K_RIGHT_PROMPT_ELEMENTS=()
-# POWERLEVEL9K_LEFT_PROMPT_ELEMENTS=(status dir vcs)
-# antigen theme bhilburn/powerlevel9k powerlevel9k
-antigen theme romkatv/powerlevel10k powerlevel10k
+# OMZ powerlevel theme — only load p10k when USE_P10K is set.
+# Starship is the default prompt (see init block below).
+if [[ -n ${USE_P10K:-} ]]; then
+  antigen theme romkatv/powerlevel10k powerlevel10k
+fi
 
 antigen bundles <<EOBUNDLES
 autovenv
