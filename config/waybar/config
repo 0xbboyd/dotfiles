@@ -23,6 +23,8 @@
         "clock",
         "custom/sep-mise",
         "custom/mise-updates",
+        "custom/sep-bumps",
+        "custom/mise-bumps",
         "tray"
     ],
     "sway/workspaces": {
@@ -104,6 +106,18 @@
         "format": "{}",
         "on-click": "MISE_MINIMUM_RELEASE_AGE=0 mise up -y && pkill -RTMIN+1 waybar",
         "on-click-right": "~/.local/bin/mise-updates-dismiss",
+        "tooltip": true
+    },
+    "custom/sep-bumps": {
+        "format": ""
+    },
+    "custom/mise-bumps": {
+        "exec": "~/.local/bin/mise-bumps-check",
+        "exec-interval": 21600,
+        "return-type": "json",
+        "format": "{}",
+        "on-click": "MISE_MINIMUM_RELEASE_AGE=0 mise up --bump -y && pkill -RTMIN+1 waybar",
+        "on-click-right": "~/.local/bin/mise-bumps-dismiss",
         "tooltip": true
     }
 }

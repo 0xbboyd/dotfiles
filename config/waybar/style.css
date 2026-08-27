@@ -209,6 +209,45 @@ window#waybar {
     margin: 0;
 }
 
+/* === Separator: mise-updates -> mise-bumps ===
+ * triangle color: #f5a623 (mise-bumps bg = accent amber)
+ * background: #4caf50 (mise-updates bg = ok green)
+ * When mise-updates is empty, bg falls back to clock bg #0d0704 */
+#custom-sep-bumps {
+    color: #f5a623;
+    background-color: #4caf50;
+    font-size: 26px;
+    padding: 0;
+    margin: 0;
+}
+
+/* === mise-bumps ===
+ * Amber segment — "accent" color from the cowboy palette.
+ * Shows major version bumps available outside pinned ranges. */
+#custom-mise-bumps {
+    background-color: #f5a623;
+    color: #1a0f0a;
+    padding: 0 6px;
+    font-weight: bold;
+}
+
+#custom-mise-bumps.mise-bumps-empty,
+#custom-mise-bumps.mise-bumps-dismissed {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* When mise-updates is hidden, the bumps separator should use clock bg */
+#custom-mise-updates.mise-updates-empty ~ #custom-sep-bumps,
+#custom-mise-updates.mise-updates-dismissed ~ #custom-sep-bumps {
+    background-color: #0d0704;
+}
+
+/* When mise-bumps is hidden, the separator before tray should use bumps bg
+ * But if bumps is hidden, tray separator is just bumps bg = transparent,
+ * so the tray's own bg (#2d1810) handles the transition. */
+
 /* === Tray === */
 #tray {
     background-color: #2d1810;
