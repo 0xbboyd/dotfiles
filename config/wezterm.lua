@@ -7,7 +7,6 @@ if wezterm.config_builder then
 end
 
 -- Font — DejaVuSansM Nerd Font Mono (installed on this machine)
--- Has Nerd Font glyphs for powerline/waybar/tmux icons
 config.font = wezterm.font 'DejaVuSansM Nerd Font Mono'
 config.font_size = 11.0
 
@@ -26,7 +25,9 @@ config.scrollback_lines = 10000
 -- Automatically launch tmux on startup (optional)
 -- config.default_prog = { 'tmux' }
 
--- Tokyo Night color palette (same colors as foot/ghostty configs)
+-- Tokyo Night color palette (fallback — change manually or restart wezterm
+-- after running `theme set` to pick up generated colors from
+-- ~/.local/state/theme-current/wezterm-colors.lua)
 -- Source: ~/src/omarchy/themes/tokyo-night/colors.toml
 config.colors = {
   foreground = '#a9b1d6',
@@ -85,6 +86,13 @@ config.colors = {
   },
 }
 
+-- To apply a theme from the theme switcher, copy the generated colors:
+--   cp ~/.local/state/theme-current/wezterm-colors.lua /tmp/wezterm-theme.lua
+-- Then merge the returned table into config.colors above, or just
+-- replace the fallback block with the generated file's contents and
+-- restart wezterm. Wezterm's sandboxed Lua does not support dofile(),
+-- so runtime reload via SIGUSR1 is not safe.
+
 -- Keybindings
 config.keys = {
   -- Ctrl + V to paste from clipboard
@@ -94,7 +102,7 @@ config.keys = {
 }
 
 -- Send Shift+Enter as CSI-u so TUIs (tmux, neovim) can distinguish it from Enter.
--- Matches the same binding in foot.ini and ghostty/config.
+-- Matches the same binding in ghostty/config.
 config.key_tables = {}
 for _, mods in ipairs({ 'SHIFT', 'ALT|SHIFT' }) do
   table.insert(config.keys, {
