@@ -87,9 +87,6 @@ bindsym F13 exec screenshot fullscreen save
 bindsym $mod+Ctrl+Print exec ocr-screenshot
 # Mod+Alt+Print: QR code decode from screen region to clipboard
 bindsym $mod+Alt+Print exec qr-screenshot
-# Mod+Shift+a: switch audio output (preserves mute/volume state)
-bindsym $mod+Shift+a exec audio-output-switch
-
 # Brightness (use Omarchy-ported script for non-uniform step size)
 bindsym XF86MonBrightnessUp exec brightness +5%
 bindsym XF86MonBrightnessDown exec brightness 5%-
