@@ -32,6 +32,11 @@ complexity.
 - jq, htop, tree, xclip, wl-clipboard
 - python3-pip (system Python for OS tooling only)
 - dconf-editor, papirus-icon-theme
+- foot, brightnessctl, upower, libglib2.0-bin (Omarchy-ported scripts)
+- grim, slurp (Wayland screenshot capture)
+- tesseract-ocr, tesseract-ocr-eng (OCR text extraction)
+- zbar-tools (QR code decoding)
+- ddcutil (external monitor brightness via DDC/CI)
 - All libc, systemd, kernel, mesa, X/Wayland packages
 
 Rule: if it needs a systemd unit, a kernel module, or deep display-server
@@ -56,6 +61,7 @@ New (not previously installed):
 - bat, fd, fzf, lazygit, yq
 - lua-language-server, gopls, pyright, typescript-language-server
 - tree-sitter, tmuxinator
+- starship (minimal prompt — ported from Omarchy)
 
 See the "Migration plan" section below for the full table with nixpkgs
 package names (some differ from apt names).

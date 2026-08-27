@@ -28,3 +28,13 @@ sudo apt-get install -y xclip \
                         htop \
                         python3-pip \
                         tig \
+                        foot \
+                        brightnessctl \
+                        upower \
+                        libglib2.0-bin \
+                        grim \
+                        slurp \
+                        tesseract-ocr \
+                        tesseract-ocr-eng \
+                        zbar-tools \
+                        ddcutil
