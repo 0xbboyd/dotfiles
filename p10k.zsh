@@ -13,6 +13,10 @@
 #
 #   for i in {0..255}; do print -Pn "%K{$i}  %k%F{$i}${(l:3::0:)i}%f " ${${(M)$((i%6)):#3}:+$'\n'}; done
 
+# Disable gitstatus daemon — zsh 5.9 on Ubuntu 24.04 cannot setopt monitor,
+# which gitstatusd requires for job control. Falls back to synchronous git.
+typeset -g POWERLEVEL9K_DISABLE_GITSTATUS=1
+
 # Temporarily change options.
 'builtin' 'local' '-a' 'p10k_config_opts'
 [[ ! -o 'aliases'         ]] || p10k_config_opts+=('aliases')
