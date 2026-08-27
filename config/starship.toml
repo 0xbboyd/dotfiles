@@ -1,56 +1,63 @@
 # Starship prompt config — Yendo Cowboy powerline style
 # Matches p10k rainbow aesthetic: colored segments with powerline separators,
-# two-line layout, box-drawing prompt character.
+# box-drawing frame, two-line layout, right-side segments.
 # Uses DejaVuSansM Nerd Font Mono powerline glyphs:
-#   \ue0b0 = right-pointing triangle (segment transition left->right)
-#   \ue0b2 = left-pointing triangle (right-side segment transition)
+#   \ue0b0 = right-pointing triangle (left-side segment transitions)
+#   \ue0b2 = left-pointing triangle (right-side segment transitions)
 
 # ── Global ──
 add_newline = true
 command_timeout = 200
 
-# Two-line prompt: info on line 1, prompt char on line 2.
+# Two-line prompt with frame and right-side segments.
+# Line 1: ╭─ [dir▸ git] ────── [◂status ◂duration ◂jobs] ─╮
+# Line 2: ╰─❯
 format = """
+[\u256d\u2500](fg:#a0522d)\
 $directory\
 $git_branch\
 $git_status\
 $fill\
+$status\
 $cmd_duration\
 $jobs\
+[\u2500\u256e](fg:#a0522d)\
 $line_break\
 $character"""
 
 # ── Prompt character (line 2) ──
+# \u2570 = ╰ (box-drawing bottom-left corner)
 [character]
-success_symbol = "[\u256e\u2500\u276f](fg:#f5a623)"
-error_symbol = "[\u256e\u2500\u2717](fg:#ef5350)"
+success_symbol = "[\u2570\u2500\u276f](fg:#f5a623)"
+error_symbol = "[\u2570\u2500\u2717](fg:#ef5350)"
 
-# ── Directory — orange segment with powerline tail ──
-# \ue0b0 = right-pointing triangle: fg=segment bg, bg=next segment bg
+# ── Directory — orange segment ──
+# Triangle transitions from orange to amber (git bg)
 [directory]
 style = "fg:#1a0f0a bg:#e87530 bold"
-format = "[ $path ]($style)[\ue0b0](fg:#e87530 bg:#2d1810)"
+format = "[ $path ]($style)[\ue0b0](fg:#e87530 bg:#f5a623)"
 truncation_length = 3
 truncation_symbol = "\u2026/"
 repo_root_style = "fg:#1a0f0a bg:#e87530 bold"
-repo_root_format = "[ $repo_root ]($repo_root_style)[\ue0b0](fg:#e87530 bg:#2d1810)[$path]($style)"
+repo_root_format = "[ $repo_root ]($repo_root_style)[\ue0b0](fg:#e87530 bg:#f5a623)[$path]($style)"
 
-# ── Git branch — dark brown segment ──
+# ── Git branch — amber segment (matches p10k VCS_MODIFIED_BACKGROUND) ──
+# No trailing triangle — git_status continues in the same bg
 [git_branch]
-style = "fg:#fff5e1 bg:#2d1810"
-format = "[ $symbol$branch ]($style)[\ue0b0](fg:#2d1810 bg:#1a0f0a)"
+style = "fg:#1a0f0a bg:#f5a623"
+format = "[ $symbol$branch ]($style)"
 symbol = ""
 
-# ── Git status — darkest segment, continues from branch ──
-# Final \ue0b0 closes the segment back to terminal default
+# ── Git status — continues from branch, same amber bg ──
+# Closing triangle transitions back to terminal default
 [git_status]
-style = "fg:#fff5e1 bg:#1a0f0a"
-format = "[ $all_status$ahead_behind]($style)[\ue0b0](fg:#1a0f0a)"
+style = "fg:#1a0f0a bg:#f5a623"
+format = "[$all_status$ahead_behind ]($style)[\ue0b0](fg:#f5a623)"
 ahead = "\u21e1${count} "
 behind = "\u21e3${count} "
 diverged = "\u21d5\u21e1${ahead_count}\u21e3${behind_count} "
 conflicted = " "
-up_to_date = " "
+up_to_date = "\u2714 "
 untracked = "? "
 modified = " "
 stashed = ""
@@ -58,33 +65,39 @@ staged = ""
 renamed = ""
 deleted = ""
 
-# ── Fill — pushes right-side modules to the right edge ──
+# ── Fill — gap between left and right segments ──
 [fill]
 symbol = "\u2500"
 style = "fg:#a0522d"
 
+# ── Status (exit code) — right side, dark segment ──
+[status]
+style = "fg:#4caf50 bg:#1a0f0a"
+format = "[\ue0b2](fg:#a0522d bg:#1a0f0a)[ $symbol ]($style)"
+success_symbol = "\u2714"
+symbol = "\u2718"
+disabled = false
+
 # ── Command duration — amber segment (right side) ──
-# \ue0b2 = left-pointing triangle: fg=prev bg, bg=segment bg
 [cmd_duration]
 style = "fg:#1a0f0a bg:#f5a623"
-format = "[\ue0b2](fg:#a0522d bg:#f5a623)[ $duration ]($style)"
-min_time = 3_000
+format = "[\ue0b2](fg:#1a0f0a bg:#f5a623)[ $duration ]($style)"
+min_time = 0
 show_milliseconds = false
 
-# ── Background jobs ──
+# ── Background jobs — dark segment (right side) ──
 [jobs]
 style = "fg:#f5a623 bg:#1a0f0a"
-format = "[\ue0b2](fg:#a0522d bg:#1a0f0a)[ $symbol$number ]($style)"
+format = "[\ue0b2](fg:#f5a623 bg:#1a0f0a)[ $symbol$number ]($style)"
 symbol = ""
 
 # ── Kubernetes context ──
 # Disabled by default — p10k showed it only when running k8s commands.
-# Starship can't do conditional display, so enable manually if wanted.
 [kubernetes]
 style = "fg:#1a0f0a bg:#ad8ee6"
-format = "[\ue0b2](fg:#a0522d bg:#ad8ee6)[ \u2388 $context ]($style)"
+format = "[\ue0b2](fg:#1a0f0a bg:#ad8ee6)[ \u2388 $context ]($style)"
 disabled = true
 
-# ── Line break — separates line 1 from line 2 ──
+# ── Line break ──
 [line_break]
 disabled = false
