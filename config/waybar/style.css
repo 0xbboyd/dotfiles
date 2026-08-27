@@ -248,6 +248,45 @@ window#waybar {
  * But if bumps is hidden, tray separator is just bumps bg = transparent,
  * so the tray's own bg (#2d1810) handles the transition. */
 
+/* === Separator: mise-bumps -> nix-updates ===
+ * triangle color: #5e81ac (nix-updates bg = nord blue)
+ * background: #f5a623 (mise-bumps bg = accent amber)
+ * When mise-bumps is hidden, bg falls back to clock bg #0d0704 */
+#custom-sep-nix {
+    color: #5e81ac;
+    background-color: #f5a623;
+    font-size: 26px;
+    padding: 0;
+    margin: 0;
+}
+
+/* === nix-updates ===
+ * Blue segment — nix brand-adjacent color (Nord blue).
+ * Only visible when updates are available. */
+#custom-nix-updates {
+    background-color: #5e81ac;
+    color: #1a0f0a;
+    padding: 0 6px;
+    font-weight: bold;
+}
+
+#custom-nix-updates.nix-updates-empty,
+#custom-nix-updates.nix-updates-dismissed {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* When mise-bumps is hidden, the nix separator should use clock bg */
+#custom-mise-bumps.mise-bumps-empty ~ #custom-sep-nix,
+#custom-mise-bumps.mise-bumps-dismissed ~ #custom-sep-nix {
+    background-color: #0d0704;
+}
+
+/* When nix-updates is hidden, the separator before tray should use nix bg
+ * But if nix is hidden, tray separator is just nix bg = transparent,
+ * so the tray's own bg (#2d1810) handles the transition. */
+
 /* === Tray === */
 #tray {
     background-color: #2d1810;

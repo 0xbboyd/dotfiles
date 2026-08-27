@@ -25,6 +25,8 @@
         "custom/mise-updates",
         "custom/sep-bumps",
         "custom/mise-bumps",
+        "custom/sep-nix",
+        "custom/nix-updates",
         "tray"
     ],
     "sway/workspaces": {
@@ -118,6 +120,18 @@
         "format": "{}",
         "on-click": "MISE_MINIMUM_RELEASE_AGE=0 mise up --bump -y && pkill -RTMIN+1 waybar",
         "on-click-right": "~/.local/bin/mise-bumps-dismiss",
+        "tooltip": true
+    },
+    "custom/sep-nix": {
+        "format": ""
+    },
+    "custom/nix-updates": {
+        "exec": "~/.local/bin/nix-updates-check",
+        "exec-interval": 21600,
+        "return-type": "json",
+        "format": "{}",
+        "on-click": "nix profile upgrade --all -v && pkill -RTMIN+1 waybar",
+        "on-click-right": "~/.local/bin/nix-updates-dismiss",
         "tooltip": true
     }
 }

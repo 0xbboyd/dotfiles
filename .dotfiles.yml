@@ -47,6 +47,8 @@
     "~/.local/bin/git_delete_stale_branches": "scripts/commands/git_delete_stale_branches.sh"
     "~/.local/bin/git-hermes-commit-message": "scripts/commands/git_hermes_commit_message.sh"
     "~/.local/bin/clip-image": "scripts/commands/clip_image.sh"
+    "~/.local/bin/nix-updates-check": "scripts/commands/nix-updates-check.sh"
+    "~/.local/bin/nix-updates-dismiss": "scripts/commands/nix-updates-dismiss.sh"
 
     # other config
     "~/src/.projects.gws": "src/projects.gws"
