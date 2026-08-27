@@ -6,8 +6,9 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
--- Font — JetBrainsMono Nerd Font (same as foot/ghostty configs)
-config.font = wezterm.font 'JetBrainsMono Nerd Font'
+-- Font — DejaVuSansM Nerd Font Mono (installed on this machine)
+-- Has Nerd Font glyphs for powerline/waybar/tmux icons
+config.font = wezterm.font 'DejaVuSansM Nerd Font Mono'
 config.font_size = 11.0
 
 -- Visual Appearance
