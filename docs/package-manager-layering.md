@@ -50,6 +50,7 @@ Migrated from apt:
 - universal-ctags, ffmpeg, dos2unix
 - gh, git-flow
 - xclip, wl-clipboard
+- swappy (wayland screenshot editor)
 
 New (not previously installed):
 - bat, fd, fzf, lazygit, yq
