@@ -25,73 +25,52 @@ config.scrollback_lines = 10000
 -- Automatically launch tmux on startup (optional)
 -- config.default_prog = { 'tmux' }
 
--- Tokyo Night color palette (fallback — change manually or restart wezterm
--- after running `theme set` to pick up generated colors from
--- ~/.local/state/theme-current/wezterm-colors.lua)
--- Source: ~/src/omarchy/themes/tokyo-night/colors.toml
+-- THEME-COLORS-BEGIN
 config.colors = {
-  foreground = '#a9b1d6',
-  background = '#1a1b26',
-  cursor_bg = '#c0caf5',
-  cursor_fg = '#1a1b26',
-  cursor_border = '#c0caf5',
-  selection_fg = '#c0caf5',
-  selection_bg = '#292e42',
-  split = '#7aa2f7',
-  compose_cursor = '#e0af68',
-  scrollbar_thumb = '#24283b',
+  foreground = '#fff5e1',
+  background = '#1a0f0a',
+  cursor_bg = '#fff5e1',
+  cursor_fg = '#1a0f0a',
+  cursor_border = '#fff5e1',
+  selection_fg = '#fff5e1',
+  selection_bg = '#2d1810',
+  split = '#e87530',
+  compose_cursor = '#f5a623',
+  scrollbar_thumb = '#2d1810',
   tab_bar = {
-    background = '#13141c',
+    background = '#0d0704',
     active_tab = {
-      bg_color = '#7aa2f7',
-      fg_color = '#1a1b26',
+      bg_color = '#e87530',
+      fg_color = '#1a0f0a',
       intensity = 'Bold',
     },
     inactive_tab = {
-      bg_color = '#1a1b26',
-      fg_color = '#565f89',
+      bg_color = '#1a0f0a',
+      fg_color = '#8b4513',
     },
     inactive_tab_hover = {
-      bg_color = '#24283b',
-      fg_color = '#a9b1d6',
+      bg_color = '#2d1810',
+      fg_color = '#fff5e1',
     },
     new_tab = {
-      bg_color = '#1a1b26',
-      fg_color = '#565f89',
+      bg_color = '#1a0f0a',
+      fg_color = '#8b4513',
     },
     new_tab_hover = {
-      bg_color = '#24283b',
-      fg_color = '#a9b1d6',
+      bg_color = '#2d1810',
+      fg_color = '#fff5e1',
     },
   },
   ansi = {
-    '#1a1b26', -- 0: black (background)
-    '#f7768e', -- 1: red
-    '#9ece6a', -- 2: green
-    '#e0af68', -- 3: yellow
-    '#7aa2f7', -- 4: blue
-    '#ad8ee6', -- 5: magenta
-    '#449dab', -- 6: cyan
-    '#a9b1d6', -- 7: white (foreground)
+    '#1a0f0a', '#ef5350', '#4caf50', '#f5a623',
+    '#5e81ac', '#ad8ee6', '#5e81ac', '#fff5e1',
   },
   brights = {
-    '#414868', -- 8: bright black (muted)
-    '#ff7a93', -- 9: bright red
-    '#b9f27c', -- 10: bright green
-    '#ff9e64', -- 11: bright yellow
-    '#7da6ff', -- 12: bright blue
-    '#bb9af7', -- 13: bright magenta
-    '#0db9d7', -- 14: bright cyan
-    '#c0caf5', -- 15: bright white (bright_foreground)
+    '#a0522d', '#ef5350', '#4caf50', '#f5a623',
+    '#5e81ac', '#ad8ee6', '#5e81ac', '#fff5e1',
   },
 }
-
--- To apply a theme from the theme switcher, copy the generated colors:
---   cp ~/.local/state/theme-current/wezterm-colors.lua /tmp/wezterm-theme.lua
--- Then merge the returned table into config.colors above, or just
--- replace the fallback block with the generated file's contents and
--- restart wezterm. Wezterm's sandboxed Lua does not support dofile(),
--- so runtime reload via SIGUSR1 is not safe.
+-- THEME-COLORS-END
 
 -- Keybindings
 config.keys = {

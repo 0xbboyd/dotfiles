@@ -1,6 +1,6 @@
 # Ghostty terminal config — ported from Omarchy
 # Source: ~/src/omarchy/config/ghostty/config
-# Colors: fallback Tokyo Night, overridden by theme switcher include.
+# Colors: replaced in-place by theme switcher (theme set).
 
 # Font
 font-family = "DejaVuSansM Nerd Font Mono"
@@ -34,32 +34,27 @@ keybind = alt+shift+enter=csi:13;4u
 # Slowdown mouse scrolling
 mouse-scroll-multiplier = 0.95
 
-# Tokyo Night color palette (fallback — overridden by theme switcher)
-background = #1a1b26
-foreground = #a9b1d6
-cursor-color = #c0caf5
-selection-background = #292e42
-selection-foreground = #c0caf5
+# THEME-COLORS-BEGIN
+background = #1a0f0a
+foreground = #fff5e1
+cursor-color = #fff5e1
+selection-background = #2d1810
+selection-foreground = #fff5e1
 
-palette = 0=#1a1b26
-palette = 1=#f7768e
-palette = 2=#9ece6a
-palette = 3=#e0af68
-palette = 4=#7aa2f7
+palette = 0=#1a0f0a
+palette = 1=#ef5350
+palette = 2=#4caf50
+palette = 3=#f5a623
+palette = 4=#5e81ac
 palette = 5=#ad8ee6
-palette = 6=#449dab
-palette = 7=#a9b1d6
-palette = 8=#414868
-palette = 9=#ff7a93
-palette = 10=#b9f27c
-palette = 11=#ff9e64
-palette = 12=#7da6ff
-palette = 13=#bb9af7
-palette = 14=#0db9d7
-palette = 15=#c0caf5
-
-# Theme switcher: ghostty does not support safe runtime reload via
-# config-file include (crashes if the included file is missing or invalid).
-# To apply a theme, copy the generated colors:
-#   cp ~/.local/state/theme-current/ghostty-colors.conf and merge into
-# the palette section above, then restart ghostty.
+palette = 6=#5e81ac
+palette = 7=#fff5e1
+palette = 8=#a0522d
+palette = 9=#ef5350
+palette = 10=#4caf50
+palette = 11=#f5a623
+palette = 12=#5e81ac
+palette = 13=#ad8ee6
+palette = 14=#5e81ac
+palette = 15=#fff5e1
+# THEME-COLORS-END
