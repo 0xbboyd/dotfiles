@@ -8,6 +8,7 @@ background = "#1a0f0a"
 dark_background = "#0d0704"
 darker_background = "#0d0704"
 lighter_background = "#2d1810"
+bg_tertiary = "#3d1e0f"
 
 foreground = "#fff5e1"
 dark_foreground = "#8b4513"

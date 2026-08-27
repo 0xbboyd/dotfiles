@@ -4,9 +4,9 @@
 #   1. Sway client color variables (included by sway config)
 #   2. Waybar CSS (powerline segmented bar)
 #   3. btop theme file (color_theme = "current")
-#   4. Wezterm color overrides (dofile'd by wezterm.lua)
-#   5. Ghostty color config (included by ghostty/config)
-# Then reloads sway, waybar, wezterm, and btop.
+#   4. Wezterm color overrides (for manual merge on restart)
+#   5. Ghostty color config (for manual merge on restart)
+# Then reloads sway and waybar.
 #
 # Usage:
 #   theme list                — list available themes
@@ -29,14 +29,14 @@ GHOSTTY_COLORS="$STATE_DIR/ghostty-colors.conf"
 
 mkdir -p "$STATE_DIR"
 
-# ── Resolve a color key with fallback chain ──
+# Resolve a color key with fallback chain
 color() {
   local key="$1"
   local fallback="$2"
   printf '%s' "${COLORS[$key]:-$fallback}"
 }
 
-# ── TOML parser (reads key = "value" lines, extracts hex colors) ──
+# TOML parser (reads key = "value" lines, extracts hex colors)
 parse_toml() {
   local file="$1"
   declare -gA COLORS
@@ -50,7 +50,7 @@ parse_toml() {
   done < "$file"
 }
 
-# ── List available themes ──
+# List available themes
 list_themes() {
   {
     find -L "$THEMES_DIR" -maxdepth 1 -name '*.toml' -printf '%f\n' 2>/dev/null
@@ -67,7 +67,6 @@ generate_sway_colors() {
   local _yellow=$(color yellow "#e0af68")
   local _orange=$(color orange "#e87530")
   local accent=$(color bright_yellow "$_yellow")
-  [[ -z ${COLORS[bright_yellow]} ]] && accent=$(color bright_yellow "$_orange")
   local ok=$(color green "#4caf50")
   local _red=$(color red "#f7768e")
   local error=$(color bright_red "$_red")
@@ -112,7 +111,6 @@ generate_waybar_css() {
   local _yellow=$(color yellow "#e0af68")
   local _orange=$(color orange "#e87530")
   local accent=$(color bright_yellow "$_yellow")
-  [[ -z ${COLORS[bright_yellow]} ]] && accent=$(color bright_yellow "$_orange")
   local ok=$(color green "#4caf50")
   local _red=$(color red "#f7768e")
   local error=$(color bright_red "$_red")
@@ -358,14 +356,18 @@ EOF
 }
 
 # ── Generate btop theme file ──
+# Uses the same color mapping as the original hand-crafted yendo-cowboy.theme:
+#   box outlines = palette accent colors (primary, ok, accent, brown)
+#   graph gradients = green -> amber -> red (temp, cpu, used, upload)
+#   cached/download = lighter_bg -> muted -> accent
+#   meter/selection bg = selection
 generate_btop_theme() {
-  local bg=$(color background "#1a1b26")
+  local bg=$(color background "#1a0b26")
   local fg=$(color foreground "#a9b1d6")
   local primary=$(color accent "#7aa2f7")
   local _yellow=$(color yellow "#e0af68")
   local _orange=$(color orange "#e87530")
   local accent=$(color bright_yellow "$_yellow")
-  [[ -z ${COLORS[bright_yellow]} ]] && accent=$(color bright_yellow "$_orange")
   local ok=$(color green "#4caf50")
   local _red=$(color red "#f7768e")
   local error=$(color bright_red "$_red")
@@ -373,12 +375,9 @@ generate_btop_theme() {
   local dim=$(color dark_foreground "#8b4513")
   local selection=$(color selection "$bg")
   local light_fg=$(color light_foreground "$fg")
-  local magenta=$(color magenta "#ad8ee6")
-  local cyan=$(color cyan "#449dab")
-  local blue=$(color blue "#7aa2f7")
-  local red=$(color red "#f7768e")
-  local yellow=$(color yellow "#e0af68")
+  local brown=$(color brown "#c4522a")
   local light_bg=$(color lighter_background "$bg")
+  local bg_tertiary=$(color bg_tertiary "$light_bg")
   local bright_fg=$(color bright_foreground "$fg")
 
   cat > "$BTOP_THEME" << EOF
@@ -387,54 +386,41 @@ generate_btop_theme() {
 
 theme[main_bg]="$bg"
 theme[main_fg]="$fg"
-theme[title]="$fg"
+theme[title]="$primary"
 theme[hi_fg]="$accent"
 theme[selected_bg]="$selection"
-theme[selected_fg]="$accent"
-theme[inactive_fg]="$muted"
-theme[graph_text]="$light_fg"
-theme[meter_bg]="$selection"
-theme[proc_misc]="$light_fg"
-theme[cpu_box]="$magenta"
+theme[selected_fg]="$fg"
+theme[inactive_fg]="$dim"
+theme[proc_misc]="$accent"
+theme[cpu_box]="$primary"
 theme[mem_box]="$ok"
-theme[net_box]="$red"
-theme[proc_box]="$accent"
+theme[net_box]="$accent"
+theme[proc_box]="$brown"
 theme[div_line]="$muted"
 theme[temp_start]="$ok"
-theme[temp_mid]="$yellow"
-theme[temp_end]="$red"
-theme[cpu_start]="$cyan"
-theme[cpu_mid]="$blue"
-theme[cpu_end]="$magenta"
-theme[free_start]="$magenta"
-theme[free_mid]="$blue"
-theme[free_end]="$cyan"
-theme[cached_start]="$blue"
-theme[cached_mid]="$cyan"
-theme[cached_end]="$magenta"
-theme[available_start]="$yellow"
-theme[available_mid]="$red"
-theme[available_end]="$red"
+theme[temp_mid]="$accent"
+theme[temp_end]="$error"
+theme[cpu_start]="$ok"
+theme[cpu_mid]="$accent"
+theme[cpu_end]="$error"
+theme[free_start]="$ok"
+theme[free_mid]="$accent"
+theme[free_end]="$error"
+theme[cached_start]="$bg_tertiary"
+theme[cached_mid]="$muted"
+theme[cached_end]="$accent"
+theme[available_start]="$ok"
+theme[available_mid]="$accent"
+theme[available_end]="$primary"
 theme[used_start]="$ok"
-theme[used_mid]="$cyan"
-theme[used_end]="$blue"
-theme[download_start]="$yellow"
-theme[download_mid]="$red"
-theme[download_end]="$red"
-theme[upload_start]="$ok"
-theme[upload_mid]="$cyan"
-theme[upload_end]="$blue"
-theme[process_start]="$cyan"
-theme[process_mid]="$blue"
-theme[process_end]="$magenta"
-theme[gradient_color_0]="$bg"
-theme[gradient_color_1]="$light_bg"
-theme[gradient_color_2]="$selection"
-theme[gradient_color_3]="$muted"
-theme[gradient_color_4]="$dim"
-theme[gradient_color_5]="$fg"
-theme[gradient_color_6]="$light_fg"
-theme[gradient_color_7]="$bright_fg"
+theme[used_mid]="$accent"
+theme[used_end]="$error"
+theme[download_start]="$bg_tertiary"
+theme[download_mid]="$muted"
+theme[download_end]="$accent"
+theme[upload_start]="$dim"
+theme[upload_mid]="$primary"
+theme[upload_end]="$error"
 EOF
 }
 
@@ -465,7 +451,7 @@ generate_wezterm_colors() {
   cat > "$WEZTERM_COLORS" << EOF
 -- Generated by theme switcher — do not edit manually
 -- Source: ${CURRENT_THEME_NAME:-unknown}
--- dofile'd by wezterm.lua to override colors at runtime.
+-- Merge into config.colors in wezterm.lua, then restart wezterm.
 
 return {
   foreground = '$fg',
@@ -537,7 +523,7 @@ generate_ghostty_colors() {
   cat > "$GHOSTTY_COLORS" << EOF
 # Generated by theme switcher — do not edit manually
 # Source: ${CURRENT_THEME_NAME:-unknown}
-# Included by ghostty/config via config-file.
+# Merge into the palette section of ghostty/config, then restart ghostty.
 
 background = $bg
 foreground = $fg
@@ -594,9 +580,7 @@ apply_theme() {
 
   echo "${theme_name}" > "$STATE_DIR/current-theme"
 
-  # Copy btop theme so btop's color_theme = "current" can find it.
-  # btop searches ~/.config/btop/themes/ for <name>.theme.
-  # btop does not follow symlinks for theme files, so use a real copy.
+  # Copy btop theme as a real file (btop doesn't follow symlinks)
   mkdir -p ~/.config/btop/themes
   cp "$BTOP_THEME" ~/.config/btop/themes/current.theme
 
@@ -609,19 +593,16 @@ apply_theme() {
   waybar -s "$WAYBAR_CSS" &
   disown 2>/dev/null || true
 
-  # btop picks up theme from color_theme = "current" — no reload needed,
-  # it reads the .theme file on next render. Running btop instances
-  # will pick it up on next refresh.
-
-  # Wezterm and ghostty do not support safe runtime config reload
-  # (wezterm's sandboxed Lua crashes on dofile; ghostty may not
-  # handle a missing config-file include). They will pick up new
-  # theme colors on next launch/restart.
+  # btop picks up theme on next render refresh.
+  # Wezterm and ghostty do not support safe runtime reload
+  # (wezterm sandboxed Lua crashes on dofile; ghostty may
+  # crash on missing config-file include). They pick up
+  # new theme colors on next launch/restart.
 
   notify -g "Theme: $theme_name" -t 2000 2>/dev/null || true
 }
 
-# ── Show current theme ──
+# Show current theme
 show_current() {
   if [[ -f $STATE_DIR/current-theme ]]; then
     cat "$STATE_DIR/current-theme"
@@ -630,7 +611,7 @@ show_current() {
   fi
 }
 
-# ── Usage ──
+# Usage
 usage() {
   echo "Usage: theme list OR theme set <name> OR theme current"
   echo ""
