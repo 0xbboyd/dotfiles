@@ -21,6 +21,8 @@
         "battery",
         "custom/sep-date",
         "clock",
+        "custom/sep-mise",
+        "custom/mise-updates",
         "tray"
     ],
     "sway/workspaces": {
@@ -75,21 +77,33 @@
         "spacing": 4
     },
     "custom/left-cap": {
-        "format": ""
+        "format": "\ue0b2"
     },
     "custom/sep-cpu": {
-        "format": ""
+        "format": "\ue0b2"
     },
     "custom/sep-memory": {
-        "format": ""
+        "format": "\ue0b2"
     },
     "custom/sep-pulseaudio": {
-        "format": ""
+        "format": "\ue0b2"
     },
     "custom/sep-battery": {
-        "format": ""
+        "format": "\ue0b2"
     },
     "custom/sep-date": {
-        "format": ""
+        "format": ""
+    },
+    "custom/sep-mise": {
+        "format": ""
+    },
+    "custom/mise-updates": {
+        "exec": "~/.local/bin/mise-updates-check",
+        "exec-interval": 21600,
+        "return-type": "json",
+        "format": "{}",
+        "on-click": "MISE_MINIMUM_RELEASE_AGE=0 mise up -y && pkill -RTMIN+1 waybar",
+        "on-click-right": "~/.local/bin/mise-updates-dismiss",
+        "tooltip": true
     }
 }

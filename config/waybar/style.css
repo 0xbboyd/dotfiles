@@ -181,6 +181,34 @@ window#waybar {
     padding: 0 6px;
 }
 
+/* === Separator: clock -> mise-updates ===
+ * triangle color: #4caf50 (mise-updates bg = ok green)
+ * background: #0d0704 (clock bg) */
+#custom-sep-mise {
+    color: #4caf50;
+    background-color: #0d0704;
+    font-size: 26px;
+    padding: 0;
+    margin: 0;
+}
+
+/* === mise-updates ===
+ * Green segment — "ok" color from the cowboy palette.
+ * Only visible when updates are available. */
+#custom-mise-updates {
+    background-color: #4caf50;
+    color: #1a0f0a;
+    padding: 0 6px;
+    font-weight: bold;
+}
+
+#custom-mise-updates.mise-updates-empty,
+#custom-mise-updates.mise-updates-dismissed {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
 /* === Tray === */
 #tray {
     background-color: #2d1810;
