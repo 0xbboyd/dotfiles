@@ -594,6 +594,11 @@ apply_theme() {
 
   echo "${theme_name}" > "$STATE_DIR/current-theme"
 
+  # Symlink btop theme so btop's color_theme = "current" can find it.
+  # btop searches ~/.config/btop/themes/ for <name>.theme.
+  mkdir -p ~/.config/btop/themes
+  ln -sf "$BTOP_THEME" ~/.config/btop/themes/current.theme
+
   # Reload sway to pick up new colors
   swaymsg reload 2>/dev/null || true
 
