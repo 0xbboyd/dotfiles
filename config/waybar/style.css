@@ -283,8 +283,80 @@ window#waybar {
     background-color: #0d0704;
 }
 
-/* When nix-updates is hidden, the separator before tray should use nix bg
- * But if nix is hidden, tray separator is just nix bg = transparent,
+/* When nix-updates is hidden, the separator before hermes should use clock bg
+ * But if nix is hidden, hermes separator falls back to clock bg. */
+
+/* === Separator: nix-updates -> hermes-updates ===
+ * triangle color: #e64a19 (hermes-updates bg = deep orange)
+ * background: #5e81ac (nix-updates bg = nord blue)
+ * When nix-updates is hidden, bg falls back to clock bg #0d0704 */
+#custom-sep-hermes {
+    color: #e64a19;
+    background-color: #5e81ac;
+    font-size: 26px;
+    padding: 0;
+    margin: 0;
+}
+
+/* === hermes-updates ===
+ * Deep orange segment — Hermes brand-adjacent color.
+ * Only visible when updates are available. */
+#custom-hermes-updates {
+    background-color: #e64a19;
+    color: #1a0f0a;
+    padding: 0 6px;
+    font-weight: bold;
+}
+
+#custom-hermes-updates.hermes-updates-empty,
+#custom-hermes-updates.hermes-updates-dismissed {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* When nix-updates is hidden, the hermes separator should use clock bg */
+#custom-nix-updates.nix-updates-empty ~ #custom-sep-hermes,
+#custom-nix-updates.nix-updates-dismissed ~ #custom-sep-hermes {
+    background-color: #0d0704;
+}
+
+/* === Separator: hermes-updates -> gsd-updates ===
+ * triangle color: #7e57c2 (gsd-updates bg = purple)
+ * background: #e64a19 (hermes-updates bg = deep orange)
+ * When hermes-updates is hidden, bg falls back to clock bg #0d0704 */
+#custom-sep-gsd {
+    color: #7e57c2;
+    background-color: #e64a19;
+    font-size: 26px;
+    padding: 0;
+    margin: 0;
+}
+
+/* === gsd-updates ===
+ * Purple segment — GSD brand-adjacent color. */
+#custom-gsd-updates {
+    background-color: #7e57c2;
+    color: #1a0f0a;
+    padding: 0 6px;
+    font-weight: bold;
+}
+
+#custom-gsd-updates.gsd-updates-empty,
+#custom-gsd-updates.gsd-updates-dismissed {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+/* When hermes-updates is hidden, the gsd separator should use clock bg */
+#custom-hermes-updates.hermes-updates-empty ~ #custom-sep-gsd,
+#custom-hermes-updates.hermes-updates-dismissed ~ #custom-sep-gsd {
+    background-color: #0d0704;
+}
+
+/* When gsd-updates is hidden, the separator before tray should use gsd bg
+ * But if gsd is hidden, tray separator is just gsd bg = transparent,
  * so the tray's own bg (#2d1810) handles the transition. */
 
 /* === Tray === */

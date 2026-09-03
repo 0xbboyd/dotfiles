@@ -27,6 +27,10 @@
         "custom/mise-bumps",
         "custom/sep-nix",
         "custom/nix-updates",
+        "custom/sep-hermes",
+        "custom/hermes-updates",
+        "custom/sep-gsd",
+        "custom/gsd-updates",
         "tray"
     ],
     "sway/workspaces": {
@@ -132,6 +136,30 @@
         "format": "{}",
         "on-click": "nix profile upgrade --all -v && pkill -RTMIN+1 waybar",
         "on-click-right": "~/.local/bin/nix-updates-dismiss",
+        "tooltip": true
+    },
+    "custom/sep-hermes": {
+        "format": ""
+    },
+    "custom/hermes-updates": {
+        "exec": "~/.local/bin/hermes-updates-check",
+        "exec-interval": 21600,
+        "return-type": "json",
+        "format": "{}",
+        "on-click": "hermes update --yes && pkill -RTMIN+1 waybar",
+        "on-click-right": "~/.local/bin/hermes-updates-dismiss",
+        "tooltip": true
+    },
+    "custom/sep-gsd": {
+        "format": ""
+    },
+    "custom/gsd-updates": {
+        "exec": "~/.local/bin/gsd-updates-check",
+        "exec-interval": 21600,
+        "return-type": "json",
+        "format": "{}",
+        "on-click": "npx @opengsd/gsd-core@latest --hermes --global --portable-hooks && pkill -RTMIN+1 waybar",
+        "on-click-right": "~/.local/bin/gsd-updates-dismiss",
         "tooltip": true
     }
 }
