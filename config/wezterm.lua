@@ -74,7 +74,9 @@ config.colors = {
 
 -- Keybindings
 config.keys = {
-  -- Ctrl + V to paste from clipboard
+  -- Keep clipboard access in WezTerm's event loop. A synchronous wl-paste
+  -- subprocess can wedge every window served by this GUI if its data source
+  -- does not respond.
   { key = 'V', mods = 'CTRL', action = wezterm.action.PasteFrom 'Clipboard' },
   -- Cmd/Ctrl + Shift + L to show the debug overlay
   { key = 'L', mods = 'CTRL|SHIFT', action = wezterm.action.ShowDebugOverlay },
