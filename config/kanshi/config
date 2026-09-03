@@ -1,0 +1,20 @@
+# Kanshi: dynamic output configuration for Sway
+# Automatically applies the right profile based on which monitors are connected.
+# Reload after edits: pkill -HUP kanshi
+
+# Home: DVG DGVIEW490 49" 32:9 ultrawide, left of laptop
+profile home {
+    output "DVG DGVIEW490 0000000000000" mode 3840x1080@59.999Hz position 0,0
+    output eDP-1 enable mode 2880x1800@60Hz scale 2 position 3840,0
+}
+
+# Office: Samsung LS32B30 1920x1080, left of laptop
+profile office {
+    output HDMI-A-1 mode 1920x1080@60Hz position 0,0
+    output eDP-1 enable mode 2880x1800@60Hz scale 2 position 1920,0
+}
+
+# Fallback: laptop only
+profile laptop {
+    output eDP-1 enable mode 2880x1800@60Hz scale 2 position 0,0
+}
