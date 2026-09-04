@@ -50,8 +50,9 @@ exec swayidle -w \
 
 # Bar (replaces polybar)
 # bar uses waybar instead of polybar
-# SWAYSOCK must be set explicitly so waybar's sway/workspaces module can connect
-exec SWAYSOCK=$(ls /run/user/$(id -u)/sway-ipc.*.sock 2>/dev/null | head -1) waybar
+# waybar-restart globs + verifies the IPC socket (alias-proof), prefers the
+# theme switcher's generated CSS, and launches detached via setsid.
+exec $scripts/waybar-restart
 
 # Autostart / desktop integration
 # Force libadwaita dark mode (same as i3 config)
@@ -188,7 +189,7 @@ bindsym $mod+Shift+0 move container to workspace number $ws10; workspace number 
 # Reload / exit
 bindsym $mod+Shift+c reload
 # Reload sway config and restart waybar on all outputs
-bindsym $mod+Shift+r exec swaymsg reload && pkill waybar && sleep 0.5 && SWAYSOCK=$(ls /run/user/$(id -u)/sway-ipc.*.sock 2>/dev/null | head -1) waybar &
+bindsym $mod+Shift+r exec swaymsg reload && $scripts/waybar-restart
 bindsym $mod+Shift+e exec swaynag -t warning -m 'Exit Sway? This will end your Wayland session.' -B 'Yes, exit Sway' 'swaymsg exit'
 
 # Resize mode
