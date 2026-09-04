@@ -346,6 +346,60 @@ window#waybar {
     background-color: $bg_darker;
 }
 
+#custom-sep-hermes {
+    color: #e64a19;
+    background-color: $blue;
+    font-size: 26px;
+    padding: 0;
+    margin: 0;
+}
+
+#custom-hermes-updates {
+    background-color: #e64a19;
+    color: $bg;
+    padding: 0 6px;
+    font-weight: bold;
+}
+
+#custom-hermes-updates.hermes-updates-empty,
+#custom-hermes-updates.hermes-updates-dismissed {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+#custom-nix-updates.nix-updates-empty ~ #custom-sep-hermes,
+#custom-nix-updates.nix-updates-dismissed ~ #custom-sep-hermes {
+    background-color: $bg_darker;
+}
+
+#custom-sep-gsd {
+    color: #7e57c2;
+    background-color: #e64a19;
+    font-size: 26px;
+    padding: 0;
+    margin: 0;
+}
+
+#custom-gsd-updates {
+    background-color: #7e57c2;
+    color: $bg;
+    padding: 0 6px;
+    font-weight: bold;
+}
+
+#custom-gsd-updates.gsd-updates-empty,
+#custom-gsd-updates.gsd-updates-dismissed {
+    background-color: transparent;
+    padding: 0;
+    margin: 0;
+}
+
+#custom-hermes-updates.hermes-updates-empty ~ #custom-sep-gsd,
+#custom-hermes-updates.hermes-updates-dismissed ~ #custom-sep-gsd {
+    background-color: $bg_darker;
+}
+
 #tray {
     background-color: $bg_mid;
     padding: 0 4px;
