@@ -147,6 +147,20 @@ fi
 export LD_LIBRARY_PATH="$HOME/.local/lib${LD_LIBRARY_PATH:+:$LD_LIBRARY_PATH}"
 export LIBRARY_PATH="$HOME/.local/lib${LIBRARY_PATH:+:$LIBRARY_PATH}"
 
+# 1Password service account: load the token into the current shell on demand.
+# Usage: opsa   (then: op read op://..., op item get --vault <sa-vault>, op inject -i file)
+# Only affects commands in this shell session; personal `op` usage elsewhere is unaffected.
+# Run once: op-sa-setup   (stores the token in the Employee vault, hidden + validated)
+opsa() {
+  if [[ -n "${OP_SERVICE_ACCOUNT_TOKEN:-}" ]]; then
+    echo "opsa: already active in this shell (OP_SERVICE_ACCOUNT_TOKEN set)"
+    return 0
+  fi
+  export OP_SERVICE_ACCOUNT_TOKEN="$(command op-sa)" || return 1
+  echo "opsa: service account active in this shell (type: $(op whoami --format json | jq -r '.user_type'))"
+  echo "  scope: op read / op inject / op run / op item / op document (service account vaults)"
+}
+
 # Machine-local shell config (secrets, internal infra, host-specific paths).
 # Lives at ~/.zshrc.local — intentionally NOT tracked by the dotfiles repo.
 [[ -f ~/.zshrc.local ]] && source ~/.zshrc.local
