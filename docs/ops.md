@@ -5,7 +5,9 @@
 The machine's 1Password service account token backs two paths:
 
 1. **Interactive shells:** on-demand fetch, never on disk.
-2. **Hermes (process-wide):** token stored in `~/.hermes/.env` (0600) via the native `hermes secrets onepassword` integration. This is what kills polkit prompt spam — long-running Hermes processes (tests, cron, agents) resolve `op` and `op://` secrets as the service account and never touch the desktop app / polkit. Enabled Sep 2026.
+2. **Hermes (process-wide):** token stored in `~/.hermes/.env` (0600). Hermes loads `.env` into every process at startup (`env_loader.py`, override=true), so `op` inside Hermes sessions/cron/agents runs as the service account and never touches the desktop app / polkit. This — not the `secrets.onepassword` flag — is the polkit fix.
+
+Note: `secrets.onepassword.enabled` (the `op://` reference-resolution layer) is **disabled** on this host — with no reference mappings it only printed a misleading "run setup" nag on every Hermes command. The token path above works independently. Re-enable with `hermes secrets onepassword setup` only when mapping `ENV_VAR=op://...` references (requires re-storing the token via `hermes secrets onepassword token` too).
 
 - **Setup (one-time):** `op-sa-setup` — hidden-prompt capture, validates via `op service-account ratelimit` before storing the token as an API Credential item ("1Password Service Account Token") in the **Employee** vault. Requires the service account to already exist (1Password > Developer > Service Accounts).
 - **Per-shell use:** `opsa` (zsh function in zshrc) — exports `OP_SERVICE_ACCOUNT_TOKEN` fetched at call time via `op-sa` (reads the Employee vault item through the desktop app integration). Personal `op` usage in other shells is unaffected; with the var set, `op` commands in that shell run as the service account.
