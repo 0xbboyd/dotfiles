@@ -14,7 +14,7 @@
 #   but [class="..."] still works for XWayland apps via xwayland criteria
 
 set $mod Mod4
-set $term wezterm
+set $term /home/bboyd/.local/bin/ghostty
 set $menu rofi -show drun
 
 # Ensure ~/.local/bin is in PATH for Omarchy-ported scripts
@@ -57,7 +57,7 @@ exec SWAYSOCK=$(ls /run/user/$(id -u)/sway-ipc.*.sock 2>/dev/null | head -1) way
 # Force libadwaita dark mode (same as i3 config)
 exec sh -c 'export ADW_DEBUG_COLOR_SCHEME=force-dark; dbus-update-activation-environment --systemd ADW_DEBUG_COLOR_SCHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP 2>/dev/null; systemctl --user import-environment ADW_DEBUG_COLOR_SCHEME WAYLAND_DISPLAY XDG_CURRENT_DESKTOP 2>/dev/null || true'
 # PolKit agent for GUI auth prompts (1Password system auth etc.)
-exec_always sh -c 'pgrep -f "polkit-gnome-authentication-agent-1" >/dev/null && exit 0; p=/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1; [ -x "$p" ] && exec "$p"; true'
+exec_always sh -c 'pgrep -f "^/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1$" >/dev/null && exit 0; p=/usr/lib/policykit-1-gnome/polkit-gnome-authentication-agent-1; [ -x "$p" ] && exec "$p"; true'
 # Network manager applet
 exec nm-applet --indicator
 # Bluetooth applet

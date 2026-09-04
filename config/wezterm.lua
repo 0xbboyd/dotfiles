@@ -6,8 +6,9 @@ if wezterm.config_builder then
   config = wezterm.config_builder()
 end
 
--- Font — DejaVuSansM Nerd Font Mono (installed on this machine)
-config.font = wezterm.font 'DejaVuSansM Nerd Font Mono'
+-- Font — JetBrainsMono Nerd Font Mono (installed via raw TTFs in
+-- ~/.local/share/fonts/nerd-fonts/; see docs/omarchy-integration.md)
+config.font = wezterm.font 'JetBrainsMono Nerd Font Mono'
 config.font_size = 11.0
 
 -- Visual Appearance

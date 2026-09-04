@@ -50,6 +50,7 @@
     "~/.local/bin/clip-image": "scripts/commands/clip_image.sh"
     "~/.local/bin/nix-updates-check": "scripts/commands/nix-updates-check.sh"
     "~/.local/bin/nix-updates-dismiss": "scripts/commands/nix-updates-dismiss.sh"
+    "~/.local/bin/ghostty": "scripts/commands/ghostty.sh"
 
     # other config
     "~/src/.projects.gws": "src/projects.gws"

@@ -3,7 +3,7 @@
 # Colors: replaced in-place by theme switcher (theme set).
 
 # Font
-font-family = "DejaVuSansM Nerd Font Mono"
+font-family = "JetBrainsMono Nerd Font Mono"
 font-style = Regular
 font-size = 9
 

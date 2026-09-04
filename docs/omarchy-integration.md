@@ -31,8 +31,11 @@ What we ARE porting (in priority order):
 - Rationale: Maps sans-serif/serif/monospace to Liberation + JetBrainsMono Nerd
   Font, Arabic/Urdu Naskh vs Nastaliq handling, emoji fallback chains. Fixes
   real Chromium/Electron glyph rendering bugs. No platform dependency.
-- Packages: `fonts-jetbrains-mono-nerd-font`, `fonts-noto-cjk`,
-  `fonts-noto-color-emoji`, `fonts-liberation` (apt)
+- Packages (Ubuntu naming; `fonts-jetbrains-mono-nerd-font` is Arch-only):
+  `fonts-noto-cjk`, `fonts-noto-color-emoji`, `fonts-liberation` (apt).
+  JetBrainsMono Nerd Font itself is not in Ubuntu repos — install raw TTFs
+  (Nerd, Mono, Propo variants) from the nerd-fonts release zip into
+  `~/.local/share/fonts/nerd-fonts/`, then `fc-cache -f`. Done Sep 2026.
 
 ### 1.2 Git config additions
 
